@@ -1,7 +1,7 @@
-# ecommerce-website
-Full eCommerce Website with Admin Panel Built with PHP & MySql
+# St. Thomas E-cart
+Shopping website with Admin Panel built with PHP & MySql
 
-PLEASE NOTE THAT THIS PROJECTED IN NOT SUPPORTED BY ME ANYMORE, FEEL FREE TO USE IT AS YOU LIKE
+Project by the 'P Gang'
 
 ## Getting Started
 
@@ -23,5 +23,4 @@ Database Configuration
 
 ## Authors & Licence
 
-* **Yasser Dalouzi** - *eCommerce Website* - (https://github.com/yvsser1)
-* This project is open-source feel free to use it as you wish
+* **Dil, Frank & members of the 'P Gang'** - *St. Thomas E-Cart* - (https://github.com/stc-e-cart)
