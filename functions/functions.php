@@ -160,7 +160,7 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='seller-area/product_img/$pro_img1' class='img-responsive' >
+<img src='./product_img/$pro_img1' class='img-responsive' style='height:280px;'>
 
 </a>
 
@@ -176,7 +176,7 @@ echo "
 
 <h3><a href='$pro_url' >$pro_title</a></h3>
 
-<p class='price' > $pro_weight KG</p>
+<p class='price' > $pro_weight </p>
 
 <p class='price' > $product_price $product_psp_price </p>
 
@@ -291,7 +291,7 @@ function getPro1(){
   
   <a href='$pro_url' >
   
-  <img src='seller-area/product_img/$pro_img1' class='img-responsive' >
+  <img src='./product_img/$pro_img1' class='img-responsive'style='height:280px;' >
   
   </a>
   
@@ -419,7 +419,7 @@ function getPro2(){
   
   <a href='$pro_url' >
   
-  <img src='seller-area/product_img/$pro_img1' class='img-responsive' >
+  <img src='./product_img/$pro_img1' class='img-responsive' style='height:280px;'>
   
   </a>
   
@@ -622,7 +622,7 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='seller-area/product_img/$pro_img1' class='img-responsive' >
+<img src='./product_img/$pro_img1' class='img-responsive' >
 
 </a>
 

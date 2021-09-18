@@ -253,13 +253,13 @@ echo "<option value='$cat_id'>$cat_title</option>";
 
 <div class="col-md-6" >
 
-<select name="pweight" class="form-control" >
+<select name="pweight" class="form-control" required>
 
-<option> Select a Category </option>
-<option value="0.5"> 1/2 KG </option>
-<option value="1"> 1 KG </option>
-<option value="1.5"> 1.5 KG </option>
-<option value="2"> 2 KG </option>
+<option selected disabled> Nil </option>
+<option value="0.5 KG"> 1/2 KG </option>
+<option value="1 KG"> 1 KG </option>
+<option value="1.5 KG"> 1.5 KG </option>
+<option value="2 KG"> 2 KG </option>
 
 </select>
 
@@ -439,9 +439,9 @@ $temp_name1 = $_FILES['product_img1']['tmp_name'];
 $temp_name2 = $_FILES['product_img2']['tmp_name'];
 $temp_name3 = $_FILES['product_img3']['tmp_name'];
 
-move_uploaded_file($temp_name1,"product_img/$product_img1");
-move_uploaded_file($temp_name2,"product_img/$product_img2");
-move_uploaded_file($temp_name3,"product_img/$product_img3");
+move_uploaded_file($temp_name1,"../product_img/$product_img1");
+move_uploaded_file($temp_name2,"../product_img/$product_img2");
+move_uploaded_file($temp_name3,"../product_img/$product_img3");
 
 $insert_product = "insert into products (cat_id,Seller_id,date,product_title,product_url,product_img1,product_img2,product_img3,product_price,product_weight,product_desc,product_features,product_video,product_keywords,product_label,status) values ('$cat','$manufacturer_id',NOW(),'$product_title','$product_url','$product_img1','$product_img2','$product_img3','$product_price','$product_weight','$product_desc','$product_features','$product_video','$product_keywords','$product_label','$status')";
 

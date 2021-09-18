@@ -31,10 +31,6 @@ If you have any questions, please feel free to <a href="../contact.php" > contac
 <th>Invoice No:</th>
 <th>Qty:</th>
 <th>Order Date:</th>
-<<<<<<< HEAD
-<!--<th>Paid/Unpaid:</th>-->
-=======
->>>>>>> 8ab1c8efb79477bb65c158361d50c01d6a6669b0
 <th>Status:</th>
 
 
@@ -65,6 +61,7 @@ $i = 0;
 while($row_orders = mysqli_fetch_array($run_orders)){
 
 $order_id = $row_orders['order_id'];
+$pro_id = $row_orders['pro_id'];
 
 $due_amount = $row_orders['due_amount'];
 
@@ -91,11 +88,20 @@ $order_status = "Paid";
 
 }
 
+$get_pro = "select * from products where product_id ='$pro_id'";
+
+$run_pro = mysqli_query($con,$get_pro);
+
+$row_pro = mysqli_fetch_array($run_pro);
+
+$pro_name = $row_pro['product_title'];
+
 ?>
 
 <tr><!-- tr Starts -->
 
 <th><?php echo $i; ?></th>
+<td><?php echo $pro_name; ?></td>
 
 <td><?php echo $due_amount; ?></td>
 
@@ -111,7 +117,7 @@ $order_status = "Paid";
 
 
 <td>
-<a href="review.php?order_id=<?php echo $order_id; ?>" target="blank" class="btn btn-primary btn-sm" > Review Product </a>
+<a href="review.php?order_id=<?php echo $order_id; ?>" target="self" class="btn btn-primary btn-sm" > Review Product </a>
 </td>
 
 

@@ -17,7 +17,7 @@ $customer_id = $_GET['c_id'];
 
 $ip_add = getRealUserIp();
 
-$status = "pending";
+$status = "completed";
 
 $invoice_no = mt_rand();
 
@@ -37,8 +37,15 @@ $pro_dt = $row_cart['pref_dt'];
 
 $sub_total = $row_cart['p_price']*$pro_qty;
 
+$select_pro = "select * from products where product_id='$pro_id'";
 
-$insert_customer_order = "insert into customer_orders (customer_id,due_amount,invoice_no,qty,size,order_date,order_status,pro_dt) values ('$customer_id','$sub_total','$invoice_no','$pro_qty','$pro_size',NOW(),'$status','$pro_dt')";
+$run_pro = mysqli_query($con,$select_pro);
+
+while($row_pro = mysqli_fetch_array($run_pro)){
+
+$s_id = $row_pro['Seller_id'];
+}
+$insert_customer_order = "insert into customer_orders (customer_id,pro_id,s_id,due_amount,invoice_no,qty,size,order_date,order_status,pro_dt) values ('$customer_id','$pro_id','$s_id','$sub_total','$invoice_no','$pro_qty','$pro_size',NOW(),'$status','$pro_dt')";
 
 $run_customer_order = mysqli_query($con,$insert_customer_order);
 

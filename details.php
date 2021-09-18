@@ -132,19 +132,19 @@ $product_label = "
 
 <div class="item active">
 <center>
-<img src="admin_area/product_images/<?php echo $pro_img1; ?>" class="img-responsive">
+<img src="product_img/<?php echo $pro_img1; ?>" class="img-responsive">
 </center>
 </div>
 
 <div class="item">
 <center>
-<img src="admin_area/product_images/<?php echo $pro_img2; ?>" class="img-responsive">
+<img src="product_img/<?php echo $pro_img2; ?>" class="img-responsive">
 </center>
 </div>
 
 <div class="item">
 <center>
-<img src="admin_area/product_images/<?php echo $pro_img3; ?>" class="img-responsive">
+<img src="product_img/<?php echo $pro_img3; ?>" class="img-responsive">
 </center>
 </div>
 
@@ -504,7 +504,7 @@ echo "<script>window.open('$pro_url','_self')</script>";
 
 <a href="#" class="thumb" >
 
-<img src="admin_area/product_images/<?php echo $pro_img1; ?>" class="img-responsive" >
+<img src="product_img/<?php echo $pro_img1; ?>" class="img-responsive" >
 
 </a>
 
@@ -514,7 +514,7 @@ echo "<script>window.open('$pro_url','_self')</script>";
 
 <a href="#" class="thumb" >
 
-<img src="admin_area/product_images/<?php echo $pro_img2; ?>" class="img-responsive" >
+<img src="product_img/<?php echo $pro_img2; ?>" class="img-responsive" >
 
 </a>
 
@@ -524,7 +524,7 @@ echo "<script>window.open('$pro_url','_self')</script>";
 
 <a href="#" class="thumb" >
 
-<img src="admin_area/product_images/<?php echo $pro_img3; ?>" class="img-responsive" >
+<img src="product_img/<?php echo $pro_img3; ?>" class="img-responsive" >
 
 </a>
 
@@ -654,16 +654,16 @@ $pro_url = $row_products['product_url'];
 
 if($pro_label == "Sale" or $pro_label == "Gift"){
 
-$product_price = "<del> $$pro_price </del>";
+$product_price = "<del> ₹$pro_price </del>";
 
-$product_psp_price = "| $$pro_psp_price";
+$product_psp_price = "| ₹$pro_psp_price";
 
 }
 else{
 
 $product_psp_price = "";
 
-$product_price = "$$pro_price";
+$product_price = "₹$pro_price";
 
 }
 
@@ -697,7 +697,7 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='admin_area/product_images/$pro_img1' class='img-responsive' >
+<img src='product_img/$pro_img1' class='img-responsive' >
 
 </a>
 
@@ -834,7 +834,7 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='seller-area/product_images/$pro_img1' class='img-responsive' >
+<img src='product_img/$pro_img1' class='img-responsive' >
 
 </a>
 

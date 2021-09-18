@@ -82,7 +82,7 @@ else {
 $i = 0;
 $seller_session = $_SESSION['seller'];
 
-$get_orders = "select * from pending_orders";
+$get_orders = "select * from customer_orders where order_status='Completed' AND s_id='$seller_session'";
 
 $run_orders = mysqli_query($con,$get_orders);
 
@@ -94,7 +94,7 @@ $c_id = $row_orders['customer_id'];
 
 //$invoice_no = $row_orders['invoice_no'];
 
-$product_id = $row_orders['product_id'];
+$product_id = $row_orders['pro_id'];
 
 $qty = $row_orders['qty'];
 
@@ -102,7 +102,7 @@ $size = $row_orders['size'];
 
 $order_status = $row_orders['order_status'];
 
-$get_products = "select * from products where product_id='$product_id' and Seller_id='$seller_session'";
+$get_products = "select * from products where product_id='$product_id' AND Seller_id='$seller_session'";
 
 $run_products = mysqli_query($con,$get_products);
 
@@ -147,7 +147,7 @@ echo $customer_email;
 <td>
 <?php
 
-$get_customer_order = "select * from customer_orders where order_id='$order_id'";
+$get_customer_order = "select * from customer_orders where order_id='$order_id' and s_id='$seller_session'";
 
 $run_customer_order = mysqli_query($con,$get_customer_order);
 
