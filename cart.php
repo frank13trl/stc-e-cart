@@ -132,7 +132,7 @@ $total += $sub_total;
 
 <td>
 
-$<?php echo $only_price; ?>.00
+₹<?php echo $only_price; ?>.00
 
 </td>
 
@@ -499,7 +499,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td> Order Subtotal </td>
 
-<th> $<?php echo $total; ?>.00 </th>
+<th> ₹<?php echo $total; ?>.00 </th>
 
 </tr>
 
@@ -507,7 +507,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td> Shipping and handling </td>
 
-<th>$0.00</th>
+<th>₹0.00</th>
 
 </tr>
 
@@ -515,7 +515,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td>Tax</td>
 
-<th>$0.00</th>
+<th>₹0.00</th>
 
 </tr>
 
@@ -523,7 +523,7 @@ Shipping and additional costs are calculated based on the values you have entere
 
 <td>Total</td>
 
-<th>$<?php echo $total; ?>.00</th>
+<th>₹<?php echo $total; ?>.00</th>
 
 </tr>
 

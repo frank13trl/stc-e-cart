@@ -117,7 +117,7 @@ $pro_name = $row_pro['product_title'];
 
 
 <td>
-<a href="review.php?order_id=<?php echo $order_id; ?>" target="self" class="btn btn-primary btn-sm" > Review Product </a>
+<a href="review.php?order_id=<?php echo $order_id; ?>" target="_self" class="btn btn-primary btn-sm" > Review Product </a>
 </td>
 
 
