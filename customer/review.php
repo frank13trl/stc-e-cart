@@ -14,7 +14,6 @@ include("includes/db.php");
 //include("functions/functions.php");
 //include("includes/main.php");
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +45,7 @@ include("includes/db.php");
           
     <div class="container p-5" style="margin-top: 200px; background-color: #b3b3cc; border-radius: 50px;">
 
-    <form method="POST" action="review.php">
+    <form method="POST" action="review.php?order_id=<?php echo $_GET['order_id'];?>">
          
         <div class="row justify-content-center">
             <div class="stars text-center">
@@ -96,6 +95,8 @@ include("includes/db.php");
 
 if(isset($_POST['submit'])){
 
+$o_id = $_GET['order_id'];
+
 $customer_session = $_SESSION['customer_email'];
 
 $get_customer = "select * from customers where customer_email='$customer_session'";
@@ -106,21 +107,17 @@ $row_customer = mysqli_fetch_array($run_customer);
 
 $customer_id = $row_customer['customer_id'];
 
-$get_orders = "select * from customer_orders where customer_id='$customer_id'";
+$get_orders = "select * from customer_orders where customer_id='$customer_id' and order_id='$o_id'";
 
 $run_orders = mysqli_query($con,$get_orders);
 
 $row_orders = mysqli_fetch_array($run_orders);
-
-$order_id = $row_orders['order_id'];
 
 $pro_id = $row_orders['pro_id'];
 
 $star = $_POST['rate'];
 
 $review = $_POST['rev'];
-
-echo "$star,$review,$pro_id,$customer_id";
 
 $ins_review = "insert into cust_review(c_id,pro_id,star,rev) values ('$customer_id','$pro_id','$star','$review')";
 
