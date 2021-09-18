@@ -12,20 +12,19 @@ else {
 
 ?>
 
-
 <div class="row"><!-- 1 row Starts -->
 
 <div class="col-lg-12"><!-- col-lg-12 Starts -->
 
-<ol class="breadcrumb"><!-- breadcrumb Starts -->
+<ol class="breadcrumb"><!-- breadcrumb Starts  --->
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Payments
+<i class="fa fa-dashboard"></i> Dashboard / View Completed orders 
 
 </li>
 
-</ol><!-- breadcrumb Ends -->
+</ol><!-- breadcrumb Ends  --->
 
 </div><!-- col-lg-12 Ends -->
 
@@ -42,7 +41,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"> </i> View Payments
+<i class="fa fa-money fa-fw"></i> View completed orders
 
 </h3><!-- panel-title Ends -->
 
@@ -52,92 +51,162 @@ else {
 
 <div class="table-responsive"><!-- table-responsive Starts -->
 
-<table class="table table-hover table-bordered table-striped"><!-- table table-hover table-bordered table-striped Starts -->
+<table class="table table-bordered table-hover table-striped"><!-- table table-bordered table-hover table-striped Starts -->
 
 <thead><!-- thead Starts -->
 
 <tr>
 
-<th>Payment No:</th>
-<th>Invoice No:</th>
-<th>Amount Paid:</th>
-<th>Payment Method:</th>
-<th>Reference No:</th>
-<th>Payment Code:</th>
-<th>Payment Date:</th>
-<th>Delete Payment:</th>
+<th>Order No:</th>
+<th>Customer Name:</th>
+<th>Address:</th>
+<th>Product Title:</th>
+<th>Product Qty:</th>
+<th>Product Size:</th>
+<th>Order Date:</th>
+<th>Prefered date and time:</th>
+<th>Total Amount:</th>
+<th>Order Status:</th>
+<!-- <th>Delete Order:</th> -->
+
 
 </tr>
 
 </thead><!-- thead Ends -->
+
 
 <tbody><!-- tbody Starts -->
 
 <?php
 
 $i = 0;
+$seller_session = $_SESSION['seller'];
 
-$get_payments = "select * from payments";
+$get_orders = "select * from customer_orders where order_status='PAYED' AND s_id='$seller_session'";
 
-$run_payments = mysqli_query($con,$get_payments);
+$run_orders = mysqli_query($con,$get_orders);
 
-while($row_payments = mysqli_fetch_array($run_payments)){
+while ($row_orders = mysqli_fetch_array($run_orders)) {
 
-$payment_id = $row_payments['payment_id'];
+$order_id = $row_orders['order_id'];
 
-$invoice_no = $row_payments['invoice_no'];
+$c_id = $row_orders['customer_id'];
 
-$amount = $row_payments['amount'];
+//$invoice_no = $row_orders['invoice_no'];
 
-$payment_mode = $row_payments['payment_mode'];
+$product_id = $row_orders['pro_id'];
 
-$ref_no = $row_payments['ref_no'];
+$qty = $row_orders['qty'];
 
-$code = $row_payments['code'];
+$size = $row_orders['size'];
 
-$payment_date = $row_payments['payment_date'];
+$order_status = $row_orders['order_status'];
+
+$get_products = "select * from products where product_id='$product_id' AND Seller_id='$seller_session'";
+
+$run_products = mysqli_query($con,$get_products);
+
+$row_products = mysqli_fetch_array($run_products);
+
+$product_title = $row_products['product_title'];
 
 $i++;
 
-
 ?>
-
 
 <tr>
 
 <td><?php echo $i; ?></td>
 
-<td bgcolor="yellow" ><?php echo $invoice_no; ?></td>
+<td>
+<?php 
 
-<td>$<?php echo $amount; ?></td>
+$get_customer = "select * from customers where customer_id='$c_id'";
 
-<td><?php echo $payment_mode; ?></td>
+$run_customer = mysqli_query($con,$get_customer);
 
-<td><?php echo $ref_no; ?></td>
+$row_customer = mysqli_fetch_array($run_customer);
 
-<td><?php echo $code; ?></td>
+$customer_email = $row_customer['customer_name'];
 
-<td><?php echo $payment_date; ?></td>
+$invoice_no = $row_customer['customer_address'];
+
+echo $customer_email;
+
+ ?>
+ </td>
+
+<td><?php echo $invoice_no; ?></td>
+
+<td><?php echo $product_title; ?></td>
+
+<td><?php echo $qty; ?></td>
+
+<td><?php echo $size; ?></td>
 
 <td>
+<?php
 
-<a href="index.php?payment_delete=<?php echo $payment_id; ?>" >
+$get_customer_order = "select * from customer_orders where order_id='$order_id' and s_id='$seller_session'";
+
+$run_customer_order = mysqli_query($con,$get_customer_order);
+
+$row_customer_order = mysqli_fetch_array($run_customer_order);
+
+$order_date = $row_customer_order['order_date'];
+
+$order_pdate = $row_customer_order['pro_dt'];
+
+$due_amount = $row_customer_order['due_amount'];
+
+echo $order_date;
+
+?>
+</td>
+
+<td><?php echo $order_pdate; ?></td>
+
+<td>₹<?php echo $due_amount; ?></td>
+
+<td>
+<?php
+
+if($order_status=='pending'){
+
+echo $order_status='pending';
+
+}
+else{
+
+echo $order_status='Complete';
+
+}
+
+
+?>
+</td>
+
+<!-- <td>
+
+<a href="index.php?order_delete=<?
+//php echo $order_id;
+ ?> 
+" >
 
 <i class="fa fa-trash-o" ></i> Delete
 
 </a>
 
-</td>
+</td> -->
 
 
 </tr>
-
 
 <?php } ?>
 
 </tbody><!-- tbody Ends -->
 
-</table><!-- table table-hover table-bordered table-striped Ends -->
+</table><!-- table table-bordered table-hover table-striped Ends -->
 
 </div><!-- table-responsive Ends -->
 

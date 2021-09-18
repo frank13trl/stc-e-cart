@@ -67,7 +67,7 @@ else {
 <th>Prefered date and time:</th>
 <th>Total Amount:</th>
 <th>Order Status:</th>
-<th>Delete Order:</th>
+<th>confirm Order:</th>
 
 
 </tr>
@@ -147,6 +147,7 @@ echo $customer_email;
 <td>
 <?php
 
+
 $get_customer_order = "select * from customer_orders where order_id='$order_id' and s_id='$seller_session'";
 
 $run_customer_order = mysqli_query($con,$get_customer_order);
@@ -188,11 +189,11 @@ echo $order_status='Complete';
 
 <td>
 
-<a href="index.php?order_delete=<?php echo $order_id; ?>" >
+<form class="form-horizontal" action="" method="post">
 
-<i class="fa fa-trash-o" ></i> Delete
+<input type="submit" name="confirm" class="form-control btn btn-primary" value=" Confirm " >
 
-</a>
+</form>
 
 </td>
 
@@ -214,6 +215,26 @@ echo $order_status='Complete';
 </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
+<?php
+$seller_session = $_SESSION['seller'];
+if(isset($_POST['confirm'])){
+
+$update_manufacturer = "update customer_orders set order_status='PAYED' where s_id='$seller_session'";
+
+$run_manufacturer = mysqli_query($con,$update_manufacturer);
+
+if($run_manufacturer){
+
+echo "<script>alert(' Order Confirmed')</script>";
+
+echo "<script>window.open('index.php?view_orders','_self')</script>";
+
+}
+
+}
+
+?>
+
 
 
 <?php } ?>
