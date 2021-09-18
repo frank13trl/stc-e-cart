@@ -22,11 +22,12 @@
 </head>
 
 <body style="background-image: url('images/reviewbg3.jpg'); background-size: cover;">
+
    
             <span style="font-size: 100px; font-family:'Segoe UI'; text-align: center;">Customer <b>Review</b></span>
           
     <div class="container p-5" style="margin-top: 200px; background-color: #b3b3cc; border-radius: 50px;">
-
+         
         <div class="row justify-content-center">
             <div class="stars text-center">
                 <div class="col">
@@ -55,7 +56,7 @@
                 <div class="form-group" style="text-align: center;">
                     <label for="textarea"><b>Review</b></label>
 
-                    <textarea class="form-control" id="textarea" rows="4" placeholder="Post your review..."></textarea>
+                    <textarea class="form-control" id="textarea" rows="4" placeholder="Post your review..." name="rev"></textarea>
                 </div>
             </div>
         </div>
@@ -70,3 +71,4 @@
 </body>
 
 </html>
+
