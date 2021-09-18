@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 16, 2021 at 07:26 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Host: 127.0.0.1
+-- Generation Time: Sep 18, 2021 at 11:48 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -204,6 +204,8 @@ INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `cust
 CREATE TABLE `customer_orders` (
   `order_id` int(10) NOT NULL,
   `customer_id` int(10) NOT NULL,
+  `pro_id` int(10) NOT NULL,
+  `s_id` varchar(20) NOT NULL,
   `due_amount` int(100) NOT NULL,
   `invoice_no` int(100) NOT NULL,
   `qty` int(10) NOT NULL,
@@ -217,46 +219,69 @@ CREATE TABLE `customer_orders` (
 -- Dumping data for table `customer_orders`
 --
 
-INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`, `pro_dt`) VALUES
-(16, 2, 207, 1715523401, 3, 'Small', '2021-09-05 16:09:03', 'Complete', NULL),
-(17, 2, 100, 1715523401, 2, 'Large', '2017-02-20 08:21:42', 'pending', NULL),
-(18, 2, 300, 1715523401, 1, 'Medium', '2017-02-20 08:21:42', 'pending', NULL),
-(19, 2, 150, 1068059025, 1, 'Medium', '2017-02-20 08:26:47', 'pending', NULL),
-(20, 2, 288, 909940689, 3, 'Large', '2017-02-27 11:06:32', 'complete', NULL),
-(21, 2, 400, 909940689, 2, 'Meduim', '2017-02-27 11:06:37', 'complete', NULL),
-(22, 2, 0, 217894971, 0, 'Select a Size', '2021-08-25 06:09:14', 'pending', NULL),
-(23, 2, 0, 1734348083, 0, 'Select a Size', '2021-08-25 06:53:41', 'Complete', NULL),
-(24, 2, 2000, 582435743, 10, 'Select a Size', '2021-08-25 07:03:40', 'Complete', NULL),
-(25, 3, 1000, 25380430, 5, 'Medium', '2021-08-25 07:16:49', 'pending', NULL),
-(26, 3, 0, 25380430, 0, 'Select a Size', '2021-08-25 07:16:49', 'pending', NULL),
-(27, 4, 0, 2010804318, 0, 'Select a Size', '2021-08-25 07:21:20', 'Complete', NULL),
-(28, 5, 200, 1826542881, 2, 'Medium', '2021-08-31 06:27:23', 'pending', NULL),
-(29, 6, 1000, 1364922767, 5, 'Medium', '2021-08-31 06:42:32', 'pending', NULL),
-(30, 6, 500, 1984208510, 1, 'Select a Size', '2021-08-31 06:58:00', 'pending', NULL),
-(31, 0, 500, 424326115, 1, 'Select a Size', '2021-08-31 07:08:37', 'pending', NULL),
-(32, 7, 500, 717345687, 1, 'Select a Size', '2021-08-31 07:17:19', 'pending', NULL),
-(33, 8, 500, 1785829651, 1, 'Select a Size', '2021-08-31 07:40:03', 'pending', NULL),
-(34, 5, 1500, 828836196, 3, 'Small', '2021-08-31 08:02:38', 'pending', NULL),
-(35, 5, 250, 820512487, 5, '1 KG', '2021-09-04 06:53:47', 'pending', NULL),
-(36, 5, 15000, 820512487, 1, 'Size', '2021-09-04 06:53:47', 'pending', NULL),
-(37, 5, 500, 2122254262, 2, '', '2021-09-04 10:08:48', 'pending', NULL),
-(38, 5, 1250, 1767130239, 5, '', '2021-09-04 10:12:50', 'pending', NULL),
-(39, 2, 0, 1224248168, 0, '', '2021-09-04 10:34:56', 'pending', NULL),
-(40, 2, 1250, 1112902909, 5, '1 KG', '2021-09-04 10:49:31', 'pending', NULL),
-(41, 2, 0, 867948972, 0, '2 KG', '2021-09-04 10:53:18', 'pending', NULL),
-(42, 2, 10000, 867948972, 20, 'Size', '2021-09-04 10:53:18', 'pending', NULL),
-(43, 2, 1000, 700242409, 2, '1 KG', '2021-09-07 08:59:21', 'pending', NULL),
-(44, 2, 500, 2014944798, 1, 'Size', '2021-09-07 09:00:33', 'pending', NULL),
-(45, 2, 500, 937929046, 1, '', '2021-09-11 06:42:04', 'pending', NULL),
-(46, 2, 1500, 137496243, 3, 'Select a Category', '2021-09-11 07:13:08', 'pending', '2021-10-08 12:23:00'),
-(47, 2, 500, 1808498420, 1, '1', '2021-09-11 07:20:00', 'pending', '2021-09-12 14:49:00'),
-(48, 2, 2000, 579789754, 4, '1', '2021-09-11 09:11:00', 'pending', '2021-09-18 14:40:00'),
-(49, 2, 250, 1954283935, 1, '', '2021-09-11 09:13:57', 'pending', '2021-09-15 14:43:00'),
-(50, 2, 1000, 725559507, 2, '1', '2021-09-11 09:15:14', 'pending', '2021-09-22 14:45:00'),
-(51, 2, 1000, 524889809, 2, '1', '2021-09-11 09:16:53', 'pending', '2021-09-25 14:46:00'),
-(52, 2, 500, 166497435, 1, '1', '2021-09-11 09:17:47', 'pending', '2021-09-22 14:47:00'),
-(53, 2, 500, 1498619299, 2, 'Select a Category', '2021-09-11 09:38:30', 'pending', '2021-09-16 15:08:00'),
-(54, 2, 1250, 1453738570, 5, '1', '2021-09-11 11:21:42', 'pending', '2021-09-11 15:53:00');
+INSERT INTO `customer_orders` (`order_id`, `customer_id`, `pro_id`, `s_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`, `pro_dt`) VALUES
+(16, 2, 0, '', 207, 1715523401, 3, 'Small', '2021-09-05 16:09:03', 'Complete', NULL),
+(17, 2, 0, '', 100, 1715523401, 2, 'Large', '2017-02-20 08:21:42', 'pending', NULL),
+(18, 2, 0, '', 300, 1715523401, 1, 'Medium', '2017-02-20 08:21:42', 'pending', NULL),
+(19, 2, 0, '', 150, 1068059025, 1, 'Medium', '2017-02-20 08:26:47', 'pending', NULL),
+(20, 2, 0, '', 288, 909940689, 3, 'Large', '2017-02-27 11:06:32', 'complete', NULL),
+(21, 2, 0, '', 400, 909940689, 2, 'Meduim', '2017-02-27 11:06:37', 'complete', NULL),
+(22, 2, 0, '', 0, 217894971, 0, 'Select a Size', '2021-08-25 06:09:14', 'pending', NULL),
+(23, 2, 0, '', 0, 1734348083, 0, 'Select a Size', '2021-08-25 06:53:41', 'Complete', NULL),
+(24, 2, 0, '', 2000, 582435743, 10, 'Select a Size', '2021-08-25 07:03:40', 'Complete', NULL),
+(25, 3, 0, '', 1000, 25380430, 5, 'Medium', '2021-08-25 07:16:49', 'pending', NULL),
+(26, 3, 0, '', 0, 25380430, 0, 'Select a Size', '2021-08-25 07:16:49', 'pending', NULL),
+(27, 4, 0, '', 0, 2010804318, 0, 'Select a Size', '2021-08-25 07:21:20', 'Complete', NULL),
+(28, 5, 0, '', 200, 1826542881, 2, 'Medium', '2021-08-31 06:27:23', 'pending', NULL),
+(29, 6, 0, '', 1000, 1364922767, 5, 'Medium', '2021-08-31 06:42:32', 'pending', NULL),
+(30, 6, 0, '', 500, 1984208510, 1, 'Select a Size', '2021-08-31 06:58:00', 'pending', NULL),
+(31, 0, 0, '', 500, 424326115, 1, 'Select a Size', '2021-08-31 07:08:37', 'pending', NULL),
+(32, 7, 0, '', 500, 717345687, 1, 'Select a Size', '2021-08-31 07:17:19', 'pending', NULL),
+(33, 8, 0, '', 500, 1785829651, 1, 'Select a Size', '2021-08-31 07:40:03', 'pending', NULL),
+(34, 5, 0, '', 1500, 828836196, 3, 'Small', '2021-08-31 08:02:38', 'pending', NULL),
+(35, 5, 0, '', 250, 820512487, 5, '1 KG', '2021-09-04 06:53:47', 'pending', NULL),
+(36, 5, 0, '', 15000, 820512487, 1, 'Size', '2021-09-04 06:53:47', 'pending', NULL),
+(37, 5, 0, '', 500, 2122254262, 2, '', '2021-09-04 10:08:48', 'pending', NULL),
+(38, 5, 0, '', 1250, 1767130239, 5, '', '2021-09-04 10:12:50', 'pending', NULL),
+(39, 2, 0, '', 0, 1224248168, 0, '', '2021-09-04 10:34:56', 'pending', NULL),
+(40, 2, 0, '', 1250, 1112902909, 5, '1 KG', '2021-09-04 10:49:31', 'pending', NULL),
+(41, 2, 0, '', 0, 867948972, 0, '2 KG', '2021-09-04 10:53:18', 'pending', NULL),
+(42, 2, 0, '', 10000, 867948972, 20, 'Size', '2021-09-04 10:53:18', 'pending', NULL),
+(43, 2, 0, '', 1000, 700242409, 2, '1 KG', '2021-09-07 08:59:21', 'pending', NULL),
+(44, 2, 0, '', 500, 2014944798, 1, 'Size', '2021-09-07 09:00:33', 'pending', NULL),
+(45, 2, 0, '', 500, 937929046, 1, '', '2021-09-11 06:42:04', 'pending', NULL),
+(46, 2, 0, '', 1500, 137496243, 3, 'Select a Category', '2021-09-11 07:13:08', 'pending', '2021-10-08 12:23:00'),
+(47, 2, 0, '', 500, 1808498420, 1, '1', '2021-09-11 07:20:00', 'pending', '2021-09-12 14:49:00'),
+(48, 2, 0, '', 2000, 579789754, 4, '1', '2021-09-11 09:11:00', 'pending', '2021-09-18 14:40:00'),
+(49, 2, 0, '', 250, 1954283935, 1, '', '2021-09-11 09:13:57', 'pending', '2021-09-15 14:43:00'),
+(50, 2, 0, '', 1000, 725559507, 2, '1', '2021-09-11 09:15:14', 'pending', '2021-09-22 14:45:00'),
+(51, 2, 0, '', 1000, 524889809, 2, '1', '2021-09-11 09:16:53', 'pending', '2021-09-25 14:46:00'),
+(52, 2, 0, '', 500, 166497435, 1, '1', '2021-09-11 09:17:47', 'pending', '2021-09-22 14:47:00'),
+(53, 2, 0, '', 500, 1498619299, 2, 'Select a Category', '2021-09-11 09:38:30', 'pending', '2021-09-16 15:08:00'),
+(54, 2, 0, '', 1250, 1453738570, 5, '1', '2021-09-11 11:21:42', 'pending', '2021-09-11 15:53:00'),
+(55, 6, 30, '', 1000, 1919243065, 2, '1', '2021-09-18 07:12:23', 'completed', '0000-00-00 00:00:00'),
+(56, 6, 20, '', 1500, 1108783959, 3, 'Select a Category', '2021-09-18 07:29:47', 'completed', '2021-09-23 12:59:00'),
+(57, 6, 31, '', 1000, 925506662, 4, '1', '2021-09-18 07:32:13', 'completed', '2021-09-18 13:01:00'),
+(58, 6, 34, '', 200, 1060123410, 4, '', '2021-09-18 07:52:26', 'completed', '2021-09-30 13:19:00'),
+(59, 6, 35, '', 1500, 1332497649, 3, '1 KG', '2021-09-18 08:02:01', 'completed', '2021-09-23 13:30:00'),
+(60, 6, 20, '', 1000, 26550875, 2, 'Select a Category', '2021-09-18 08:33:28', 'completed', '0000-00-00 00:00:00'),
+(61, 6, 31, '', 750, 26550875, 3, '1', '2021-09-18 08:33:28', 'completed', '0000-00-00 00:00:00'),
+(62, 6, 34, '', 200, 26550875, 4, '', '2021-09-18 08:33:28', 'completed', '0000-00-00 00:00:00'),
+(63, 6, 35, '1234567', 1500, 2018668505, 3, '1 KG', '2021-09-18 08:58:34', 'completed', '2021-09-08 14:15:00'),
+(64, 6, 31, '123456', 500, 94470433, 2, '1', '2021-09-18 09:22:42', 'completed', '2021-09-21 14:52:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cust_review`
+--
+
+CREATE TABLE `cust_review` (
+  `c_id` varchar(20) NOT NULL,
+  `pro_id` varchar(10) NOT NULL,
+  `star` varchar(5) NOT NULL,
+  `rev` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -328,7 +353,6 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`) VALUES
-(3, 314788500, 345, 'UBL/Omni Paisa', 443, 865, '11/1/2016'),
 (4, 12233, 12233, 'Bank Code', 0, 0, '20/02/2021'),
 (5, 34635635, 45435, 'Select Payment Mode', 5345, 5345, '345345'),
 (6, 0, 0, 'Bank Code', 0, 0, 'safda'),
@@ -357,7 +381,17 @@ CREATE TABLE `pending_orders` (
 
 INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`, `pro_dt`) VALUES
 (53, 2, 1498619299, '24', 2, 'Select a Category', 'pending', '2021-09-16 15:08:00'),
-(54, 2, 1453738570, '31', 5, '1', 'pending', '2021-09-11 15:53:00');
+(54, 2, 1453738570, '31', 5, '1', 'pending', '2021-09-11 15:53:00'),
+(55, 6, 1919243065, '30', 2, '1', 'completed', '0000-00-00 00:00:00'),
+(56, 6, 1108783959, '20', 3, 'Select a Category', 'completed', '2021-09-23 12:59:00'),
+(57, 6, 925506662, '31', 4, '1', 'completed', '2021-09-18 13:01:00'),
+(58, 6, 1060123410, '34', 4, '', 'completed', '2021-09-30 13:19:00'),
+(59, 6, 1332497649, '35', 3, '1 KG', 'completed', '2021-09-23 13:30:00'),
+(60, 6, 26550875, '20', 2, 'Select a Category', 'completed', '0000-00-00 00:00:00'),
+(61, 6, 26550875, '31', 3, '1', 'completed', '0000-00-00 00:00:00'),
+(62, 6, 26550875, '34', 4, '', 'completed', '0000-00-00 00:00:00'),
+(63, 6, 2018668505, '35', 3, '1 KG', 'completed', '2021-09-08 14:15:00'),
+(64, 6, 94470433, '31', 2, '1', 'completed', '2021-09-21 14:52:00');
 
 -- --------------------------------------------------------
 
@@ -397,7 +431,10 @@ INSERT INTO `products` (`product_id`, `Seller_id`, `cat_id`, `manufacturer_id`, 
 (23, '123456', 6, 0, '2021-09-07 08:47:27', 'Black Forest', 'black-forest', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 'red-velvet-cake-500x500.png', 'extravagant-blackforest-past0159blac-A_0.jpg', 500, '1', NULL, '\r\n\r\ngood', '\r\n\r\n', '\r\n\r\n', 'black', '1 LEFT', 'product'),
 (27, '123456', 6, 0, '2021-09-11 09:33:36', 'white forest', 'white-forest', 'Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg', 'Re-Shoot-Cake-11-C.jpg', 'valentines-cakes-group-3.jpg', 250, '1', NULL, '\r\nhvk,hv\r\n', '\r\n\r\n', '\r\n\r\n', 'white', '1 LEFT', 'product'),
 (30, '1234567', 6, 0, '2021-09-11 09:42:38', 'white forest', 'whiteforest2', 'CD9811C0-7271-4EF8-BDD6-D4BCD0C9488B.jpeg', 'c1f94980fa354a048008897a2b901039.jpg', '270px-Pink_Lady_Apple_(4107712628).jpg', 500, '1', NULL, '\r\nryhgfj\r\n', '\r\n\r\n', '\r\n\r\n', 'white', '2 LEFT', 'product'),
-(31, '123456', 6, 0, '2021-09-11 10:18:10', 'Black Forest', 'black-forest-123456', '270px-Pink_Lady_Apple_(4107712628).jpg', 'CD9811C0-7271-4EF8-BDD6-D4BCD0C9488B.jpeg', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 250, '1', 0, '\r\n\r\n\r\ngood\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 'black', '1 LEFT', 'product');
+(31, '123456', 6, 0, '2021-09-11 10:18:10', 'Black Forest', 'black-forest-123456', '270px-Pink_Lady_Apple_(4107712628).jpg', 'CD9811C0-7271-4EF8-BDD6-D4BCD0C9488B.jpeg', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 250, '1', 0, '\r\n\r\n\r\ngood\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 'black', '1 LEFT', 'product'),
+(33, '123456', 6, 0, '2021-09-18 06:08:17', 'Black_Forest', 'black-forest-123456', 'WIN_20210722_13_45_47_Pro.jpg', 'WIN_20210809_15_33_31_Pro.jpg', 'WIN_20210720_13_50_21_Pro.jpg', 1000, '1', NULL, '\r\ngood\r\n', '\r\n\r\nnys', '\r\n\r\n', 'black', 'limited edition', 'product'),
+(34, '1234567', 7, 0, '2021-09-18 07:49:15', 'Cup Cake', 'cup-cake-1234567', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'home-img-1.png', 'Black Blouse Versace Coat3.jpg', 50, '', NULL, 'adsfasdfas\r\n\r\n', '\r\n\r\nfasdfasdf', '\r\n\r\n', 'cup', '10 nos', 'product'),
+(35, '1234567', 6, 0, '2021-09-18 07:57:34', 'banjo', 'banjo-1234567', 'dish-3.png', 'dish-1.png', 'menu-4.jpg', 500, '1 KG', NULL, 'nice\r\n\r\n', 'nice\r\n\r\n', '\r\n\r\n', 'banjo', 'hurry', 'product');
 
 -- --------------------------------------------------------
 
@@ -670,7 +707,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `enquiry_types`
@@ -694,13 +731,13 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
