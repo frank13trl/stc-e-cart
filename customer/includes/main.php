@@ -75,20 +75,20 @@
           <ul class="categories">
 
           <li class="categories__item">
-              <a class="categories__link" href=".../index.php">
+              <a class="categories__link" href="../index.php">
                 Shop
               </a>
             </li>
 
             <li class="categories__item">
-              <a class="categories__link" href=".../index1.php">
+              <a class="categories__link" href="../index1.php">
                 Cakes
                 <!-- <i class="icon-down-open-1"></i> -->
               </a>
               </li>
 
             <li class="categories__item">
-              <a class="categories__link" href=".../index2.php">
+              <a class="categories__link" href="../index2.php">
                 Pastries
             
               </a>

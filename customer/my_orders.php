@@ -26,12 +26,11 @@ If you have any questions, please feel free to <a href="../contact.php" > contac
 <tr>
 
 <th>O N:</th>
+<th>Product:</th>
 <th>Due Amount:</th>
 <th>Invoice No:</th>
 <th>Qty:</th>
-<th>Size:</th>
 <th>Order Date:</th>
-<th>Paid/Unpaid:</th>
 <th>Status:</th>
 
 
@@ -94,20 +93,20 @@ $order_status = "Paid";
 
 <th><?php echo $i; ?></th>
 
-<td>$<?php echo $due_amount; ?></td>
+<td><?php echo $due_amount; ?></td>
 
 <td><?php echo $invoice_no; ?></td>
 
 <td><?php echo $qty; ?></td>
 
-<td><?php echo $size; ?></td>
+
 
 <td><?php echo $order_date; ?></td>
 
-<td><?php echo $order_status; ?></td>
+
 
 <td>
-<a href="review.php?order_id=<?php echo $order_id; ?>" target="blank" class="btn btn-primary btn-sm" > Confirm If Paid </a>
+<a href="review.php?order_id=<?php echo $order_id; ?>" target="blank" class="btn btn-primary btn-sm" > Review Product </a>
 </td>
 
 
