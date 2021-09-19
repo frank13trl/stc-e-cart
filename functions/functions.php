@@ -307,6 +307,7 @@ function getPro1(){
   
   <h3><a href='$pro_url' >$pro_title</a></h3>
   
+  
   <p class='price' > $product_price $product_psp_price </p>
   
   <p class='buttons' >
@@ -359,7 +360,7 @@ function getPro2(){
   $pro_img1 = $row_products['product_img1'];
   
   $pro_label = $row_products['product_label'];
-  
+  $pro_weight = $row_products['product_weight'];
   $manufacturer_id = $row_products['Seller_id'];
   
   $get_manufacturer = "select * from seller where Seller_id='$manufacturer_id'";
@@ -434,6 +435,7 @@ function getPro2(){
   <hr>
   
   <h3><a href='$pro_url' >$pro_title</a></h3>
+  <p class='price' > $pro_weight </p>
   
   <p class='price' > $product_price $product_psp_price </p>
   

@@ -231,6 +231,7 @@ include("view_payments.php");
 
 }
 
+
 if(isset($_GET['payment_delete'])){
 
 include("payment_delete.php");
@@ -400,9 +401,9 @@ include("insert_bundle.php");
 
 }
 
-if(isset($_GET['view_bundles'])){
+if(isset($_GET['view_reviews'])){
 
-include("view_bundles.php");
+include("view_reviews.php");
 
 }
 

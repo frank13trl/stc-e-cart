@@ -416,6 +416,15 @@ else {
 </a>
 
 </li>
+<li>
+
+<a href="index.php?view_reviews">
+
+<i class="fa fa-fw fa-pencil"></i> Customer Rivews
+
+</a>
+
+</li>
 
 
 <!-- <li> -->
