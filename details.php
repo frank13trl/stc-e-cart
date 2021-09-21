@@ -597,7 +597,7 @@ $run_rev = mysqli_query($con,$get_rev);
 
 while($row_rev = mysqli_fetch_array($run_rev)){
 
-echo "Customer id : <b>" . $row_rev['c_id'] . "</b><br />";
+echo " ☑ Verified Customer <br />";
 
 echo "Rating : ";
 
