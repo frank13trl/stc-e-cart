@@ -285,7 +285,7 @@ if($status == "product"){
 <div class="col-md-7" >
   <!-- col-md-7 Starts -->
 
-  <input name="dt" type="datetime-local" class="form-control">
+  <input name="dt" type="datetime-local" class="form-control" >
 
 </div>
 <!-- col-md-7 Ends -->
@@ -489,6 +489,15 @@ echo "<script>window.open('$pro_url','_self')</script>";
 
 }
 
+$get_rev = "select * from cust_review  where  pro_id='$pro_id'";
+
+$run_rev = mysqli_query($con,$get_rev);
+
+$row_rev = mysqli_fetch_array($run_rev);
+
+$rate = $row_rev['star'];
+$rev = $row_rev['rev'];
+
 ?>
 
 </p><!-- text-center buttons Ends -->
@@ -568,7 +577,7 @@ Features
 
 <a class="btn btn-primary tab" style="margin-bottom:10px;" href="#video" data-toggle="tab"><!-- btn btn-primary tab Starts -->
 
-Sounds and Videos
+Customer Review's 
 
 </a><!-- btn btn-primary tab Ends -->
 
@@ -589,8 +598,12 @@ Sounds and Videos
 </div><!-- features tab-pane fade in  Ends -->
 
 <div id="video" class="tab-pane fade in" style="margin-top:7px;" ><!-- video tab-pane fade in Starts -->
-
-<?php echo $pro_video; ?>
+<li>
+<?php echo $rate ; ?>
+</li>
+<li>
+<?php echo $rev; ?>
+</li>
 
 </div><!-- video tab-pane fade in  Ends -->
 

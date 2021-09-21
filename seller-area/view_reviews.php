@@ -66,7 +66,7 @@ else {
 <th>Order Date:</th>
 
 <th>Total Amount:</th>
-<th>Rateing:</th>
+<th>Rateing out of 5:</th>
 <th>Remarks:</th>
 
 
