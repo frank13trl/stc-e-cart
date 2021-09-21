@@ -597,15 +597,15 @@ $run_rev = mysqli_query($con,$get_rev);
 
 while($row_rev = mysqli_fetch_array($run_rev)){
 
-echo " ☑ Verified Customer <br />";
+echo " <b>☑ Verified Customer</b> <br />";
 
-echo "Rating : ";
+echo "<b>Rating : </b>";
 
 for($i=0; $i<$row_rev['star']; $i++)
 
 echo "⭐ ";
 
-echo "<br />Review : <b>" . $row_rev['rev'] . "<b>";
+echo "<b><br />Review : <b>" . $row_rev['rev'] . "<b>";
 
 echo "<br /><br />";
 
