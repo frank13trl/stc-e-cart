@@ -20,7 +20,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Completed orders 
+<i class="fa fa-dashboard"></i> Dashboard / Customer reviews
 
 </li>
 
@@ -41,7 +41,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> View completed orders
+<i class="fa fa-money fa-fw"></i> Customer Rviews
 
 </h3><!-- panel-title Ends -->
 
@@ -64,10 +64,10 @@ else {
 <th>Product Qty:</th>
 <th>Product Size:</th>
 <th>Order Date:</th>
-<th>Prefered date and time:</th>
+
 <th>Total Amount:</th>
-<th>Order Status:</th>
-<!-- <th>Delete Order:</th> -->
+<th>Rateing out of 5:</th>
+<th>Remarks:</th>
 
 
 </tr>
@@ -80,9 +80,7 @@ else {
 <?php
 
 $i = 0;
-
-
-$get_orders = "select * from customer_orders where order_status='PAYED'";
+$get_orders = "select * from customer_orders where order_status='Completed'";
 
 $run_orders = mysqli_query($con,$get_orders);
 
@@ -109,6 +107,15 @@ $run_products = mysqli_query($con,$get_products);
 $row_products = mysqli_fetch_array($run_products);
 
 $product_title = $row_products['product_title'];
+
+$get_rev = "select * from cust_review where pro_id='$product_id' AND c_id='$c_id'";
+
+$run_rev = mysqli_query($con,$get_rev);
+
+$row_rev = mysqli_fetch_array($run_rev);
+
+$product_rate = $row_rev['star'];
+$product_rev = $row_rev['rev'];
 
 $i++;
 
@@ -147,6 +154,7 @@ echo $customer_email;
 <td>
 <?php
 
+
 $get_customer_order = "select * from customer_orders where order_id='$order_id'";
 
 $run_customer_order = mysqli_query($con,$get_customer_order);
@@ -164,40 +172,18 @@ echo $order_date;
 ?>
 </td>
 
-<td><?php echo $order_pdate; ?></td>
+
 
 <td>₹<?php echo $due_amount; ?></td>
 
-<td>
-<?php
 
-if($order_status=='pending'){
-
-echo $order_status='pending';
-
-}
-else{
-
-echo $order_status='Complete';
-
-}
+<td><?php echo $product_rate ; ?></td>
 
 
-?>
-</td>
 
-<!-- <td>
+<td><?php echo $product_rev ; ?></td>
 
-<a href="index.php?order_delete=<?
-//php echo $order_id;
- ?> 
-" >
 
-<i class="fa fa-trash-o" ></i> Delete
-
-</a>
-
-</td> -->
 
 
 </tr>
@@ -217,6 +203,8 @@ echo $order_status='Complete';
 </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
+
+
 
 
 <?php } ?>

@@ -237,6 +237,12 @@ include("payment_delete.php");
 
 }
 
+if(isset($_GET['view_reviews'])){
+
+    include("view_reviews.php");
+    
+    }
+
 if(isset($_GET['insert_user'])){
 
 include("insert_user.php");

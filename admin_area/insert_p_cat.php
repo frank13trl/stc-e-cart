@@ -81,8 +81,9 @@ else {
 
 </div><!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
-
+<div class="form-group" >
+    <!-- form-group Starts -->
+<!-- 
 <label class="col-md-3 control-label" > Select Product Category Image</label>
 
 <div class="col-md-6" >
@@ -91,17 +92,19 @@ else {
 
 </div>
 
-</div><!-- form-group Ends -->
+</div> -->
+<!-- form-group Ends -->
 
-<div class="form-group" ><!-- form-group Starts -->
+<div class="form-group" >
+    <!-- form-group Starts -->
 
-<label class="col-md-3 control-label" ></label>
+<!-- <label class="col-md-3 control-label" ></label>
 
 <div class="col-md-6" >
 
 <input type="submit" name="submit" value="Submit Now" class="btn btn-primary form-control" >
 
-</div>
+</div> -->
 
 </div><!-- form-group Ends -->
 
