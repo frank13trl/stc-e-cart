@@ -98,7 +98,7 @@ else {
 
 <p style="font-size:15px; font-weight:bold;">
 
-Product Url Example : product-name-sellerId (Eg : White-Forest-12345)
+Product Url Example : product-name size-sellerId (Eg : White-Forest1kg-12345)
 
 </p>
 
