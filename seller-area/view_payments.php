@@ -82,7 +82,7 @@ else {
 $i = 0;
 $seller_session = $_SESSION['seller'];
 
-$get_orders = "select * from customer_orders where order_status='PAYED' AND s_id='$seller_session'";
+$get_orders = "select * from customer_orders where order_status='Completed' AND s_id='$seller_session'";
 
 $run_orders = mysqli_query($con,$get_orders);
 

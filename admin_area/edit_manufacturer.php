@@ -16,27 +16,27 @@ else {
 
 if(isset($_GET['edit_manufacturer'])){
 
-$edit_manufacturer = $_GET['edit_manufacturer'];
+$edit_seller = $_GET['edit_manufacturer'];
 
-$get_manufacturer = "select * from manufacturers where manufacturer_id='$edit_manufacturer'";
+$get_seller = "select * from seller where Seller_id='$edit_seller'";
 
-$run_manufacturer = mysqli_query($con,$get_manufacturer);
+$run_seller = mysqli_query($con,$get_seller);
 
-$row_manufacturer = mysqli_fetch_array($run_manufacturer);
+$row_manufacturer = mysqli_fetch_array($run_seller);
 
-$m_id = $row_manufacturer['manufacturer_id'];
+$m_id = $row_manufacturer['Seller_id'];
 
-$m_title = $row_manufacturer['manufacturer_title'];
+$m_title = $row_manufacturer['Seller_name'];
 
-$m_top = $row_manufacturer['manufacturer_top'];
+//$m_top = $row_manufacturer['manufacturer_top'];
 
-$m_num = $row_manufacturer['manufacturer_num'];
+$m_num = $row_manufacturer['Seller_contact'];
 
-$m_email = $row_manufacturer['manufacturer_email'];
+$m_email = $row_manufacturer['Seller_email'];
 
-$m_image = $row_manufacturer['manufacturer_image'];
+//$m_image = $row_manufacturer['manufacturer_image'];
 
-$new_m_image = $row_manufacturer['manufacturer_image'];
+//$new_m_image = $row_manufacturer['manufacturer_image'];
 
 
 }
@@ -165,7 +165,7 @@ $new_m_image = $row_manufacturer['manufacturer_image'];
 
 <div class="col-md-6">
 
-<input type="submit" name="update" class="form-control btn btn-primary" value=" Update Manufacturer " >
+<input type="submit" name="update" class="form-control btn btn-primary" value=" Update Seller " >
 
 </div>
 
@@ -193,19 +193,19 @@ $manufacturer_email = $_POST['manufacturer_email'];
 
 $manufacturer_top = "no";
 
-$manufacturer_image = $_FILES['manufacturer_image']['name'];
+//$manufacturer_image = $_FILES['manufacturer_image']['name'];
 
-$tmp_name = $_FILES['manufacturer_image']['tmp_name'];
+//$tmp_name = $_FILES['manufacturer_image']['tmp_name'];
 
-move_uploaded_file($tmp_name,"other_images/$manufacturer_image");
+//move_uploaded_file($tmp_name,"other_images/$manufacturer_image");
 
-if(empty($manufacturer_image)){
+//if(empty($manufacturer_image)){
 
-$manufacturer_image = $new_m_image;
+//$manufacturer_image = $new_m_image;
 
-}
+//}
 
-$update_manufacturer = "update manufacturers set manufacturer_title='$manufacturer_name',manufacturer_top='$manufacturer_top',manufacturer_num='$manufacturer_num',manufacturer_email='$manufacturer_email',manufacturer_image='$manufacturer_image' where manufacturer_id='$m_id'";
+$update_manufacturer = "update seller set Seller_name='$manufacturer_name',Seller_contact='$manufacturer_num',Seller_email='$manufacturer_email' where Seller_id='$m_id'";
 
 $run_manufacturer = mysqli_query($con,$update_manufacturer);
 

@@ -52,7 +52,7 @@ $row_customer = mysqli_fetch_array($run_customer);
 
 $customer_id = $row_customer['customer_id'];
 
-$get_orders = "select * from customer_orders where customer_id='$customer_id'";
+$get_orders = "select * from customer_orders where customer_id='$customer_id' and order_status='Completed'";
 
 $run_orders = mysqli_query($con,$get_orders);
 
@@ -61,6 +61,7 @@ $i = 0;
 while($row_orders = mysqli_fetch_array($run_orders)){
 
 $order_id = $row_orders['order_id'];
+
 $pro_id = $row_orders['pro_id'];
 
 $due_amount = $row_orders['due_amount'];
@@ -101,6 +102,7 @@ $pro_name = $row_pro['product_title'];
 <tr><!-- tr Starts -->
 
 <th><?php echo $i; ?></th>
+
 <td><?php echo $pro_name; ?></td>
 
 <td><?php echo $due_amount; ?></td>
@@ -109,15 +111,30 @@ $pro_name = $row_pro['product_title'];
 
 <td><?php echo $qty; ?></td>
 
-
-
 <td><?php echo $order_date; ?>
+
 </td>
 
 
 
 <td>
-<a href="review.php?order_id=<?php echo $order_id; ?>" target="_self" class="btn btn-primary btn-sm" > Review Product </a>
+
+<?php
+
+$check_review = "select * from customer_review where order_id='$order_id'";
+
+$run_check = mysqli_query($con,$check_review);
+
+if(mysqli_num_rows($run_check)>=1)
+
+    echo "<i>Product already reviewed</i>";
+
+else
+
+    echo "<a href='review.php?order_id=".$order_id." target='_self' class='btn btn-primary btn-sm' > Review Product </a>";
+
+?>
+
 </td>
 
 

@@ -119,7 +119,7 @@ $star = $_POST['rate'];
 
 $review = $_POST['rev'];
 
-$ins_review = "insert into cust_review(c_id,pro_id,star,rev) values ('$customer_id','$pro_id','$star','$review')";
+$ins_review = "insert into customer_review(order_id,customer_id,product_id,star,review) values ('$o_id','$customer_id','$pro_id','$star','$review')";
 
 $run_ins = mysqli_query($con,$ins_review);
 

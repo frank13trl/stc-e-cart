@@ -20,7 +20,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / Customer reviews
+<i class="fa fa-dashboard"></i> Dashboard / Customer Reviews
 
 </li>
 
@@ -41,7 +41,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> Customer Rviews
+<i class="fa fa-money fa-fw"></i> Customer Reviews
 
 </h3><!-- panel-title Ends -->
 
@@ -64,10 +64,9 @@ else {
 <th>Product Qty:</th>
 <th>Product Size:</th>
 <th>Order Date:</th>
-
 <th>Total Amount:</th>
-<th>Rateing out of 5:</th>
-<th>Remarks:</th>
+<th>Rating out of 5:</th>
+<th>Review:</th>
 
 
 </tr>
@@ -110,14 +109,17 @@ $row_products = mysqli_fetch_array($run_products);
 
 $product_title = $row_products['product_title'];
 
-$get_rev = "select * from cust_review where pro_id='$product_id' AND c_id='$c_id'";
+$get_rev = "select * from customer_review where order_id='$order_id'";
 
 $run_rev = mysqli_query($con,$get_rev);
 
-$row_rev = mysqli_fetch_array($run_rev);
+while($row_rev = mysqli_fetch_array($run_rev)){
 
 $product_rate = $row_rev['star'];
-$product_rev = $row_rev['rev'];
+
+$product_rev = $row_rev['review'];
+
+}
 
 $i++;
 
@@ -156,7 +158,6 @@ echo $customer_email;
 <td>
 <?php
 
-
 $get_customer_order = "select * from customer_orders where order_id='$order_id' and s_id='$seller_session'";
 
 $run_customer_order = mysqli_query($con,$get_customer_order);
@@ -174,20 +175,26 @@ echo $order_date;
 ?>
 </td>
 
-
-
 <td>₹<?php echo $due_amount; ?></td>
 
+<td>
+<?php if(!isset($product_rate)) 
+echo "<i>Not rated</i>";
 
-<td><?php echo $product_rate ; ?></td>
+else
+echo "<b>".$product_rate."</b>";
 
+?>
+</td>
 
+<td>
+    <?php if(!isset($product_rev)) 
+echo "<i>Not reviewed</i>";
 
-<td><?php echo $product_rev ; ?></td>
+else
+echo "<b>".$product_rev."</b>";
 
-
-
-
+?>
 </tr>
 
 <?php } ?>

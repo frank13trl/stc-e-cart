@@ -103,6 +103,15 @@ $cat_title = $row_cat['cat_title'];
 
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#product_desc,#product_features' });</script>
+  <script>
+    function optselect(opt) {
+      if (opt.value == "6") {
+        document.getElementById("pcat").style.display = "block";
+      } else {
+        document.getElementById("pcat").style.display = "none";
+      }
+    }
+  </script>
 
 </head>
 
@@ -228,7 +237,7 @@ Product Url Example : navy-blue-t-shirt
 <div class="col-md-6" >
 
 
-<select name="cat" class="form-control" >
+<select name="cat" onchange="optselect(this);" class="form-control" >
 
 <option value="<?php echo $cat; ?>" > <?php echo $cat_title; ?> </option>
 

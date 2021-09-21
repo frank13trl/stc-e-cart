@@ -26,11 +26,11 @@ $p_id = $row_edit['product_id'];
 
 $p_title = $row_edit['product_title'];
 
-$p_cat = $row_edit['p_cat_id'];
+//$p_cat = $row_edit['p_cat_id'];
 
 $cat = $row_edit['cat_id'];
 
-$m_id = $row_edit['manufacturer_id'];
+$m_id = $row_edit['Seller_id'];
 
 $p_image1 = $row_edit['product_img1'];
 
@@ -62,22 +62,22 @@ $p_video = $row_edit['product_video'];
 
 }
 
-$get_manufacturer = "select * from manufacturers where manufacturer_id='$m_id'";
+$get_manufacturer = "select * from seller where Seller_id='$m_id'";
 
 $run_manufacturer = mysqli_query($con,$get_manufacturer);
 
 $row_manfacturer = mysqli_fetch_array($run_manufacturer);
 
-$manufacturer_id = $row_manfacturer['manufacturer_id'];
+$manufacturer_id = $row_manfacturer['Seller_id'];
 
-$manufacturer_title = $row_manfacturer['manufacturer_title'];
+$manufacturer_title = $row_manfacturer['Seller_name'];
 
 
-$get_p_cat = "select * from product_categories where p_cat_id='$p_cat'";
+//$get_p_cat = "select * from product_categories where p_cat_id='$p_cat'";
 
-$run_p_cat = mysqli_query($con,$get_p_cat);
+//$run_p_cat = mysqli_query($con,$get_p_cat);
 
-$row_p_cat = mysqli_fetch_array($run_p_cat);
+//$row_p_cat = mysqli_fetch_array($run_p_cat);
 
 //$p_cat_title = $row_p_cat['p_cat_title'];
 
@@ -194,15 +194,15 @@ Product Url Example : navy-blue-t-shirt
 
 <?php
 
-$get_manufacturer = "select * from manufacturers";
+$get_manufacturer = "select * from seller";
 
 $run_manufacturer = mysqli_query($con,$get_manufacturer);
 
 while($row_manfacturer = mysqli_fetch_array($run_manufacturer)){
 
-$manufacturer_id = $row_manfacturer['manufacturer_id'];
+$manufacturer_id = $row_manfacturer['Seller_id'];
 
-$manufacturer_title = $row_manfacturer['manufacturer_title'];
+$manufacturer_title = $row_manfacturer['Seller_name'];
 
 echo "
 <option value='$manufacturer_id'>

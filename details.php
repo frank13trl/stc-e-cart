@@ -284,8 +284,22 @@ if($status == "product"){
 
 <div class="col-md-7" >
   <!-- col-md-7 Starts -->
+<?php
 
-  <input name="dt" type="datetime-local" class="form-control" >
+date_default_timezone_set('Asia/Kolkata');
+
+$dt_min = new DateTime('0 days');
+$dt_min= $dt_min->format('Y-m-d\TH:i'); 
+
+$dt_max = new  DateTime('+7 days');  // Maximum limit
+$dt_max= $dt_max->format('Y-m-d\TH:i'); 
+
+$dt = new DateTime(); // Date object using current date and time
+$dt= $dt->format('Y-m-d\TH:i'); 
+
+echo "<input type='datetime-local' class='form-control' name='dt' value='$dt' min='$dt_min' max='$dt_max'>";
+
+?>
 
 </div>
 <!-- col-md-7 Ends -->
@@ -568,7 +582,7 @@ Features
 
 <a class="btn btn-primary tab" style="margin-bottom:10px;" href="#video" data-toggle="tab"><!-- btn btn-primary tab Starts -->
 
-Customer Review's 
+Customer Reviews 
 
 </a><!-- btn btn-primary tab Ends -->
 
@@ -591,13 +605,13 @@ Customer Review's
 <div id="video" class="tab-pane fade in" style="margin-top:7px;" ><!-- video tab-pane fade in Starts -->
 <?php 
 
-$get_rev = "select * from cust_review  where  pro_id='$pro_id'";
+$get_rev = "select * from customer_review where product_id='$pro_id'";
 
 $run_rev = mysqli_query($con,$get_rev);
 
 while($row_rev = mysqli_fetch_array($run_rev)){
 
-echo "Customer id : <b>" . $row_rev['c_id'] . "</b><br />";
+echo "<small>Customer Id : <b>" . $row_rev['customer_id'] . "</b></small><br />";
 
 echo "Rating : ";
 
@@ -605,7 +619,7 @@ for($i=0; $i<$row_rev['star']; $i++)
 
 echo "⭐ ";
 
-echo "<br />Review : <b>" . $row_rev['rev'] . "<b>";
+echo "<br />Review : <b>" . $row_rev['review'] . "</b>";
 
 echo "<br /><br />";
 

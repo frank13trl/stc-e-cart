@@ -17,7 +17,7 @@ $customer_id = $_GET['c_id'];
 
 $ip_add = getRealUserIp();
 
-$status = "completed";
+$status = "pending";
 
 $invoice_no = mt_rand();
 

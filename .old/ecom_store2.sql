@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 21, 2021 at 11:48 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Host: 127.0.0.1
+-- Generation Time: Sep 18, 2021 at 11:48 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,7 +64,11 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
-(2, 'Yasser Dalouzi', 'admin@ave.com', '123', 'admin.jpg', '077885221', 'Morocco', 'Front-End Developer', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical ');
+(2, 'Yasser Dalouzi', 'admin@ave.com', '123', 'admin.jpg', '077885221', 'Morocco', 'Front-End Developer', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical '),
+(3, 'dil', 'user3@gmail.com', '1234', 'Passport Size.jpg', '123456789', 'india', 'null', ' killer'),
+(4, 'Frank', 'frank@admin.com', '12345', 'black-forest-cake-500x500.jpg', '1234567890', 'India', 'Jobless', ''),
+(5, 'STC', 'stc@stc.com', '12345', 'istockphoto-485677649-612x612.jpg', '1234567890', 'India', 'Clg', 'St. Thomas College (Autonomous), Thrissur'),
+(6, 'Sample', 'sample@stc.com', '12345', '', '1234567890', 'India', 'Nil', ' Sample Administrator');
 
 -- --------------------------------------------------------
 
@@ -185,8 +189,11 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
 (2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'user.jpg', '::1', ''),
-(5, 'Frank', 'frank@123.com', '12345', 'India', 'Thrissur', '1234567890', 'Thrissur', '', '::1', ''),
-(6, 'Dil', 'dil@123.com', '12345', 'india', 'tsr', '1234567890', 'asasdasd', '', '::1', '');
+(5, 'Frank', 'frank123@gmail.com', '12345', 'India', 'Thrissur', '1234567890', 'Thrissur', '', '::1', ''),
+(6, 'Dil', 'dil@123.com', '12345', 'india', 'tsr', '1234567890', 'asasdasd', '', '::1', ''),
+(7, 'user3', 'user3@123.com', '12345', 'india', 'tsr', '1234567890', 'Kottayam', '', '::1', ''),
+(8, 'Anusha', 'anusha@korandi.com', '12345', 'india', 'tsr', '9999999999', 'Feminichi', '', '::1', ''),
+(9, 'DV', 'dv@tech.com', '12345', 'DV123', 'Kozhikode', '99999999', 'Kerala', '', '::1', '');
 
 -- --------------------------------------------------------
 
@@ -213,32 +220,68 @@ CREATE TABLE `customer_orders` (
 --
 
 INSERT INTO `customer_orders` (`order_id`, `customer_id`, `pro_id`, `s_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`, `pro_dt`) VALUES
-(63, 6, 35, '1234567', 1500, 2018668505, 3, '1 KG', '2021-09-21 20:56:19', 'Completed', '2021-09-08 14:15:00'),
-(65, 2, 35, '1234567', 2000, 607948020, 4, '1 KG', '2021-09-21 20:56:26', 'Completed', '2021-09-21 16:44:00'),
-(66, 6, 18, '123456', 500, 1690640594, 2, '1 KG', '2021-09-21 21:34:50', 'Completed', '2021-09-27 17:00:00');
+(16, 2, 0, '', 207, 1715523401, 3, 'Small', '2021-09-05 16:09:03', 'Complete', NULL),
+(17, 2, 0, '', 100, 1715523401, 2, 'Large', '2017-02-20 08:21:42', 'pending', NULL),
+(18, 2, 0, '', 300, 1715523401, 1, 'Medium', '2017-02-20 08:21:42', 'pending', NULL),
+(19, 2, 0, '', 150, 1068059025, 1, 'Medium', '2017-02-20 08:26:47', 'pending', NULL),
+(20, 2, 0, '', 288, 909940689, 3, 'Large', '2017-02-27 11:06:32', 'complete', NULL),
+(21, 2, 0, '', 400, 909940689, 2, 'Meduim', '2017-02-27 11:06:37', 'complete', NULL),
+(22, 2, 0, '', 0, 217894971, 0, 'Select a Size', '2021-08-25 06:09:14', 'pending', NULL),
+(23, 2, 0, '', 0, 1734348083, 0, 'Select a Size', '2021-08-25 06:53:41', 'Complete', NULL),
+(24, 2, 0, '', 2000, 582435743, 10, 'Select a Size', '2021-08-25 07:03:40', 'Complete', NULL),
+(25, 3, 0, '', 1000, 25380430, 5, 'Medium', '2021-08-25 07:16:49', 'pending', NULL),
+(26, 3, 0, '', 0, 25380430, 0, 'Select a Size', '2021-08-25 07:16:49', 'pending', NULL),
+(27, 4, 0, '', 0, 2010804318, 0, 'Select a Size', '2021-08-25 07:21:20', 'Complete', NULL),
+(28, 5, 0, '', 200, 1826542881, 2, 'Medium', '2021-08-31 06:27:23', 'pending', NULL),
+(29, 6, 0, '', 1000, 1364922767, 5, 'Medium', '2021-08-31 06:42:32', 'pending', NULL),
+(30, 6, 0, '', 500, 1984208510, 1, 'Select a Size', '2021-08-31 06:58:00', 'pending', NULL),
+(31, 0, 0, '', 500, 424326115, 1, 'Select a Size', '2021-08-31 07:08:37', 'pending', NULL),
+(32, 7, 0, '', 500, 717345687, 1, 'Select a Size', '2021-08-31 07:17:19', 'pending', NULL),
+(33, 8, 0, '', 500, 1785829651, 1, 'Select a Size', '2021-08-31 07:40:03', 'pending', NULL),
+(34, 5, 0, '', 1500, 828836196, 3, 'Small', '2021-08-31 08:02:38', 'pending', NULL),
+(35, 5, 0, '', 250, 820512487, 5, '1 KG', '2021-09-04 06:53:47', 'pending', NULL),
+(36, 5, 0, '', 15000, 820512487, 1, 'Size', '2021-09-04 06:53:47', 'pending', NULL),
+(37, 5, 0, '', 500, 2122254262, 2, '', '2021-09-04 10:08:48', 'pending', NULL),
+(38, 5, 0, '', 1250, 1767130239, 5, '', '2021-09-04 10:12:50', 'pending', NULL),
+(39, 2, 0, '', 0, 1224248168, 0, '', '2021-09-04 10:34:56', 'pending', NULL),
+(40, 2, 0, '', 1250, 1112902909, 5, '1 KG', '2021-09-04 10:49:31', 'pending', NULL),
+(41, 2, 0, '', 0, 867948972, 0, '2 KG', '2021-09-04 10:53:18', 'pending', NULL),
+(42, 2, 0, '', 10000, 867948972, 20, 'Size', '2021-09-04 10:53:18', 'pending', NULL),
+(43, 2, 0, '', 1000, 700242409, 2, '1 KG', '2021-09-07 08:59:21', 'pending', NULL),
+(44, 2, 0, '', 500, 2014944798, 1, 'Size', '2021-09-07 09:00:33', 'pending', NULL),
+(45, 2, 0, '', 500, 937929046, 1, '', '2021-09-11 06:42:04', 'pending', NULL),
+(46, 2, 0, '', 1500, 137496243, 3, 'Select a Category', '2021-09-11 07:13:08', 'pending', '2021-10-08 12:23:00'),
+(47, 2, 0, '', 500, 1808498420, 1, '1', '2021-09-11 07:20:00', 'pending', '2021-09-12 14:49:00'),
+(48, 2, 0, '', 2000, 579789754, 4, '1', '2021-09-11 09:11:00', 'pending', '2021-09-18 14:40:00'),
+(49, 2, 0, '', 250, 1954283935, 1, '', '2021-09-11 09:13:57', 'pending', '2021-09-15 14:43:00'),
+(50, 2, 0, '', 1000, 725559507, 2, '1', '2021-09-11 09:15:14', 'pending', '2021-09-22 14:45:00'),
+(51, 2, 0, '', 1000, 524889809, 2, '1', '2021-09-11 09:16:53', 'pending', '2021-09-25 14:46:00'),
+(52, 2, 0, '', 500, 166497435, 1, '1', '2021-09-11 09:17:47', 'pending', '2021-09-22 14:47:00'),
+(53, 2, 0, '', 500, 1498619299, 2, 'Select a Category', '2021-09-11 09:38:30', 'pending', '2021-09-16 15:08:00'),
+(54, 2, 0, '', 1250, 1453738570, 5, '1', '2021-09-11 11:21:42', 'pending', '2021-09-11 15:53:00'),
+(55, 6, 30, '', 1000, 1919243065, 2, '1', '2021-09-18 07:12:23', 'completed', '0000-00-00 00:00:00'),
+(56, 6, 20, '', 1500, 1108783959, 3, 'Select a Category', '2021-09-18 07:29:47', 'completed', '2021-09-23 12:59:00'),
+(57, 6, 31, '', 1000, 925506662, 4, '1', '2021-09-18 07:32:13', 'completed', '2021-09-18 13:01:00'),
+(58, 6, 34, '', 200, 1060123410, 4, '', '2021-09-18 07:52:26', 'completed', '2021-09-30 13:19:00'),
+(59, 6, 35, '', 1500, 1332497649, 3, '1 KG', '2021-09-18 08:02:01', 'completed', '2021-09-23 13:30:00'),
+(60, 6, 20, '', 1000, 26550875, 2, 'Select a Category', '2021-09-18 08:33:28', 'completed', '0000-00-00 00:00:00'),
+(61, 6, 31, '', 750, 26550875, 3, '1', '2021-09-18 08:33:28', 'completed', '0000-00-00 00:00:00'),
+(62, 6, 34, '', 200, 26550875, 4, '', '2021-09-18 08:33:28', 'completed', '0000-00-00 00:00:00'),
+(63, 6, 35, '1234567', 1500, 2018668505, 3, '1 KG', '2021-09-18 08:58:34', 'completed', '2021-09-08 14:15:00'),
+(64, 6, 31, '123456', 500, 94470433, 2, '1', '2021-09-18 09:22:42', 'completed', '2021-09-21 14:52:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer_review`
+-- Table structure for table `cust_review`
 --
 
-CREATE TABLE `customer_review` (
-  `order_id` int(10) NOT NULL,
-  `customer_id` varchar(20) NOT NULL,
-  `product_id` varchar(10) NOT NULL,
+CREATE TABLE `cust_review` (
+  `c_id` varchar(20) NOT NULL,
+  `pro_id` varchar(10) NOT NULL,
   `star` varchar(5) NOT NULL,
-  `review` text NOT NULL
+  `rev` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `customer_review`
---
-
-INSERT INTO `customer_review` (`order_id`, `customer_id`, `product_id`, `star`, `review`) VALUES
-(63, '6', '35', '5', 'Adipwoli mwonee...'),
-(65, '2', '35', '3', 'Happy ayoo '),
-(66, '6', '18', '4', 'Pwoli saanam...');
 
 -- --------------------------------------------------------
 
@@ -275,6 +318,20 @@ CREATE TABLE `manufacturers` (
   `manufacturer_image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `manufacturers`
+--
+
+INSERT INTO `manufacturers` (`manufacturer_id`, `manufacturer_title`, `manufacturer_top`, `manufacturer_num`, `manufacturer_email`, `manufacturer_image`) VALUES
+(2, 'Adidas', 'no', '', '', 'image2.jpg'),
+(3, 'Nike', 'no', '', '', 'image3.jpg'),
+(4, 'Philip Plein', 'no', '', '', 'manufacturer.jpg'),
+(5, 'Lacost', 'no', '', '', 'image6.jpg'),
+(6, 'Gucci', 'yes', '', '', 'akshay-kumar.jpg'),
+(7, 'STC Thrissur', 'no', '', '', ''),
+(9, 'Anusha', 'no', '123456', 'anusha@1234.com', ''),
+(10, 'Dil', 'no', '12345678', 'dil@admin.com', '');
+
 -- --------------------------------------------------------
 
 --
@@ -290,6 +347,16 @@ CREATE TABLE `payments` (
   `code` int(10) NOT NULL,
   `payment_date` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`) VALUES
+(4, 12233, 12233, 'Bank Code', 0, 0, '20/02/2021'),
+(5, 34635635, 45435, 'Select Payment Mode', 5345, 5345, '345345'),
+(6, 0, 0, 'Bank Code', 0, 0, 'safda'),
+(7, 12123123, 500, 'Bank Code', 123123123, 123123123, '1223');
 
 -- --------------------------------------------------------
 
@@ -313,7 +380,18 @@ CREATE TABLE `pending_orders` (
 --
 
 INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`, `pro_dt`) VALUES
-(66, 6, 1690640594, '18', 2, '', 'pending', '2021-09-27 17:00:00');
+(53, 2, 1498619299, '24', 2, 'Select a Category', 'pending', '2021-09-16 15:08:00'),
+(54, 2, 1453738570, '31', 5, '1', 'pending', '2021-09-11 15:53:00'),
+(55, 6, 1919243065, '30', 2, '1', 'completed', '0000-00-00 00:00:00'),
+(56, 6, 1108783959, '20', 3, 'Select a Category', 'completed', '2021-09-23 12:59:00'),
+(57, 6, 925506662, '31', 4, '1', 'completed', '2021-09-18 13:01:00'),
+(58, 6, 1060123410, '34', 4, '', 'completed', '2021-09-30 13:19:00'),
+(59, 6, 1332497649, '35', 3, '1 KG', 'completed', '2021-09-23 13:30:00'),
+(60, 6, 26550875, '20', 2, 'Select a Category', 'completed', '0000-00-00 00:00:00'),
+(61, 6, 26550875, '31', 3, '1', 'completed', '0000-00-00 00:00:00'),
+(62, 6, 26550875, '34', 4, '', 'completed', '0000-00-00 00:00:00'),
+(63, 6, 2018668505, '35', 3, '1 KG', 'completed', '2021-09-08 14:15:00'),
+(64, 6, 94470433, '31', 2, '1', 'completed', '2021-09-21 14:52:00');
 
 -- --------------------------------------------------------
 
@@ -348,7 +426,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `Seller_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_weight`, `product_psp_price`, `product_desc`, `product_features`, `product_video`, `product_keywords`, `product_label`, `status`) VALUES
-(18, '123456', 9, 4, '2021-09-21 21:30:05', 'Red Velvet', 'red-velvet', 'red-velvet-cake.jpg', 'red-velvet-cake-500x500.png', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 250, '2', 0, '\r\nRed Velvet Cake\r\n\r\n', '\r\nGood, Nice\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 'red', '10 LEFT', 'product'),
+(18, '123456', 6, 4, '2021-09-07 07:47:22', 'Red Velvet', 'red-velvet', 'red-velvet-cake.jpg', 'red-velvet-cake-500x500.png', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 250, '', 0, 'Red Velvet Cake\r\n', 'Good, Nice', '\r\n\r\n\r\n\r\n', 'red', '10 LEFT', 'product'),
 (20, '123456', 7, 7, '2021-09-07 07:47:33', 'Cup Cakes', 'cup-cake', 'chocolate-cupcakes10.jpg', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'valentines-cakes-group-3.jpg', 500, 'Select a Category', 0, 'Good cup cake\r\n', 'Delicious\r\n', '\r\n\r\n\r\n\r\n', 'cup', '10 LEFT', 'product'),
 (23, '123456', 6, 0, '2021-09-07 08:47:27', 'Black Forest', 'black-forest', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 'red-velvet-cake-500x500.png', 'extravagant-blackforest-past0159blac-A_0.jpg', 500, '1', NULL, '\r\n\r\ngood', '\r\n\r\n', '\r\n\r\n', 'black', '1 LEFT', 'product'),
 (27, '123456', 6, 0, '2021-09-11 09:33:36', 'white forest', 'white-forest', 'Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg', 'Re-Shoot-Cake-11-C.jpg', 'valentines-cakes-group-3.jpg', 250, '1', NULL, '\r\nhvk,hv\r\n', '\r\n\r\n', '\r\n\r\n', 'white', '1 LEFT', 'product'),
@@ -393,8 +471,8 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`Seller_name`, `Seller_email`, `Seller_pass`, `Seller_id`, `Seller_city`, `Seller_contact`, `Seller_address`, `confirm`) VALUES
-('Dil', 'dil@gmail.com', '123456', '123456', 'tsr', '1234567890', 'Kerala', 1),
-('Frank', 'frank@abc.com', '123', '1234567', 'tsr', '1234567890', 'Kerala', 1);
+('dil', 'dil@gmail.com', '123456', '123456', 'tsr', '1234567890', 'Kerala', 1),
+('FRank', 'frank@abc.com', '123', '1234567', 'tsr', '1234567890', 'Kerala', 1);
 
 -- --------------------------------------------------------
 
@@ -520,12 +598,6 @@ ALTER TABLE `customer_orders`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Indexes for table `customer_review`
---
-ALTER TABLE `customer_review`
-  ADD PRIMARY KEY (`order_id`);
-
---
 -- Indexes for table `enquiry_types`
 --
 ALTER TABLE `enquiry_types`
@@ -635,7 +707,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `enquiry_types`
@@ -659,7 +731,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `products`

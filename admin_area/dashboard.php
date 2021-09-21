@@ -278,7 +278,7 @@ col-lg-3 col-md-6 Ends -->
 
 $i = 0;
 
-$get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5";
+$get_order = "select * from customer_orders order by 1 DESC LIMIT 0,5";
 $run_order = mysqli_query($con,$get_order);
 
 while($row_order=mysqli_fetch_array($run_order)){
@@ -290,7 +290,7 @@ $c_id = $row_order['customer_id'];
 
 $invoice_no = $row_order['invoice_no'];
 
-$product_id = $row_order['product_id'];
+$product_id = $row_order['pro_id'];
 
 $qty = $row_order['qty'];
 

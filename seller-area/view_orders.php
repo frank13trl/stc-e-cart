@@ -67,7 +67,7 @@ else {
 <th>Prefered date and time:</th>
 <th>Total Amount:</th>
 <th>Order Status:</th>
-<th>confirm Order:</th>
+<th>Confirm Order:</th>
 
 
 </tr>
@@ -80,9 +80,10 @@ else {
 <?php
 
 $i = 0;
+
 $seller_session = $_SESSION['seller'];
 
-$get_orders = "select * from customer_orders where order_status='Completed' AND s_id='$seller_session'";
+$get_orders = "select * from customer_orders where order_status='pending' AND s_id='$seller_session'";
 
 $run_orders = mysqli_query($con,$get_orders);
 
@@ -219,7 +220,7 @@ echo $order_status='Complete';
 $seller_session = $_SESSION['seller'];
 if(isset($_POST['confirm'])){
 
-$update_manufacturer = "update customer_orders set order_status='PAYED' where s_id='$seller_session'";
+$update_manufacturer = "update customer_orders set order_status='Completed' where s_id='$seller_session'";
 
 $run_manufacturer = mysqli_query($con,$update_manufacturer);
 
