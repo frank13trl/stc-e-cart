@@ -489,15 +489,6 @@ echo "<script>window.open('$pro_url','_self')</script>";
 
 }
 
-$get_rev = "select * from cust_review  where  pro_id='$pro_id'";
-
-$run_rev = mysqli_query($con,$get_rev);
-
-$row_rev = mysqli_fetch_array($run_rev);
-
-$rate = $row_rev['star'];
-$rev = $row_rev['rev'];
-
 ?>
 
 </p><!-- text-center buttons Ends -->
@@ -598,11 +589,29 @@ Customer Review's
 </div><!-- features tab-pane fade in  Ends -->
 
 <div id="video" class="tab-pane fade in" style="margin-top:7px;" ><!-- video tab-pane fade in Starts -->
-<li>
-<?php echo $rate ; ?>
-</li>
-<li>
-<?php echo $rev; ?>
+<?php 
+
+$get_rev = "select * from cust_review  where  pro_id='$pro_id'";
+
+$run_rev = mysqli_query($con,$get_rev);
+
+while($row_rev = mysqli_fetch_array($run_rev)){
+
+echo "Customer id : <b>" . $row_rev['c_id'] . "</b><br />";
+
+echo "Rating : ";
+
+for($i=0; $i<$row_rev['star']; $i++)
+
+echo "⭐ ";
+
+echo "<br />Review : <b>" . $row_rev['rev'] . "<b>";
+
+echo "<br /><br />";
+
+} 
+
+?>
 </li>
 
 </div><!-- video tab-pane fade in  Ends -->
