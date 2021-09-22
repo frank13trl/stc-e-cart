@@ -108,14 +108,14 @@ $row_products = mysqli_fetch_array($run_products);
 
 $product_title = $row_products['product_title'];
 
-$get_rev = "select * from cust_review where pro_id='$product_id' AND c_id='$c_id'";
+$get_rev = "select * from customer_review where product_id='$product_id' AND customer_id='$c_id'";
 
 $run_rev = mysqli_query($con,$get_rev);
 
 $row_rev = mysqli_fetch_array($run_rev);
 
 $product_rate = $row_rev['star'];
-$product_rev = $row_rev['rev'];
+$product_rev = $row_rev['review'];
 
 $i++;
 
