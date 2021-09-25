@@ -49,9 +49,9 @@ $insert_customer_order = "insert into customer_orders (customer_id,pro_id,s_id,d
 
 $run_customer_order = mysqli_query($con,$insert_customer_order);
 
-$insert_pending_order = "insert into pending_orders (customer_id,invoice_no,product_id,qty,size,order_status,pro_dt) values ('$customer_id','$invoice_no','$pro_id','$pro_qty','$pro_size','$status','$pro_dt')";
+//$insert_pending_order = "insert into pending_orders (customer_id,invoice_no,product_id,qty,size,order_status,pro_dt) values ('$customer_id','$invoice_no','$pro_id','$pro_qty','$pro_size','$status','$pro_dt')";
 
-$run_pending_order = mysqli_query($con,$insert_pending_order);
+//$run_pending_order = mysqli_query($con,$insert_pending_order);
 
 $delete_cart = "delete from cart where ip_add='$ip_add'";
 
@@ -60,10 +60,6 @@ $run_delete = mysqli_query($con,$delete_cart);
 echo "<script>alert('Your order has been submitted,Thanks ')</script>";
 
 echo "<script>window.open('customer/my_account.php?my_orders','_self')</script>";
-
-
-
-
 
 }
 

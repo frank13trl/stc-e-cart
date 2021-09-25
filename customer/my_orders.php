@@ -52,7 +52,7 @@ $row_customer = mysqli_fetch_array($run_customer);
 
 $customer_id = $row_customer['customer_id'];
 
-$get_orders = "select * from customer_orders where customer_id='$customer_id' and order_status='Completed'";
+$get_orders = "select * from customer_orders where customer_id='$customer_id'";
 
 $run_orders = mysqli_query($con,$get_orders);
 
@@ -78,16 +78,16 @@ $order_status = $row_orders['order_status'];
 
 $i++;
 
-if($order_status=='pending'){
+// if($order_status=='pending'){
 
-$order_status = "Unpaid";
+// $order_status = "Unpaid";
 
-}
-else{
+// }
+// else{
 
-$order_status = "Paid";
+// $order_status = "Paid";
 
-}
+// }
 
 $get_pro = "select * from products where product_id ='$pro_id'";
 
@@ -121,6 +121,11 @@ $pro_name = $row_pro['product_title'];
 
 <?php
 
+if($order_status=='pending')
+
+    echo "<i>Order pending</i>";
+else{
+
 $check_review = "select * from customer_review where order_id='$order_id'";
 
 $run_check = mysqli_query($con,$check_review);
@@ -132,6 +137,8 @@ if(mysqli_num_rows($run_check)>=1)
 else
 
     echo "<a href='review.php?order_id=".$order_id." target='_self' class='btn btn-primary btn-sm' > Review Product </a>";
+
+}
 
 ?>
 

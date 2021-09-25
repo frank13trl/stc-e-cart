@@ -228,7 +228,7 @@ if($run_manufacturer){
 
 echo "<script>alert(' Order Confirmed')</script>";
 
-echo "<script>window.open('index.php?view_orders','_self')</script>";
+echo "<script>window.open('index.php?view_payments','_self')</script>";
 
 }
 

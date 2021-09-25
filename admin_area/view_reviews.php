@@ -108,7 +108,7 @@ $row_products = mysqli_fetch_array($run_products);
 
 $product_title = $row_products['product_title'];
 
-$get_rev = "select * from customer_review where product_id='$product_id' AND customer_id='$c_id'";
+$get_rev = "select * from customer_review where product_id='$product_id' AND order_id='$order_id'";
 
 $run_rev = mysqli_query($con,$get_rev);
 
