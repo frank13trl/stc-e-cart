@@ -20,7 +20,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / Customer reviews
+<i class="fa fa-dashboard"></i> Dashboard / Customer Reviews
 
 </li>
 
@@ -41,7 +41,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> Customer Rviews
+<i class="fa fa-money fa-fw"></i> Customer Reviews
 
 </h3><!-- panel-title Ends -->
 
@@ -64,10 +64,10 @@ else {
 <th>Product Qty:</th>
 <th>Product Size:</th>
 <th>Order Date:</th>
-
 <th>Total Amount:</th>
-<th>Rateing out of 5:</th>
-<th>Remarks:</th>
+<th>Rating out of 5:</th>
+<th>Review:</th>
+<th>Action</th>
 
 
 </tr>
@@ -80,6 +80,8 @@ else {
 <?php
 
 $i = 0;
+$seller_session = $_SESSION['admin_email'];
+
 $get_orders = "select * from customer_orders where order_status='Completed'";
 
 $run_orders = mysqli_query($con,$get_orders);
@@ -108,14 +110,17 @@ $row_products = mysqli_fetch_array($run_products);
 
 $product_title = $row_products['product_title'];
 
-$get_rev = "select * from customer_review where product_id='$product_id' AND order_id='$order_id'";
+$get_rev = "select * from customer_review where order_id='$order_id'";
 
 $run_rev = mysqli_query($con,$get_rev);
 
-$row_rev = mysqli_fetch_array($run_rev);
+while($row_rev = mysqli_fetch_array($run_rev)){
 
 $product_rate = $row_rev['star'];
+
 $product_rev = $row_rev['review'];
+
+}
 
 $i++;
 
@@ -154,7 +159,6 @@ echo $customer_email;
 <td>
 <?php
 
-
 $get_customer_order = "select * from customer_orders where order_id='$order_id'";
 
 $run_customer_order = mysqli_query($con,$get_customer_order);
@@ -172,19 +176,37 @@ echo $order_date;
 ?>
 </td>
 
-
-
 <td>₹<?php echo $due_amount; ?></td>
 
+<td>
+<?php if(!isset($product_rate)) 
+echo "<i>Not rated</i>";
 
-<td><?php echo $product_rate ; ?></td>
+else
+echo "<b>".$product_rate."</b>";
 
+?>
+</td>
 
+<td>
+    <?php if(!isset($product_rev)) 
+echo "<i>Not reviewed</i>";
 
-<td><?php echo $product_rev ; ?></td>
+else
+echo "<b>".$product_rev."</b>";
 
+?>
+</td>
 
+<td>
 
+<form class="form-horizontal" action="" method="post">
+
+<input type="submit" name="del" class="form-control btn btn-primary" value="Delete" >
+
+</form>
+
+</td>
 
 </tr>
 
@@ -204,6 +226,25 @@ echo $order_date;
 
 </div><!-- 2 row Ends -->
 
+<?php
+
+$seller_session = $_SESSION['admin_email'];
+
+if(isset($_POST['del'])){
+
+$del_review = "delete from customer_review where order_id='$order_id' and product_id='$product_id'";
+
+$run_del = mysqli_query($con,$del_review);
+
+if($run_del){
+
+echo "<script>alert('Review deleted')</script>";
+
+}
+
+}
+
+?>
 
 
 

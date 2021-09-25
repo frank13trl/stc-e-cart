@@ -192,7 +192,7 @@ echo $order_status='Complete';
 
 <form class="form-horizontal" action="" method="post">
 
-<input type="submit" name="confirm" class="form-control btn btn-primary" value=" Confirm " >
+<input type="submit" name="confirm" class="form-control btn btn-primary" value=" Confirm" >
 
 </form>
 
@@ -216,8 +216,11 @@ echo $order_status='Complete';
 </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
+
 <?php
+
 $seller_session = $_SESSION['seller'];
+
 if(isset($_POST['confirm'])){
 
 $update_manufacturer = "update customer_orders set order_status='Completed' where s_id='$seller_session'";
@@ -235,7 +238,5 @@ echo "<script>window.open('index.php?view_payments','_self')</script>";
 }
 
 ?>
-
-
 
 <?php } ?>

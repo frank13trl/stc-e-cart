@@ -8,176 +8,348 @@ include("functions/functions.php");
 include("includes/main.php");
 
 ?>
-
-
-  <!-- Cover -->
+  <!-- MAIN -->
   <main>
-    <div class="hero">
-      <!-- <a href="shop.php" class="btn1">View all products
-</a> -->
+    <!-- HERO -->
+    <div class="nero">
+      <div class="nero__heading">
+        <span class="nero__bold">CELEBRATE</span> WITH US
+      </div>
+      <p class="nero__text">
+      </p>
     </div>
-    <!-- Main -->
-    <div class="wrapper">
-            <h1>Today's Special<h1>
-            
-      </div>
+  </main>
+
+
+<div id="content" ><!-- content Starts -->
+<div class="container" ><!-- container Starts -->
+
+<div class="col-md-12" ><!--- col-md-12 Starts -->
 
 
 
-    <div id="content" class="container"><!-- container Starts -->
+</div><!--- col-md-12 Ends -->
 
-    <div class="row"><!-- row Starts -->
+<div class="col-md-3"><!-- col-md-3 Starts -->
 
-    <?php
+<?php include("includes/sidebar.php"); ?>
 
-    getPro2();
+</div><!-- col-md-3 Ends -->
 
-    ?>
+<div class="col-md-9" ><!-- col-md-9 Starts --->
 
-    </div><!-- row Ends -->
 
-    </div><!-- container Ends -->
-    <!-- FOOTER -->
-    <footer class="page-footer">
+<?php getPro(); ?>
 
-      <div class="footer-nav">
-        <div class="container clearfix">
+</div><!-- row Ends -->
 
-          <!-- <div class="footer-nav__col footer-nav__col--info">
-            <div class="footer-nav__heading">Information</div>
-            <ul class="footer-nav__list">
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">The brand</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Local stores</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Customer service</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Privacy &amp; cookies</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Site map</a>
-              </li>
-            </ul>
-          </div>
+<center><!-- center Starts -->
 
-          <div class="footer-nav__col footer-nav__col--whybuy">
-            <div class="footer-nav__heading">Why buy from us</div>
-            <ul class="footer-nav__list">
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Shipping &amp; returns</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Secure shipping</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Testimonials</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Award winning</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Ethical trading</a>
-              </li>
-            </ul>
-          </div> -->
+<ul class="pagination" ><!-- pagination Starts -->
 
-          <!-- <div class="footer-nav__col footer-nav__col--account">
-            <div class="footer-nav__heading">Your account</div>
-            <ul class="footer-nav__list">
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Sign in</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Register</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">View cart</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">View your lookbook</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Track an order</a>
-              </li>
-              <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Update information</a>
-              </li>
-            </ul>
-          </div> -->
+<?php getPaginator(); ?>
 
-          <div class="row justify-content-center">
-        <div class="text-center text-muted p-5">
-          
-        
-          
-            <div class="footer-nav__heading">Contact details</div>
-            <address class="address">
-            St, Thomas College (Autonomous)<br>
-            Thrissur<br>
-            680 001
-          </address>
-            <div class="phone">
-              Telephone:
-              <a class="phone__number" href="tel:0123456789">0487 2420435</a>
-            </div>
-            <div class="email">
-              Email:
-              <a href="mailto:support@yourwebsite.com" class="email__addr">support@stthomas.com</a>
-            </div>
-          </div>
-          </div>
-      </div>
+</ul><!-- pagination Ends -->
 
-        </div>
-      
+</center><!-- center Ends -->
 
-      <div class="banners">
-        <div class="container clearfix">
 
-          <!-- <div class="banner-award">
-            <span>Award winner</span><br> Fashion awards 2016
-          </div>
 
-          <div class="banner-social">
-            <a href="#" class="banner-social__link">
-            <i class="icon-facebook"></i>
-          </a>
-            <a href="#" class="banner-social__link">
-            <i class="icon-twitter"></i>
-          </a>
-            <a href="#" class="banner-social__link">
-            <i class="icon-instagram"></i>
-          </a>
-            <a href="#" class="banner-social__link">
-            <i class="icon-pinterest-circled"></i>
-          </a>
-          </div> -->
+</div><!-- col-md-9 Ends --->
 
-        </div>
-      </div>
 
-      <div class="page-footer__subline">
-        <div class="container clearfix">
 
-          <div class="copyright">
-            &copy; IIC, St. Thomas College(Autonomous), Thrissur&trade;
-          </div>
+</div><!--- wait Ends -->
 
-          <div class="developer">
-            Powered by 'The P Gang'
-          </div>
+</div><!-- container Ends -->
+</div><!-- content Ends -->
 
-          <!-- <div class="designby">
-            Design by Yasser Dalouzi
-          </div> -->
 
-        </div>
-      </div>
-    </footer>
+
+<?php
+
+include("includes/footer.php");
+
+?>
+
+<script src="js/jquery.min.js"> </script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+/// Hide And Show Code Starts ///
+
+$('.nav-toggle').click(function(){
+
+$(".panel-collapse,.collapse-data").slideToggle(700,function(){
+
+if($(this).css('display')=='none'){
+
+$(".hide-show").html('Show');
+
+}
+else{
+
+$(".hide-show").html('Hide');
+
+}
+
+});
+
+});
+
+/// Hide And Show Code Ends ///
+
+/// Search Filters code Starts ///
+
+$(function(){
+
+$.fn.extend({
+
+filterTable: function(){
+
+return this.each(function(){
+
+$(this).on('keyup', function(){
+
+var $this = $(this),
+
+search = $this.val().toLowerCase(),
+
+target = $this.attr('data-filters'),
+
+handle = $(target),
+
+rows = handle.find('li a');
+
+if(search == '') {
+
+rows.show();
+
+} else {
+
+rows.each(function(){
+
+var $this = $(this);
+
+$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+
+});
+
+}
+
+});
+
+});
+
+}
+
+});
+
+$('[data-action="filter"][id="dev-table-filter"]').filterTable();
+
+});
+
+/// Search Filters code Ends ///
+
+});
+
+
+
+</script>
+
+
+<script>
+
+
+$(document).ready(function(){
+
+  // getProducts Function Code Starts
+
+  function getProducts(){
+
+  // Manufacturers Code Starts
+
+    var sPath = '';
+
+var aInputs = $('li').find('.get_manufacturer');
+
+var aKeys = Array();
+
+var aValues = Array();
+
+iKey = 0;
+
+$.each(aInputs,function(key,oInput){
+
+if(oInput.checked){
+
+aKeys[iKey] =  oInput.value
+
+};
+
+iKey++;
+
+});
+
+if(aKeys.length>0){
+
+var sPath = '';
+
+for(var i = 0; i < aKeys.length; i++){
+
+sPath = sPath + 'man[]=' + aKeys[i]+'&';
+
+}
+
+}
+
+// Manufacturers Code ENDS
+
+// Products Categories Code Starts
+
+var aInputs = Array();
+
+var aInputs = $('li').find('.get_p_cat');
+
+var aKeys = Array();
+
+var aValues = Array();
+
+iKey = 0;
+
+$.each(aInputs,function(key,oInput){
+
+if(oInput.checked){
+
+aKeys[iKey] =  oInput.value
+
+};
+
+iKey++;
+
+});
+
+if(aKeys.length>0){
+
+for(var i = 0; i < aKeys.length; i++){
+
+sPath = sPath + 'p_cat[]=' + aKeys[i]+'&';
+
+}
+
+}
+
+// Products Categories Code ENDS
+
+   // Categories Code Starts
+
+// var aInputs = Array();
+
+// var aInputs = $('li').find('.get_cat');
+
+// var aKeys  = Array();
+
+// var aValues = Array();
+
+// iKey = 0;
+
+//     $.each(aInputs,function(key,oInput){
+
+//     if(oInput.checked){
+
+//     aKeys[iKey] =  oInput.value
+
+// };
+
+//     iKey++;
+
+// });
+
+// if(aKeys.length>0){
+
+//     for(var i = 0; i < aKeys.length; i++){
+
+//     sPath = sPath + 'cat[]=' + aKeys[i]+'&';
+
+// }
+
+// }
+
+   // Categories Code ENDS
+
+   // Loader Code Starts
+
+$('#wait').html('<img src="images/load.gif">');
+
+// Loader Code ENDS
+
+// ajax Code Starts
+
+$.ajax({
+
+url:"load.php",
+
+method:"POST",
+
+data: sPath+'sAction=getProducts',
+
+success:function(data){
+
+ $('#Products').html('');
+
+ $('#Products').html(data);
+
+ $("#wait").empty();
+
+}
+
+});
+
+    $.ajax({
+url:"load.php",
+method:"POST",
+data: sPath+'sAction=getPaginator',
+success:function(data){
+$('.pagination').html('');
+$('.pagination').html(data);
+}
+
+    });
+
+// ajax Code Ends
+
+   }
+
+   // getProducts Function Code Ends
+
+$('.get_manufacturer').click(function(){
+
+getProducts();
+
+});
+
+
+  $('.get_p_cat').click(function(){
+
+getProducts();
+
+});
+
+$('.get_cat').click(function(){
+
+getProducts();
+
+});
+
+
+ });
+
+</script>
+
 </body>
 
 </html>

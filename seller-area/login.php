@@ -60,7 +60,7 @@ $seller_id = mysqli_real_escape_string($con,$_POST['admin_email']);
 
 $admin_pass = mysqli_real_escape_string($con,$_POST['admin_pass']);
 
-$get_admin = "select * from seller where Seller_id='$seller_id' AND Seller_pass='$admin_pass'";
+$get_admin = "select * from seller where Seller_id='$seller_id' AND Seller_pass='$admin_pass' AND confirm='1'";
 
 $run_admin = mysqli_query($con,$get_admin);
 

@@ -178,7 +178,7 @@ $subject = "Welcome to my website";
 
 $msg = "I shall get you soon, thanks for sending us email";
 
-$from = "sad.ahmed22224@gmail.com";
+$from = "franktrl2000@gmail.com";
 
 mail($email,$subject,$msg,$from);
 

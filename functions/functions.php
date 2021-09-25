@@ -83,7 +83,7 @@ function getPro(){
 
 global $db;
 
-$get_products = "select * from products where cat_id='6' order by 1 DESC LIMIT 0,8";
+$get_products = "select * from products where status='product 'order by RAND()";
 
 $run_products = mysqli_query($db,$get_products);
 
@@ -212,11 +212,11 @@ $product_label
 
 // getPro1 function Starts //
 
-function getPro1(){
+function getPro2(){
 
   global $db;
   
-  $get_products = "select * from products where cat_id='7' order by 1 DESC LIMIT 0,8";
+  $get_products = "select * from products where cat_id='6' and status='product' order by 1 DESC";
   
   $run_products = mysqli_query($db,$get_products);
   
@@ -341,11 +341,11 @@ function getPro1(){
 // getPro1 function Ends //
 
 
-function getPro2(){
+function getPro1(){
 
   global $db;
   
-  $get_products = "select * from products order by RAND()";
+  $get_products = "select * from products where cat_id='7' and status='product' order by 1 DESC";
   
   $run_products = mysqli_query($db,$get_products);
   
@@ -564,17 +564,17 @@ $pro_img1 = $row_products['product_img1'];
 
 $pro_label = $row_products['product_label'];
 
-$manufacturer_id = $row_products['manufacturer_id'];
+$manufacturer_id = $row_products['Seller_id'];
 
-$get_manufacturer = "select * from manufacturers where manufacturer_id='$manufacturer_id'";
+$get_manufacturer = "select * from seller where Seller_id='$manufacturer_id'";
 
 $run_manufacturer = mysqli_query($db,$get_manufacturer);
 
 $row_manufacturer = mysqli_fetch_array($run_manufacturer);
 
-$manufacturer_name = $row_manufacturer['manufacturer_title'];
+$manufacturer_name = $row_manufacturer['Seller_name'];
 
-$pro_psp_price = $row_products['product_psp_price'];
+//$pro_psp_price = $row_products['product_psp_price'];
 
 $pro_url = $row_products['product_url'];
 
@@ -583,14 +583,14 @@ if($pro_label == "Sale" or $pro_label == "Gift"){
 
 $product_price = "<del> $$pro_price </del>";
 
-$product_psp_price = "| $$pro_psp_price";
+//$product_psp_price = "| $$pro_psp_price";
 
 }
 else{
 
 $product_psp_price = "";
 
-$product_price = "$$pro_price";
+$product_price = "₹$pro_price";
 
 }
 
@@ -630,11 +630,7 @@ echo "
 
 <div class='text' >
 
-<center>
 
-<p class='btn btn-primary'> $manufacturer_name </p>
-
-</center>
 
 <hr>
 
@@ -761,7 +757,7 @@ $total_records = mysqli_num_rows($result);
 
 $total_pages = ceil($total_records / $per_page);
 
-echo "<li><a href='shop.php?page=1";
+echo "<li><a href='index.php?page=1";
 
 if(!empty($aPath)){ echo "&".$aPath; }
 
@@ -769,11 +765,11 @@ echo "' >".'First Page'."</a></li>";
 
 for ($i=1; $i<=$total_pages; $i++){
 
-echo "<li><a href='shop.php?page=".$i.(!empty($aPath)?'&'.$aPath:'')."' >".$i."</a></li>";
+echo "<li><a href='index.php?page=".$i.(!empty($aPath)?'&'.$aPath:'')."' >".$i."</a></li>";
 
 };
 
-echo "<li><a href='shop.php?page=$total_pages";
+echo "<li><a href='index.php?page=$total_pages";
 
 if(!empty($aPath)){ echo "&".$aPath; }
 

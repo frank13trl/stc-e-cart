@@ -68,7 +68,6 @@ else {
 <th>Rating out of 5:</th>
 <th>Review:</th>
 
-
 </tr>
 
 </thead><!-- thead Ends -->
@@ -195,6 +194,8 @@ else
 echo "<b>".$product_rev."</b>";
 
 ?>
+</td>
+
 </tr>
 
 <?php } ?>
@@ -212,8 +213,5 @@ echo "<b>".$product_rev."</b>";
 </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
-
-
-
 
 <?php } ?>
