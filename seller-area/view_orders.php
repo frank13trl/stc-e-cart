@@ -60,6 +60,7 @@ else {
 <th>Order No:</th>
 <th>Customer Name:</th>
 <th>Address:</th>
+<th>Contact:</th>
 <th>Product Title:</th>
 <th>Product Qty:</th>
 <th>Product Size:</th>
@@ -132,12 +133,15 @@ $customer_email = $row_customer['customer_name'];
 
 $invoice_no = $row_customer['customer_address'];
 
+$no=$row_customer['customer_contact'];
+
 echo $customer_email;
 
  ?>
  </td>
 
 <td><?php echo $invoice_no; ?></td>
+<td><?php echo $no; ?></td>
 
 <td><?php echo $product_title; ?></td>
 
