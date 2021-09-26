@@ -148,7 +148,7 @@ $total += $sub_total;
 
 <td>
 
-$<?php echo $sub_total; ?>.00
+₹<?php echo $sub_total; ?>.00
 
 </td>
 
@@ -164,7 +164,7 @@ $<?php echo $sub_total; ?>.00
 
 <th colspan="5"> Total </th>
 
-<th colspan="2"> $<?php echo $total; ?>.00 </th>
+<th colspan="2"> ₹<?php echo $total; ?>.00 </th>
 
 </tr>
 
@@ -347,7 +347,7 @@ echo @$up_cart = update_cart();
 
 <?php
 
-$get_products = "select * from products order by rand() LIMIT 0,3";
+$get_products = "select * from products where status='product' order by rand() LIMIT 0,3";
 
 $run_products = mysqli_query($con,$get_products);
 
@@ -380,7 +380,7 @@ $pro_url = $row_products['product_url'];
 
 if($pro_label == "Sale" or $pro_label == "Gift"){
 
-$product_price = "<del> $$pro_price </del>";
+$product_price = "<del>₹$pro_price </del>";
 
 $product_psp_price = "| $$pro_psp_price";
 
@@ -389,7 +389,7 @@ else{
 
 $product_psp_price = "";
 
-$product_price = "$$pro_price";
+$product_price = "₹$pro_price";
 
 }
 

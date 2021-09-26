@@ -35,14 +35,13 @@ include("includes/main.php");
 <?php include("includes/sidebar.php"); ?>
 
 </div><!-- col-md-3 Ends -->
-
-<!-- <div class="col-md-9" > -->
+ <div class="col-md-9" > 
   <!-- col-md-9 Starts --->
 
   <div class="row">
 <?php getPro(); ?>
 
-</div>
+</div></div>
 <!-- row Ends -->
 
 <center><!-- center Starts -->
