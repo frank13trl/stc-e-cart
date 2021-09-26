@@ -83,7 +83,7 @@ function getPro(){
 
 global $db;
 
-$get_products = "select * from products where status='product 'order by RAND()";
+$get_products = "select * from products where status='product 'order by RAND() LIMIT 0,6";
 
 $run_products = mysqli_query($db,$get_products);
 

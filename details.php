@@ -657,7 +657,7 @@ if($status == "product"){
 
 <?php
 
-$get_products = "select * from products order by rand() LIMIT 0,3";
+$get_products = "select * from products where status='product' order by rand() LIMIT 0,3";
 
 $run_products = mysqli_query($con,$get_products);
 
