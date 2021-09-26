@@ -77,7 +77,7 @@
           
             <div class="footer-nav__heading">Contact details</div>
             <address class="address">
-            St, Thomas College (Autonomous)<br>
+            St.Thomas College (Autonomous)<br>
             Thrissur<br>
             680 001
           </address>

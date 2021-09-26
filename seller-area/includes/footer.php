@@ -70,29 +70,38 @@
 			</div> -->
 
 
-			<div class="footer-nav__col footer-nav__col--contacts">
-				<div class="footer-nav__heading">Contact details</div>
-				<address class="address">
-				Head Office: Avenue Fashion.<br>
-				180-182 Regent Street, London.
-			</address>
-				<div class="phone">
-					Telephone:
-					<a class="phone__number" href="tel:0123456789">0123-456-789</a>
-				</div>
-				<div class="email">
-					Email:
-					<a href="mailto:support@yourwebsite.com" class="email__addr">support@yourwebsite.com</a>
-				</div>
-			</div>
+			<div class="row justify-content-center">
+        <div class="text-center text-muted p-5">
+          
+        
+          
+            <div class="footer-nav__heading">Contact details</div>
+            <address class="address">
+            St.Thomas College (Autonomous)<br>
+            Thrissur<br>
+            680 001
+          </address>
+            <div class="phone">
+              Telephone:
+              <a class="phone__number" href="tel:0123456789">0487 2420435</a>
+            </div>
+            <div class="email">
+              Email:
+              <a href="mailto:support@yourwebsite.com" class="email__addr">support@stthomas.com</a>
+            </div>
+          </div>
+          </div>
+      </div>
+
+        </div>
 
 		</div>
 	</div>
 
-	<div class="banners">
+	<!-- <div class="banners">
 		<div class="container clearfix">
 
-			<!-- <div class="banner-award">
+			<div class="banner-award">
 				<span>Award winner</span><br> Fashion awards 2016
 			</div>
 
@@ -109,10 +118,10 @@
 				<a href="#" class="banner-social__link">
 				<i class="icon-pinterest-circled"></i>
 			</a>
-			</div> -->
+			</div>
 
 		</div>
-	</div>
+	</div> -->
 
 	<div class="page-footer__subline">
 		<div class="container clearfix">
@@ -124,11 +133,10 @@
 			<!-- <div class="developer">
 				Dev by Yasser Dalouzi
 			 </div> -->
-			 -->
 
-<div class="designby">
-	Powered By The P-Gang
-</div>
-</div>
-</div>
+			<div class="designby">
+				Powered By The P-Gang
+			</div>
+		</div>
+	</div>
 </footer>
