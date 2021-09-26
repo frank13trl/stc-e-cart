@@ -132,11 +132,11 @@
 
 			<!-- <div class="developer">
 				Dev by Yasser Dalouzi
-			</div>
+			 </div> -->
 
 			<div class="designby">
-				Design by Yasser Dalouzi
-			</div> -->
+				Powered By The P-Gang
+			</div>
 		</div>
 	</div>
 </footer>

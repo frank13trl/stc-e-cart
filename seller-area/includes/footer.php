@@ -3,7 +3,7 @@
 	<div class="footer-nav">
 		<div class="container clearfix">
 
-			<div class="footer-nav__col footer-nav__col--info">
+			<!-- <div class="footer-nav__col footer-nav__col--info">
 				<div class="footer-nav__heading">Information</div>
 				<ul class="footer-nav__list">
 					<li class="footer-nav__item">
@@ -67,31 +67,8 @@
 						<a href="#" class="footer-nav__link">Update information</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 
-			<div class="footer-nav__col footer-nav__col--lookbook">
-				<div class="footer-nav__heading">Lookbook</div>
-				<ul class="footer-nav__list">
-					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Latest posts</a>
-					</li>
-					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Men&apos;s lookbook</a>
-					</li>
-					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Women&apos;s lookbook</a>
-					</li>
-					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Lookbooks RSS feed</a>
-					</li>
-					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">View your lookbook</a>
-					</li>
-					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Delete your lookbook</a>
-					</li>
-				</ul>
-			</div>
 
 			<div class="footer-nav__col footer-nav__col--contacts">
 				<div class="footer-nav__heading">Contact details</div>
@@ -115,7 +92,7 @@
 	<div class="banners">
 		<div class="container clearfix">
 
-			<div class="banner-award">
+			<!-- <div class="banner-award">
 				<span>Award winner</span><br> Fashion awards 2016
 			</div>
 
@@ -132,7 +109,7 @@
 				<a href="#" class="banner-social__link">
 				<i class="icon-pinterest-circled"></i>
 			</a>
-			</div>
+			</div> -->
 
 		</div>
 	</div>
@@ -141,16 +118,17 @@
 		<div class="container clearfix">
 
 			<div class="copyright">
-				&copy; 2016 Avenue Fashion&trade;
+				&copy; IIC, St. Thomas College(Autonomous), Thrissur&trade;
 			</div>
 
-			<div class="developer">
-				Dev by Loremipsum.com
-			</div>
+			<!-- <div class="developer">
+				Dev by Yasser Dalouzi
+			 </div> -->
+			 -->
 
-			<div class="designby">
-				Design by RobbyDesigns.com
-			</div>
-		</div>
-	</div>
+<div class="designby">
+	Powered By The P-Gang
+</div>
+</div>
+</div>
 </footer>
