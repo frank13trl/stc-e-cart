@@ -196,7 +196,7 @@ echo $order_status='Complete';
 
 <form class="form-horizontal" action="" method="post">
 
-<input type="submit" name="confirm" class="form-control btn btn-primary" value=" Confirm" >
+<button name="confirm" class="form-control btn btn-primary" value="<?php echo $order_id ?>" > Completed </button>
 
 </form>
 
@@ -227,13 +227,51 @@ $seller_session = $_SESSION['seller'];
 
 if(isset($_POST['confirm'])){
 
-$update_manufacturer = "update customer_orders set order_status='Completed' where s_id='$seller_session'";
+    $o_id = $_POST['confirm'];
 
-$run_manufacturer = mysqli_query($con,$update_manufacturer);
+$update_order = "update customer_orders set order_status='Completed' where s_id='$seller_session' and order_id='$o_id'";
 
-if($run_manufacturer){
+$run_order_update = mysqli_query($con,$update_order);
 
-echo "<script>alert(' Order Confirmed')</script>";
+$sel_c = "select * from customers where customer_id='$c_id'";
+
+$run_c = mysqli_query($con,$sel_c);
+
+$count_c = mysqli_num_rows($run_c);
+
+$row_c = mysqli_fetch_array($run_c);
+
+$c_name = $row_c['customer_name'];
+
+$c_email = $row_c['customer_email'];
+
+$message = "
+
+<h1> Your order for $product_title has been completed</h1>
+
+<h3> Dear $c_name, </h3>
+
+<p> Customer ID : $c_id </p>
+
+<h4>Your order (Order ID : $o_id) has been completed and your product is delivered.</h4>
+
+<i>Thank you for shopping with us. Visit St. Thomas E-Cart for more exciting products.</i>
+
+";
+
+$from = "franktrl2000@gmail.com";
+
+$subject = "Order Complete (Order ID : $o_id)";
+
+$headers = "From: $from\r\n";
+
+$headers .= "Content-type: text/html\r\n";
+
+$mail_sent = mail($c_email,$subject,$message,$headers);
+
+if($run_order_update && $mail_sent){
+
+echo "<script>alert('Order Completed')</script>";
 
 echo "<script>window.open('index.php?view_payments','_self')</script>";
 

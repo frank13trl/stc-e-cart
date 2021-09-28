@@ -104,7 +104,7 @@ $product_label = "
   </main>
 
 <div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
+<div class="container" style="margin: 50px auto;"><!-- container Starts -->
 
 
 
@@ -132,19 +132,19 @@ $product_label = "
 
 <div class="item active">
 <center>
-<img src="product_img/<?php echo $pro_img1; ?>" class="img-responsive">
+<img src="product_img/<?php echo $pro_img1; ?>" class="img-responsive" style="height: 500px; width: 100%; object-fit: cover;">
 </center>
 </div>
 
 <div class="item">
 <center>
-<img src="product_img/<?php echo $pro_img2; ?>" class="img-responsive">
+<img src="product_img/<?php echo $pro_img2; ?>" class="img-responsive" style="height: 500px; width: 100%; object-fit: cover;">
 </center>
 </div>
 
 <div class="item">
 <center>
-<img src="product_img/<?php echo $pro_img3; ?>" class="img-responsive">
+<img src="product_img/<?php echo $pro_img3; ?>" class="img-responsive" style="height: 500px; width: 100%; object-fit: cover;">
 </center>
 </div>
 
@@ -238,7 +238,7 @@ $query = "insert into cart (p_id,ip_add,qty,p_price,size,pref_dt) values ('$p_id
 
 $run_query = mysqli_query($db,$query);
 
-echo "<script>window.open('$pro_url','_self')</script>";
+echo "<script>window.open('cart.php','_self')</script>";
 
 }
 
@@ -516,19 +516,9 @@ echo "<script>window.open('$pro_url','_self')</script>";
 
 <div class="col-xs-4" ><!-- col-xs-4 Starts -->
 
-<a href="#" class="thumb" >
+<a class="thumb" >
 
-<img src="product_img/<?php echo $pro_img1; ?>" class="img-responsive" >
-
-</a>
-
-</div><!-- col-xs-4 Ends -->
-
-<div class="col-xs-4" ><!-- col-xs-4 Starts -->
-
-<a href="#" class="thumb" >
-
-<img src="product_img/<?php echo $pro_img2; ?>" class="img-responsive" >
+<img src="product_img/<?php echo $pro_img1; ?>" class="img-responsive" style="height: 120px; width: 100%; object-fit: cover;" >
 
 </a>
 
@@ -536,9 +526,19 @@ echo "<script>window.open('$pro_url','_self')</script>";
 
 <div class="col-xs-4" ><!-- col-xs-4 Starts -->
 
-<a href="#" class="thumb" >
+<a class="thumb" >
 
-<img src="product_img/<?php echo $pro_img3; ?>" class="img-responsive" >
+<img src="product_img/<?php echo $pro_img2; ?>" class="img-responsive" style="height: 120px; width: 100%; object-fit: cover;">
+
+</a>
+
+</div><!-- col-xs-4 Ends -->
+
+<div class="col-xs-4" ><!-- col-xs-4 Starts -->
+
+<a class="thumb" >
+
+<img src="product_img/<?php echo $pro_img3; ?>" class="img-responsive" style="height: 120px; width: 100%; object-fit: cover;">
 
 </a>
 
@@ -645,19 +645,25 @@ if($status == "product"){
 
 ?>
 
-<div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 Starts -->
+<div class="box">
 
-<div class="box same-height headline"><!-- box same-height headline Starts -->
+<h3 class="text-center"> You may also like these products </h3>
 
-<h3 class="text-center"> You also like these Products </h3>
+</div>
 
-</div><!-- box same-height headline Ends -->
+<!-- <div class="col-md-3 col-sm-6"> -->
+  <!-- col-md-3 col-sm-6 Starts -->
 
-</div><!-- col-md-3 col-sm-6 Ends -->
+<!-- <div class="box same-height headline"  style="height: fit-content;"> -->
+<!-- box same-height headline Starts -->
+
+<!-- </div>box same-height headline Ends
+
+</div>col-md-3 col-sm-6 Ends -->
 
 <?php
 
-$get_products = "select * from products where status='product' order by rand() LIMIT 0,3";
+$get_products = "select * from products where status='product' order by rand() LIMIT 0,4";
 
 $run_products = mysqli_query($con,$get_products);
 
@@ -733,11 +739,11 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='product_img/$pro_img1' class='img-responsive' >
+<img src='product_img/$pro_img1' class='img-responsive' style='height:250px; width:100%; object-fit: cover;'>
 
 </a>
 
-<div class='text' >
+<div class='text' style='min-height: 200px;'>
 
 
 <hr>

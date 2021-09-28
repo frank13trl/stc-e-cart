@@ -154,23 +154,17 @@ $product_label = "
 
 echo "
 
-<div class='col-md-4 col-sm-6 single' >
+<div class='col-sm-6 col-md-3 single'>
 
-<div class='product' >
+<div class='product'>
 
 <a href='$pro_url' >
 
-<img src='./product_img/$pro_img1' class='img-responsive' style='height:280px;'>
+<img src='./product_img/$pro_img1' class='img-responsive' style='height:270px; width:100%; object-fit: cover;'>
 
 </a>
 
-<div class='text' >
-
-<center>
-
-
-
-</center>
+<div class='text' style='min-height: 250px;'>
 
 <hr>
 
@@ -212,7 +206,7 @@ $product_label
 
 // getPro1 function Starts //
 
-function getPro2(){
+function getPro1(){
 
   global $db;
   
@@ -291,22 +285,15 @@ function getPro2(){
   
   <a href='$pro_url' >
   
-  <img src='./product_img/$pro_img1' class='img-responsive'style='height:280px;' >
+  <img src='./product_img/$pro_img1' class='img-responsive' style='height:270px; width:100%; object-fit: cover;'>
   
   </a>
   
-  <div class='text' >
-  
-  <center>
-  
-  
-  
-  </center>
-  
+  <div class='text'>
+    
   <hr>
   
   <h3><a href='$pro_url' >$pro_title</a></h3>
-  
   
   <p class='price' > $product_price $product_psp_price </p>
   
@@ -341,7 +328,7 @@ function getPro2(){
 // getPro1 function Ends //
 
 
-function getPro1(){
+function getPro2(){
 
   global $db;
   
@@ -420,11 +407,11 @@ function getPro1(){
   
   <a href='$pro_url' >
   
-  <img src='./product_img/$pro_img1' class='img-responsive' style='height:280px;'>
+  <img src='./product_img/$pro_img1' class='img-responsive' style='height:270px; width:100%; object-fit: cover;'>
   
   </a>
   
-  <div class='text' >
+  <div class='text'>
   
   <center>
   
@@ -624,13 +611,11 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='./product_img/$pro_img1' class='img-responsive' >
+<img src='./product_img/$pro_img1' class='img-responsive' style='height:270px; width:100%; object-fit: cover;'>
 
 </a>
 
-<div class='text' >
-
-
+<div class='text' style='height: max-content;'>
 
 <hr>
 

@@ -82,7 +82,7 @@ else {
 $i = 0;
 
 
-$get_orders = "select * from customer_orders where order_status='completed'";
+$get_orders = "select * from customer_orders where order_status='Completed'";
 
 $run_orders = mysqli_query($con,$get_orders);
 

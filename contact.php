@@ -174,7 +174,7 @@ mail($contact_email,$sender_subject,$new_message,$headers);
 
 $email = $_POST['email'];
 
-$subject = "Welcome to my website";
+$subject = "Thanks for your enquiry";
 
 $msg = "I shall get you soon, thanks for sending us email";
 

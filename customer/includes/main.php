@@ -80,10 +80,10 @@
               </a>
             </li>
 
-            <li class="categories__item">
+            <!-- <li class="categories__item">
               <a class="categories__link" href="../index1.php">
                 Cakes
-                <!-- <i class="icon-down-open-1"></i> -->
+                <i class="icon-down-open-1"></i>
               </a>
               </li>
 
@@ -92,7 +92,7 @@
                 Pastries
             
               </a>
-            </li>
+            </li> -->
 
             <!-- <li class="categories__item">
               <a class="categories__link" href="../about.php">

@@ -21,28 +21,25 @@ include("includes/main.php");
   </main>
 
 
-<div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
+<div id="content"><!-- content Starts -->
 
-<div class="col-md-12" ><!--- col-md-12 Starts -->
+<div class="container" style="width: 90%; margin: 70px 150px;"><!-- container Starts -->
 
-
-
-</div><!--- col-md-12 Ends -->
-
-<div class="col-md-3"><!-- col-md-3 Starts -->
+<div class="col-md-2"><!-- col-md-3 Starts -->
 
 <?php include("includes/sidebar.php"); ?>
 
 </div><!-- col-md-3 Ends -->
- <div class="col-md-9" > 
-  <!-- col-md-9 Starts --->
 
-  <div class="row">
-<?php getPro(); ?>
+<div class="col-md-9" ><!-- col-md-9 Starts --->
 
-</div></div>
-<!-- row Ends -->
+<div class="row">
+
+  <?php getPro(); ?>
+
+</div><!-- row Ends -->
+
+</div>
 
 <center><!-- center Starts -->
 

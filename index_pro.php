@@ -24,7 +24,7 @@ include("includes/main.php");
 
 
 
-    <div id="content" class="container"><!-- container Starts -->
+    <div id="content" class="container" style="width: 90%; margin: 0px auto 0px 250px;"><!-- container Starts -->
 
     <div class="row"><!-- row Starts -->
 
@@ -103,21 +103,19 @@ $product_label = "
 
 echo "
 
-<div class='col-md-4 col-sm-6 single' >
+<div class='col-md-3 col-sm-6 single' >
 
 <div class='product' >
 
 <a href='$pro_url' >
 
-<img src='./product_img/$pro_img1' class='img-responsive' style='height:280px;'>
+<img src='./product_img/$pro_img1' class='img-responsive' style='height:270px; width:100%; object-fit: cover;'>
 
 </a>
 
-<div class='text' >
+<div class='text' style='min-height: 250px;'>
 
 <center>
-
-
 
 </center>
 
@@ -139,13 +137,11 @@ echo "
 
 </a>
 
-
 </p>
 
 </div>
 
 $product_label
-
 
 </div>
 

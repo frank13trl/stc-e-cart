@@ -30,7 +30,7 @@ include("includes/main.php");
 
     <?php
 
-    getPro1();
+    getPro2();
 
     ?>
 

@@ -97,7 +97,7 @@ $check_cart = mysqli_num_rows($run_cart);
 
 if($check_customer==0){
 
-echo "<script>alert('password or email is wrong')</script>";
+echo "<script>alert('Email or password is wrong')</script>";
 
 exit();
 

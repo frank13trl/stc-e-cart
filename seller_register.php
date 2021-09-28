@@ -405,7 +405,6 @@ exit();
 
 $insert_customer = "insert into seller (Seller_name,Seller_email,Seller_pass,Seller_id,Seller_city,Seller_contact,Seller_address) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address')";
 
-
 $run_customer = mysqli_query($con,$insert_customer);
 
 $sel_cart = "select * from cart where ip_add='$c_ip'";
@@ -424,12 +423,9 @@ echo "<script>alert('Your Acoount will be activated within 24 hours')</script>";
 
 }else{
 
-$_SESSION['customer_email']=$c_email;
-
-echo "<script>alert('Your Acoount will be activated within 24 hours')</script>";
+echo "<script>alert('Your account will be activated within 24 hours')</script>";
 
 echo "<script>window.open('index.php','_self')</script>";
-
 
 }
 

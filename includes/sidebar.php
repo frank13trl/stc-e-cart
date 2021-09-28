@@ -75,7 +75,7 @@ Categories
 
 <div class="pull-right"><!-- pull-right Starts -->
 
-<a href="#" style="color:black;">
+<a style="color:black;">
 
 <span class="nav-toggle hide-show">
 
@@ -106,7 +106,7 @@ Hide
 
 </div><!-- panel-body Ends -->
 
-<div class="panel-body scroll-menu"><!-- panel-body scroll-menu Starts -->
+<div class="panel-body" style="height: fit-content;"><!-- panel-body scroll-menu Starts -->
 
 <ul class="nav nav-pills nav-stacked category-menu" id="dev-cats"><!-- nav nav-pills nav-stacked category-menu Starts -->
 
