@@ -100,9 +100,9 @@ $i++;
 
 <td>
 
-<a href="index.php?delete_cat=<?php echo $cat_id; ?>" >
+<a href="index.php?delete_cat=<?php echo $cat_id; ?>">
 
-<i class="fa fa-trash-o" ></i> Delete
+<i class="fa fa-trash-o"></i> Delete
 
 </a>
 
