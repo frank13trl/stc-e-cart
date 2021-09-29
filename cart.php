@@ -9,7 +9,6 @@ include("includes/main.php");
 
 ?>
 
-
   <!-- MAIN -->
   <main>
     <!-- HERO -->
@@ -23,11 +22,11 @@ include("includes/main.php");
   </main>
 
 
-
 <div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
 
+<div class="container" id="u_cart_c" style="margin: 50px auto;"><!-- container Starts -->
 
+<div class="row" id="u_cart">
 
 <div class="col-md-9" id="cart" ><!-- col-md-9 Starts -->
 
@@ -59,7 +58,7 @@ $count = mysqli_num_rows($run_cart);
 
 <tr>
 
-<th colspan="2" >Product</th>
+<th class="text-center" colspan="2" >Product Name</th>
 
 <th>Quantity</th>
 
@@ -114,7 +113,7 @@ $total += $sub_total;
 
 <tr><!-- tr Starts -->
 
-<td>
+<td class="text-center">
 
 <img src="product_img/<?php echo $product_img1; ?>" >
 
@@ -122,7 +121,7 @@ $total += $sub_total;
 
 <td>
 
-<a href="#" > <?php echo $product_title; ?> </a>
+<h4><b> <?php echo $product_title; ?> </b></h4>
 
 </td>
 
@@ -162,9 +161,9 @@ $total += $sub_total;
 
 <tr>
 
-<th colspan="5"> Total </th>
+<th class="text-right" colspan="6"> Total amount</th>
 
-<th colspan="2"> ₹<?php echo $total; ?>.00 </th>
+<th> ₹<?php echo $total; ?>.00 </th>
 
 </tr>
 
@@ -332,22 +331,86 @@ echo @$up_cart = update_cart();
 ?>
 
 
+</div><!-- col-md-9 Ends -->
+
+<div class="col-md-3" id="bill"><!-- col-md-3 Starts -->
+
+<div class="box" id="order-summary"><!-- box Starts -->
+
+<div class="box-header"><!-- box-header Starts -->
+
+<h3>Order Summary</h3>
+
+</div><!-- box-header Ends -->
+
+<p class="text-muted">
+Shipping and additional costs are calculated based on the values you have entered.
+</p>
+
+<div class="table-responsive"><!-- table-responsive Starts -->
+
+<table class="table"><!-- table Starts -->
+
+<tbody><!-- tbody Starts -->
+
+<tr>
+
+<td> Order Subtotal </td>
+
+<th> ₹<?php echo $total; ?>.00 </th>
+
+</tr>
+
+<tr>
+
+<td> Shipping and handling </td>
+
+<th>₹0.00</th>
+
+</tr>
+
+<tr>
+
+<td>Tax</td>
+
+<th>₹0.00</th>
+
+</tr>
+
+<tr class="total">
+
+<td>Total</td>
+
+<th>₹<?php echo $total; ?>.00</th>
+
+</tr>
+
+</tbody><!-- tbody Ends -->
+
+</table><!-- table Ends -->
+
+</div><!-- table-responsive Ends -->
+
+</div><!-- box Ends -->
+
+</div><!-- col-md-3 Ends -->
+
+</div>
 
 <div id="row same-height-row"><!-- row same-height-row Starts -->
 
-<div class="col-md-3 col-sm-6"><!-- col-md-3 col-sm-6 Starts -->
+<div class="box"><!-- box same-height headline Starts -->
 
-<div class="box same-height headline"><!-- box same-height headline Starts -->
-
-<h3 class="text-center"> You also like these Products </h3>
+<h3 class="text-center"><i> You may also like these Products </i></h3>
 
 </div><!-- box same-height headline Ends -->
 
-</div><!-- col-md-3 col-sm-6 Ends -->
+<!-- </div> -->
+<!-- col-md-3 col-sm-6 Ends -->
 
 <?php
 
-$get_products = "select * from products where status='product' order by rand() LIMIT 0,3";
+$get_products = "select * from products where status='product' order by rand() LIMIT 0,4";
 
 $run_products = mysqli_query($con,$get_products);
 
@@ -423,11 +486,11 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='product_img/$pro_img1' class='img-responsive' style='height:180px; width:100%; object-fit: cover;'' >
+<img src='product_img/$pro_img1' class='img-responsive' style='height:250px; width:100%; object-fit: cover;'' >
 
 </a>
 
-<div class='text' >
+<div class='text' style='min-height: 200px;'>
 
 
 
@@ -472,71 +535,6 @@ $product_label
 
 </div><!-- row same-height-row Ends -->
 
-
-</div><!-- col-md-9 Ends -->
-
-<div class="col-md-3"><!-- col-md-3 Starts -->
-
-<div class="box" id="order-summary"><!-- box Starts -->
-
-<div class="box-header"><!-- box-header Starts -->
-
-<h3>Order Summary</h3>
-
-</div><!-- box-header Ends -->
-
-<p class="text-muted">
-Shipping and additional costs are calculated based on the values you have entered.
-</p>
-
-<div class="table-responsive"><!-- table-responsive Starts -->
-
-<table class="table"><!-- table Starts -->
-
-<tbody><!-- tbody Starts -->
-
-<tr>
-
-<td> Order Subtotal </td>
-
-<th> ₹<?php echo $total; ?>.00 </th>
-
-</tr>
-
-<tr>
-
-<td> Shipping and handling </td>
-
-<th>₹0.00</th>
-
-</tr>
-
-<tr>
-
-<td>Tax</td>
-
-<th>₹0.00</th>
-
-</tr>
-
-<tr class="total">
-
-<td>Total</td>
-
-<th>₹<?php echo $total; ?>.00</th>
-
-</tr>
-
-</tbody><!-- tbody Ends -->
-
-</table><!-- table Ends -->
-
-</div><!-- table-responsive Ends -->
-
-</div><!-- box Ends -->
-
-</div><!-- col-md-3 Ends -->
-
 </div><!-- container Ends -->
 </div><!-- content Ends -->
 
@@ -574,7 +572,7 @@ data:{id:id, quantity:quantity},
 
 success:function(data){
 
-$("body").load('cart_body.php');
+$("#u_cart").load('cart.php #cart,#bill');
 
 }
 

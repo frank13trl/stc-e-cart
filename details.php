@@ -104,11 +104,8 @@ $product_label = "
   </main>
 
 <div id="content" ><!-- content Starts -->
+
 <div class="container" style="margin: 50px auto;"><!-- container Starts -->
-
-
-
-
 
 <div class="col-md-12"><!-- col-md-12 Starts -->
 
@@ -647,7 +644,7 @@ if($status == "product"){
 
 <div class="box">
 
-<h3 class="text-center"> You may also like these products </h3>
+<h3 class="text-center"><i> You may also like these products </i></h3>
 
 </div>
 

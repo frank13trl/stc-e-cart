@@ -45,13 +45,13 @@
 
           <li class="login__item">
           <?php
-          // if(!isset($_SESSION['customer_email'])){
-          //   echo '<a href="../checkout.php" class="login__link">Sign In</a>';
-          // } 
-          //   else
-          //   { 
-          //       echo '<a href="../logout.php" class="login__link">Log out</a>';
-          //   }   
+          if(!isset($_SESSION['customer_email'])){
+            echo '<a href="../checkout.php" class="login__link">Sign In</a>';
+          } 
+            else
+            { 
+                echo '<a href="../logout.php" class="login__link">Log out</a>';
+            }   
 ?>  
             
           </li>

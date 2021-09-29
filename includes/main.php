@@ -52,7 +52,7 @@
 <?php
 if(isset($_SESSION['customer_email'])){
   // echo '<a href="customer_register.php" class="login__link"><b>Register</b></a>';
-  echo '<a href="my_account.php?my_orders" class="login__link"><b>My Account</b></a>';
+  echo '<a href="customer/my_account.php?my_orders" class="login__link"><b>My Account</b></a>';
 } 
   // else
   // { 
