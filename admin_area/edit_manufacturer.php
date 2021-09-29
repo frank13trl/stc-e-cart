@@ -52,7 +52,7 @@ $m_email = $row_manufacturer['Seller_email'];
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / Edit Manufacturer
+<i class="fa fa-dashboard"></i> Dashboard / Edit Seller
 
 </li>
 

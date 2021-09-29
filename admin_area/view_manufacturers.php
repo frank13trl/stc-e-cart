@@ -20,7 +20,7 @@ else {
 
 <li class="active">
 
-<i class="fa fa-dashboard"></i> Dashboard / View Manufacturers
+<i class="fa fa-dashboard"></i> Dashboard / View Sellers
 
 </li>
 
@@ -40,7 +40,7 @@ else {
 
 <h3 class="panel-title">
 
-<i class="fa fa-money fa-fw"></i> View Manufacturers
+<i class="fa fa-money fa-fw"></i> View Sellers
 
 </h3>
 
@@ -56,10 +56,11 @@ else {
 
 <tr>
 
-<th>Manufacturer Id:</th>
-<th>Manufacturer Title:</th>
-<th>Delete Manufacturer:</th>
-<th>Edit Manufacturer:</th>
+<th>Seller:</th>
+<th>Seller Name:</th>
+<th>Seller ID:</th>
+<th>Delete Seller:</th>
+<th>Action:</th>
 
 </tr>
 
@@ -77,9 +78,10 @@ $run_manufacturers = mysqli_query($con,$get_manufacturers);
 
 while($row_manufacturers = mysqli_fetch_array($run_manufacturers)){
 
-$manufacturer_id = $row_manufacturers['Seller_id'];
+$rseller_id = $row_manufacturers['Seller_id'];
 
-$manufacturer_title = $row_manufacturers['Seller_name'];
+$rseller_title = $row_manufacturers['Seller_name'];
+
 
 $i++;
 
@@ -89,11 +91,13 @@ $i++;
 
 <td><?php echo $i; ?></td>
 
-<td><?php echo $manufacturer_title; ?></td>
+<td><?php echo $rseller_title; ?></td>
+
+<td><?php echo $rseller_id; ?></td>
 
 <td>
 
-<a href="index.php?delete_manufacturer=<?php echo $manufacturer_id; ?>">
+<a href="index.php?delete_manufacturer=<?php echo $rseller_id; ?>">
 
 <i class="fa fa-trash-o"></i> Delete
 
@@ -101,9 +105,10 @@ $i++;
 
 </td>
 
+
 <td>
 
-<a href="index.php?edit_manufacturer=<?php echo $manufacturer_id; ?>">
+<a href="index.php?edit_manufacturer=<?php echo $rseller_id; ?>">
 
 <i class="fa fa-pencil"></i> Edit
 
