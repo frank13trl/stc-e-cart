@@ -423,7 +423,7 @@ echo "
 
 <a href='$pro_url' >
 
-<img src='product_img/$pro_img1' class='img-responsive' >
+<img src='product_img/$pro_img1' class='img-responsive' style='height:180px; width:100%; object-fit: cover;'' >
 
 </a>
 
