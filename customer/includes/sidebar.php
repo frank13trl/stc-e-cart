@@ -32,7 +32,7 @@ echo "
 
 <br>
 
-<h3 align='center' class='panel-title'> Name : $customer_name </h3>
+<h1 align='center' class='panel-title'> <b>$customer_name</b> </h1>
 
 ";
 

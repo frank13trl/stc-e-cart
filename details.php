@@ -31,7 +31,7 @@ else{
 
 $row_product = mysqli_fetch_array($run_product);
 
-//$p_cat_id = $row_product['p_cat_id'];
+$cat_id = $row_product['cat_id'];
 
 $pro_id = $row_product['product_id'];
 
@@ -193,6 +193,7 @@ $product_qty = $_POST['product_qty'];
 
 $pref_dt = $_POST['dt'];
 
+$wish_text = $_POST['wishtxt'];
 
 $check_product = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
 
@@ -218,6 +219,7 @@ $pro_price = $row_price['product_price'];
 $pro_psp_price = $row_price['product_psp_price'];
 
 $pro_label = $row_price['product_label'];
+
 $pro_s=$row_price['product_weight'];
 
 if($pro_label == "Sale" or $pro_label == "Gift"){
@@ -231,9 +233,11 @@ $product_price = $pro_price;
 
 }
 
-$query = "insert into cart (p_id,ip_add,qty,p_price,size,pref_dt) values ('$p_id','$ip_add','$product_qty','$product_price','$pro_s','$pref_dt')";
+$query = "insert into cart (p_id,wish_text,ip_add,qty,p_price,size,pref_dt) values ('$p_id','$wish_text','$ip_add','$product_qty','$product_price','$pro_s','$pref_dt')";
 
 $run_query = mysqli_query($db,$query);
+
+if(!$run_query) echo mysqli_error($db);
 
 echo "<script>window.open('cart.php','_self')</script>";
 
@@ -258,24 +262,24 @@ if($status == "product"){
 
 <div class="col-md-7" ><!-- col-md-7 Starts -->
 
-<select name="product_qty" class="form-control" >
+<input list="qty" name="product_qty" class="form-control" placeholder="Quantity" required>
 
-<option>Quantity</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<datalist id="qty">
 
+<option value="1" default>
+<option value="2">
+<option value="3">
+<option value="4">
+<option value="5">
 
-</select>
+</datalist>
 
 </div><!-- col-md-7 Ends -->
 
-</div><!-- form-group Ends -->
+</div>
+<!-- form-group Ends -->
 
-<div class="form-group" >
-  <!-- form-group Starts -->
+<div class="form-group"><!-- form-group Starts -->
 
 <label class="col-md-5 control-label" >Prefered date and time :</label>
 
@@ -301,9 +305,30 @@ echo "<input type='datetime-local' class='form-control' name='dt' value='$dt' mi
 </div>
 <!-- col-md-7 Ends -->
 
-
 </div>
 <!-- form-group Ends -->
+
+<?php
+
+if($cat_id==6){
+
+echo "<div class='form-group'>
+
+<label class='col-md-5 control-label' >Wishes/text on cake :</label>
+
+<div class='col-md-7' >
+
+<input type='text' class='form-control' name='wishtxt' placeholder='Eg : Happy Birthday'>
+
+</div>
+
+</div>";
+
+}
+
+?>
+
+
 
 <?php }else { ?>
 

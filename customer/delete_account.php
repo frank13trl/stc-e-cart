@@ -1,13 +1,19 @@
 
 <center>
 
-<h1>Do You Reaaly Want To Delete Your Account!</h1>
+<h1><b>Do you really want to delete your account ?</b></h1>
 
-<form action="" method="post">
+<p class="text-muted text-danger" >
 
-<input class="btn btn-danger" type="submit" name="yes" value="Yes, I want to delete">
+Note : This action cannot be undone!
 
-<input class="btn btn-primary" type="submit" name="no" value="No, I Don,t want to delete">
+</p>
+
+<form action="" method="post" style="padding: 50px;">
+
+<input class="btn btn-danger" type="submit" name="yes" value="Yes, I want to delete my account">
+
+<input class="btn btn-success" type="submit" name="no" value="No, I don't want to delete my account">
 
 </form>
 

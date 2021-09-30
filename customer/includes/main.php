@@ -46,11 +46,11 @@
           <li class="login__item">
           <?php
           if(!isset($_SESSION['customer_email'])){
-            echo '<a href="../checkout.php" class="login__link">Sign In</a>';
+            echo '<a href="../checkout.php" class="login__link"><b>Sign In</b></a>';
           } 
             else
             { 
-                echo '<a href="../logout.php" class="login__link">Log out</a>';
+                echo '<a href="../logout.php" class="login__link"><b>Log out</b></a>';
             }   
 ?>  
             
@@ -110,9 +110,9 @@
                   <div class="dropdown__half">
                     <div class="dropdown__heading">Account Settings</div>
                     <ul class="dropdown__items">
-                      <li class="dropdown__item">
+                      <!-- <li class="dropdown__item">
                         <a href="#" class="dropdown__link">My Wishlist</a>
-                      </li>
+                      </li> -->
                       <li class="dropdown__item">
                         <a href="#" class="dropdown__link">My Orders</a>
                       </li>

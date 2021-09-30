@@ -84,7 +84,7 @@ $i = 0;
 
 $seller_session = $_SESSION['seller'];
 
-$get_orders = "select * from customer_orders where order_status='pending' AND s_id='$seller_session'";
+$get_orders = "select * from customer_orders where order_status in ('Pending','Cancelled') and s_id='$seller_session'";
 
 $run_orders = mysqli_query($con,$get_orders);
 
@@ -150,8 +150,8 @@ echo $customer_email;
 <td><?php echo $size; ?></td>
 
 <td>
-<?php
 
+<?php
 
 $get_customer_order = "select * from customer_orders where order_id='$order_id' and s_id='$seller_session'";
 
@@ -177,17 +177,17 @@ echo $order_date;
 <td>
 <?php
 
-if($order_status=='pending'){
+if($order_status=='Pending')
 
-echo $order_status='pending';
+echo $order_status='Pending';
 
-}
-else{
+elseif($order_status=='Cancelled')
+
+echo $order_status='Cancelled';
+
+else
 
 echo $order_status='Complete';
-
-}
-
 
 ?>
 </td>
@@ -196,7 +196,17 @@ echo $order_status='Complete';
 
 <form class="form-horizontal" action="" method="post">
 
-<button name="confirm" class="form-control btn btn-primary" value="<?php echo $order_id ?>" > Completed </button>
+<?php
+
+if($order_status=='Cancelled')
+
+echo "<button class='btn btn-warning' disabled> Cancelled </button>";
+
+else
+
+echo "<button name='confirm' class='form-control btn btn-primary' value='$order_id'> Completed </button>";
+
+?>
 
 </form>
 

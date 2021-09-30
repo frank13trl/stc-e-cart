@@ -194,11 +194,25 @@ $total += $sub_total;
 
 </button>
 
-<a href="checkout.php" class="btn btn-primary">
+<?php
 
-Proceed to checkout <i class="fa fa-chevron-right"></i>
+if($count==0)
 
-</a>
+echo "<a  class='btn btn-primary' disabled>
+
+Proceed to checkout <i class='fa fa-chevron-right'></i>
+
+</a>";
+
+else
+
+  echo "<a href='checkout.php' class='btn btn-primary'>
+
+  Proceed to checkout <i class='fa fa-chevron-right'></i>
+  
+  </a>";
+
+?>
 
 </div><!-- pull-right Ends -->
 
@@ -560,7 +574,7 @@ var id = $(this).data("product_id");
 
 var quantity = $(this).val();
 
-if(quantity  != ''){
+if(quantity  != '' && quantity  != '0'){
 
 $.ajax({
 

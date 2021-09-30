@@ -1,9 +1,9 @@
 
 <center><!-- center Starts -->
 
-<h1>My Orders</h1>
+<h1><b>My Orders</b></h1>
 
-<p class="lead"> Your orders on one place.</p>
+<p class="lead"> All your orders in one place</p>
 
 <p class="text-muted" >
 
@@ -25,7 +25,7 @@ If you have any questions, please feel free to <a href="../contact.php" > contac
 
 <tr>
 
-<th>O N:</th>
+<th>Order No:</th>
 <th>Product:</th>
 <th>Due Amount:</th>
 <th>Invoice No:</th>
@@ -99,7 +99,7 @@ $pro_name = $row_pro['product_title'];
 
 ?>
 
-<tr><!-- tr Starts -->
+<tr style="height: 70px;"><!-- tr Starts -->
 
 <th><?php echo $i; ?></th>
 
@@ -111,20 +111,39 @@ $pro_name = $row_pro['product_title'];
 
 <td><?php echo $qty; ?></td>
 
-<td><?php echo $order_date; ?>
-
-</td>
-
-
+<td><?php echo $order_date; ?></td>
 
 <td>
 
 <?php
 
-if($order_status=='pending')
+if($order_status=='Pending'){
+
+
+    $get_days = "select DATEDIFF(now(), order_date) AS days from customer_orders where order_id='$order_id';";
+
+    $run_days = mysqli_query($con,$get_days);
+
+    $row_days = mysqli_fetch_array($run_days);
+
+    if($row_days['days']<=1){
+
+    echo "<form action='' method='post'>";
+    
+    echo "<button name='cancel' value='$order_id' class='btn btn-danger'>Cancel Order</button></form>";
+
+    }else
 
     echo "<i>Order pending</i>";
-else{
+
+}
+
+if($order_status=='Cancelled'){
+
+    echo "<i class='text-danger'>Order Cancelled</i>";
+}
+
+if($order_status=='Completed'){
 
 $check_review = "select * from customer_review where order_id='$order_id'";
 
@@ -147,7 +166,29 @@ else
 
 </tr><!-- tr Ends -->
 
-<?php } ?>
+<?php 
+
+}
+
+if(isset($_POST['cancel'])){
+
+    $o_id = $_POST['cancel'];
+
+    $cancel_order = "update customer_orders set order_status='Cancelled' where order_id='$o_id'";
+
+    $run_cancel = mysqli_query($con,$cancel_order);
+
+    if($run_cancel){
+
+        echo "<script>alert('Your order (ID: $o_id) has been cancelled')</script>";
+
+        echo "<script>window.open('my_account.php?my_orders','_self')</script>";
+
+    }
+
+}
+
+?>
 
 </tbody><!--- tbody Ends --->
 

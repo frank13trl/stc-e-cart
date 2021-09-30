@@ -193,6 +193,8 @@ echo "<i>Not reviewed</i>";
 else
 echo "<b>".$product_rev."</b>";
 
+$product_rate=$product_rev=null;
+
 ?>
 </td>
 

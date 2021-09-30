@@ -164,15 +164,19 @@ echo "
 
 </a>
 
-<div class='text' style='min-height: 250px;'>
+<div class='text' style='min-height: 230px;'>
 
 <hr>
 
-<h3><a href='$pro_url' >$pro_title</a></h3>
+<h3><a href='$pro_url' ><b>$pro_title</b></a></h3>
+
+<div style='min-height: 80px'>
 
 <p class='price' > $pro_weight </p>
 
 <p class='price' > $product_price $product_psp_price </p>
+
+</div>
 
 <p class='buttons' >
 
@@ -293,7 +297,7 @@ function getPro1(){
     
   <hr>
   
-  <h3><a href='$pro_url' >$pro_title</a></h3>
+  <h3><a href='$pro_url' ><b>$pro_title</b></a></h3>
   
   <p class='price' > $product_price $product_psp_price </p>
   
@@ -421,7 +425,8 @@ function getPro2(){
   
   <hr>
   
-  <h3><a href='$pro_url' >$pro_title</a></h3>
+  <h3><a href='$pro_url' ><b>$pro_title</b></a></h3>
+
   <p class='price' > $pro_weight </p>
   
   <p class='price' > $product_price $product_psp_price </p>
@@ -619,7 +624,7 @@ echo "
 
 <hr>
 
-<h3><a href='$pro_url' >$pro_title</a></h3>
+<h3><a href='$pro_url' ><b>$pro_title</b></a></h3>
 
 <p class='price' > $product_price $product_psp_price </p>
 

@@ -28,7 +28,7 @@ include("includes/main.php");
   </main>
 
 <div id="content" ><!-- content Starts -->
-<div class="container" ><!-- container Starts -->
+<div class="container" style="margin: 50px auto;"><!-- container Starts -->
 
 
 

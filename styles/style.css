@@ -1,7 +1,7 @@
 /* General Styles */
 
 body {
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
@@ -347,8 +347,8 @@ body {
 }
 
 #content #cart .table tbody tr td input {
-    width: 40px;
-    text-align: right;
+    width: 60px;
+    text-align: center;
 }
 
 #content #cart .table tbody tr td {
@@ -538,8 +538,8 @@ body {
 
 .label .thelabel {
     position: relative;
-    width: 100px;
-    padding: 6px 50px 6px 15px;
+    width: auto;
+    padding: 5px;
     margin: 40px 50px 10px -71px;
     color: #fff;
     font-size: 18px;
@@ -565,7 +565,7 @@ body {
 }
 
 .label.sale {
-    top: 0;
+    top: -30px;
 }
 
 
