@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 21, 2021 at 11:48 PM
+-- Generation Time: Oct 01, 2021 at 10:21 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -64,7 +64,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
-(2, 'Yasser Dalouzi', 'admin@ave.com', '123', 'admin.jpg', '077885221', 'Morocco', 'Front-End Developer', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical ');
+(7, 'STC E-Cart', 'stc.ecart@gmail.com', '123', '', '1234567890', 'India', 'E-Cart Admin', 'St. Thomas College E-Cart Administrator');
 
 -- --------------------------------------------------------
 
@@ -87,12 +87,20 @@ CREATE TABLE `bundle_product_relation` (
 
 CREATE TABLE `cart` (
   `p_id` int(10) NOT NULL,
+  `wish_text` varchar(30) NOT NULL,
   `ip_add` varchar(255) NOT NULL,
   `qty` int(10) NOT NULL,
   `p_price` varchar(255) NOT NULL,
   `size` text NOT NULL,
   `pref_dt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`p_id`, `wish_text`, `ip_add`, `qty`, `p_price`, `size`, `pref_dt`) VALUES
+(34, '', '::1', 50, '50', '', '2021-10-01 01:58:00');
 
 -- --------------------------------------------------------
 
@@ -114,7 +122,7 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_top`, `cat_image`) VALUES
 (6, 'Cake', 'no', 'c1f94980fa354a048008897a2b901039.jpg'),
 (7, 'Pastries', 'no', 'best-chocolate-cupcakes-recipe-SQUARE.jpg'),
-(9, 'Other', 'no', '270px-Pink_Lady_Apple_(4107712628).jpg');
+(11, 'star', 'no', '');
 
 -- --------------------------------------------------------
 
@@ -134,7 +142,7 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`contact_id`, `contact_email`, `contact_heading`, `contact_desc`) VALUES
-(1, 'k.rameela@gmail.com', 'Contact Us', 'If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.');
+(1, 'franktrl2000@gmail.com', 'Contact Us', 'If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.');
 
 -- --------------------------------------------------------
 
@@ -198,12 +206,13 @@ CREATE TABLE `customer_orders` (
   `order_id` int(10) NOT NULL,
   `customer_id` int(10) NOT NULL,
   `pro_id` int(10) NOT NULL,
+  `wish_text` varchar(30) NOT NULL,
   `s_id` varchar(20) NOT NULL,
   `due_amount` int(100) NOT NULL,
   `invoice_no` int(100) NOT NULL,
   `qty` int(10) NOT NULL,
   `size` text NOT NULL,
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `order_status` text NOT NULL,
   `pro_dt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -212,10 +221,21 @@ CREATE TABLE `customer_orders` (
 -- Dumping data for table `customer_orders`
 --
 
-INSERT INTO `customer_orders` (`order_id`, `customer_id`, `pro_id`, `s_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`, `pro_dt`) VALUES
-(63, 6, 35, '1234567', 1500, 2018668505, 3, '1 KG', '2021-09-21 20:56:19', 'Completed', '2021-09-08 14:15:00'),
-(65, 2, 35, '1234567', 2000, 607948020, 4, '1 KG', '2021-09-21 20:56:26', 'Completed', '2021-09-21 16:44:00'),
-(66, 6, 18, '123456', 500, 1690640594, 2, '1 KG', '2021-09-21 21:34:50', 'Completed', '2021-09-27 17:00:00');
+INSERT INTO `customer_orders` (`order_id`, `customer_id`, `pro_id`, `wish_text`, `s_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`, `pro_dt`) VALUES
+(69, 5, 23, '', '123456', 1000, 1753791817, 2, '1', '2021-09-25 05:38:35', 'Completed', '2021-09-30 17:07:00'),
+(70, 2, 30, '', '1234567', 500, 1958811852, 1, '1', '2021-09-30 19:52:01', 'Completed', '2021-09-29 06:24:00'),
+(71, 2, 37, '', '999', 500, 327828772, 2, '1 KG', '2021-09-30 19:52:15', 'Completed', '2021-09-25 15:50:00'),
+(72, 6, 37, '', '999', 250, 288682544, 1, '1 KG', '2021-09-25 10:24:23', 'Completed', '2021-09-28 15:52:00'),
+(73, 5, 38, '', '1234567', 2000, 1177190732, 4, '1 KG', '2021-09-25 10:48:34', 'Completed', '2021-09-25 16:15:00'),
+(74, 6, 36, '', '123456', 100, 460365058, 1, '', '2021-09-28 06:21:46', 'Completed', '2021-10-04 13:00:00'),
+(75, 6, 38, '', '1234567', 1000, 1725279331, 2, '1 KG', '2021-09-28 06:35:29', 'Completed', '2021-09-28 12:01:00'),
+(76, 6, 34, '', '1234567', 250, 20030795, 5, '', '2021-09-28 06:35:29', 'Completed', '2021-09-28 12:01:00'),
+(77, 6, 37, '', '999', 1250, 332210110, 5, '1 KG', '2021-09-28 06:52:32', 'Completed', '2021-09-28 12:02:00'),
+(78, 5, 23, '', '123456', 1000, 683695363, 2, '1', '2021-09-30 19:25:36', 'Cancelled', '2021-10-04 13:30:00'),
+(79, 5, 23, '', '123456', 500, 277576093, 1, '1', '2021-09-30 19:25:42', 'Cancelled', '2021-10-03 17:30:00'),
+(80, 5, 36, '', '123456', 500, 277576093, 5, '', '2021-09-30 20:03:30', 'Cancelled', '2021-10-03 17:30:00'),
+(81, 2, 23, 'Happy Ayoo', '123456', 500, 366388397, 1, '1', '2021-09-30 20:02:50', 'Cancelled', '2021-09-30 13:21:00'),
+(82, 6, 34, '', '1234567', 25000, 1115961483, 500, '', '2021-09-30 20:24:51', 'Pending', '2021-10-01 01:43:00');
 
 -- --------------------------------------------------------
 
@@ -236,9 +256,11 @@ CREATE TABLE `customer_review` (
 --
 
 INSERT INTO `customer_review` (`order_id`, `customer_id`, `product_id`, `star`, `review`) VALUES
-(63, '6', '35', '5', 'Adipwoli mwonee...'),
-(65, '2', '35', '3', 'Happy ayoo '),
-(66, '6', '18', '4', 'Pwoli saanam...');
+(66, '6', '18', '4', 'Pwoli saanam...'),
+(69, '5', '23', '3', 'OKk'),
+(71, '2', '37', '4', 'very good'),
+(72, '6', '37', '3', 'very good'),
+(73, '5', '38', '3', 'liked it');
 
 -- --------------------------------------------------------
 
@@ -348,15 +370,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `Seller_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_weight`, `product_psp_price`, `product_desc`, `product_features`, `product_video`, `product_keywords`, `product_label`, `status`) VALUES
-(18, '123456', 9, 4, '2021-09-21 21:30:05', 'Red Velvet', 'red-velvet', 'red-velvet-cake.jpg', 'red-velvet-cake-500x500.png', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 250, '2', 0, '\r\nRed Velvet Cake\r\n\r\n', '\r\nGood, Nice\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 'red', '10 LEFT', 'product'),
-(20, '123456', 7, 7, '2021-09-07 07:47:33', 'Cup Cakes', 'cup-cake', 'chocolate-cupcakes10.jpg', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'valentines-cakes-group-3.jpg', 500, 'Select a Category', 0, 'Good cup cake\r\n', 'Delicious\r\n', '\r\n\r\n\r\n\r\n', 'cup', '10 LEFT', 'product'),
+(20, '123456', 7, 7, '2021-09-25 05:33:03', 'Cup Cakes', 'cup-cake', 'chocolate-cupcakes10.jpg', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'valentines-cakes-group-3.jpg', 500, 'Select a Category', 0, 'Good cup cake\r\n', 'Delicious\r\n', '\r\n\r\n\r\n\r\n', 'cup', '10 LEFT', 'not_product'),
 (23, '123456', 6, 0, '2021-09-07 08:47:27', 'Black Forest', 'black-forest', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 'red-velvet-cake-500x500.png', 'extravagant-blackforest-past0159blac-A_0.jpg', 500, '1', NULL, '\r\n\r\ngood', '\r\n\r\n', '\r\n\r\n', 'black', '1 LEFT', 'product'),
-(27, '123456', 6, 0, '2021-09-11 09:33:36', 'white forest', 'white-forest', 'Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg', 'Re-Shoot-Cake-11-C.jpg', 'valentines-cakes-group-3.jpg', 250, '1', NULL, '\r\nhvk,hv\r\n', '\r\n\r\n', '\r\n\r\n', 'white', '1 LEFT', 'product'),
 (30, '1234567', 6, 0, '2021-09-11 09:42:38', 'white forest', 'whiteforest2', 'CD9811C0-7271-4EF8-BDD6-D4BCD0C9488B.jpeg', 'c1f94980fa354a048008897a2b901039.jpg', '270px-Pink_Lady_Apple_(4107712628).jpg', 500, '1', NULL, '\r\nryhgfj\r\n', '\r\n\r\n', '\r\n\r\n', 'white', '2 LEFT', 'product'),
-(31, '123456', 6, 0, '2021-09-11 10:18:10', 'Black Forest', 'black-forest-123456', '270px-Pink_Lady_Apple_(4107712628).jpg', 'CD9811C0-7271-4EF8-BDD6-D4BCD0C9488B.jpeg', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 250, '1', 0, '\r\n\r\n\r\ngood\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', '\r\n\r\n\r\n\r\n\r\n\r\n', 'black', '1 LEFT', 'product'),
-(33, '123456', 6, 0, '2021-09-18 06:08:17', 'Black_Forest', 'black-forest-123456', 'WIN_20210722_13_45_47_Pro.jpg', 'WIN_20210809_15_33_31_Pro.jpg', 'WIN_20210720_13_50_21_Pro.jpg', 1000, '1', NULL, '\r\ngood\r\n', '\r\n\r\nnys', '\r\n\r\n', 'black', 'limited edition', 'product'),
 (34, '1234567', 7, 0, '2021-09-18 07:49:15', 'Cup Cake', 'cup-cake-1234567', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'home-img-1.png', 'Black Blouse Versace Coat3.jpg', 50, '', NULL, 'adsfasdfas\r\n\r\n', '\r\n\r\nfasdfasdf', '\r\n\r\n', 'cup', '10 nos', 'product'),
-(35, '1234567', 6, 0, '2021-09-18 07:57:34', 'banjo', 'banjo-1234567', 'dish-3.png', 'dish-1.png', 'menu-4.jpg', 500, '1 KG', NULL, 'nice\r\n\r\n', 'nice\r\n\r\n', '\r\n\r\n', 'banjo', 'hurry', 'product');
+(36, '123456', 11, 0, '2021-09-25 10:15:43', 'STAR', 'led-star-123456', 'maxresdefault.jpg', 'P1040717.jpg', 's-l300.jpg', 100, '', NULL, '\r\n\r\nnys ', '\r\ngood\r\n', '\r\n\r\n', 'led-star', 'LED STAR', 'product'),
+(37, '999', 6, 0, '2021-09-25 10:20:08', 'vanilla cake', 'vanilla-cake1Kg-999', 'special-delicious-vanilla-cake-half-kg_1.jpg', 'moist_vanilla_cake_recipe_featured2.jpg', 'Homemade-Vanilla-Birthday-Cake30.jpg', 250, '1 KG', NULL, '\r\n\r\nvery good', '\r\n\r\nlovely', '\r\n\r\n', 'vanilla', 'Vanilla ', 'product'),
+(38, '1234567', 6, 0, '2021-09-25 10:29:13', 'chocolate cake', 'chocolate-cake1Kg-1234567', 'choco-vanilla-cakes-16.jpg', 'choco-vanilla-cakes-18.jpg', 'c7d95538bea3c51d16b530a56aaae83d.jpg', 500, '1 KG', NULL, '\r\ngood\r\n', '\r\n\r\ngood', '\r\n\r\n', 'chocate', 'chocolate', 'product');
 
 -- --------------------------------------------------------
 
@@ -394,7 +414,12 @@ CREATE TABLE `seller` (
 
 INSERT INTO `seller` (`Seller_name`, `Seller_email`, `Seller_pass`, `Seller_id`, `Seller_city`, `Seller_contact`, `Seller_address`, `confirm`) VALUES
 ('Dil', 'dil@gmail.com', '123456', '123456', 'tsr', '1234567890', 'Kerala', 1),
-('Frank', 'frank@abc.com', '123', '1234567', 'tsr', '1234567890', 'Kerala', 1);
+('Frank', 'frank@abc.com', '123', '1234567', 'tsr', '1234567890', 'Kerala', 1),
+('DV', 'dvser@123.com', '123', '999', 'kozhikod', '999999', 'kundankode', 1),
+('TestSeller1', 'franktrl2000@gmail.com', '123', 'S111', 'TSR', '12345', 'KL', 1),
+('TestSeller2', 'franktrl2000@gmail.com', '123', 'S112', 'TSR', '12345', 'KL', 1),
+('TestSeller3', 'franktrl2000@gmail.com', '12345', 'S113', 'TSR', '1234567890', 'KL', 0),
+('TestSeller4', 'franktrl2000@gmail.com', '12345', 'S114', 'TSR', '1234567890', 'KL', 1);
 
 -- --------------------------------------------------------
 
@@ -599,7 +624,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `bundle_product_relation`
@@ -611,7 +636,7 @@ ALTER TABLE `bundle_product_relation`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -635,7 +660,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `enquiry_types`
@@ -665,7 +690,7 @@ ALTER TABLE `pending_orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
