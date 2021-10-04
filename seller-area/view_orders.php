@@ -64,6 +64,7 @@ else {
 <th>Product Title:</th>
 <th>Product Qty:</th>
 <th>Product Size:</th>
+<th>Message on cake :</th>
 <th>Order Date:</th>
 <th>Prefered date and time:</th>
 <th>Total Amount:</th>
@@ -103,6 +104,7 @@ $qty = $row_orders['qty'];
 $size = $row_orders['size'];
 
 $order_status = $row_orders['order_status'];
+$wish=$row_orders['wish_text'];
 
 $get_products = "select * from products where product_id='$product_id' AND Seller_id='$seller_session'";
 
@@ -148,6 +150,7 @@ echo $customer_email;
 <td><?php echo $qty; ?></td>
 
 <td><?php echo $size; ?></td>
+<td><?php echo $wish; ?></td>
 
 <td>
 
