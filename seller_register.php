@@ -53,7 +53,7 @@ include("includes/main.php");
 
 <label>Seller Name</label>
 
-<input type="text" class="form-control" name="c_name" required>
+<input type="text" class="form-control" name="s_name" required>
 
 </div><!-- form-group Ends -->
 
@@ -61,7 +61,15 @@ include("includes/main.php");
 
 <label> Seller Email</label>
 
-<input type="text" class="form-control" name="c_email" required>
+<input type="text" class="form-control" name="s_email" required>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label> Staff / Student ID Number </label>
+
+<input type="text" class="form-control" name="s_id" required>
 
 </div><!-- form-group Ends -->
 
@@ -79,7 +87,7 @@ include("includes/main.php");
 
 </span><!-- input-group-addon Ends -->
 
-<input type="password" class="form-control" id="pass" name="c_pass" required>
+<input type="password" class="form-control" id="pass" name="s_pass" required>
 
 <span class="input-group-addon"><!-- input-group-addon Starts -->
 
@@ -96,7 +104,6 @@ include("includes/main.php");
 </div><!-- input-group Ends -->
 
 </div><!-- form-group Ends -->
-
 
 <div class="form-group"><!-- form-group Starts -->
 
@@ -118,28 +125,11 @@ include("includes/main.php");
 
 </div><!-- form-group Ends -->
 
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label> Staff / Student ID Number </label>
-
-<input type="text" class="form-control" name="c_country" required>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label> Seller City </label>
-
-<input type="text" class="form-control" name="c_city" required>
-
-</div><!-- form-group Ends -->
-
 <div class="form-group"><!-- form-group Starts -->
 
 <label> Seller Contact </label>
 
-<input type="text" class="form-control" name="c_contact" required>
+<input type="text" class="form-control" name="s_contact" required>
 
 </div><!-- form-group Ends -->
 
@@ -147,7 +137,15 @@ include("includes/main.php");
 
 <label> Seller Address </label>
 
-<input type="text" class="form-control" name="c_address" required>
+<input type="text" class="form-control" name="s_address" required>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label> Seller City </label>
+
+<input type="text" class="form-control" name="s_city" required>
 
 </div><!-- form-group Ends -->
 
@@ -155,7 +153,7 @@ include("includes/main.php");
 
 <!-- <label> Seller Image </label>
 
-<input type="file" class="form-control" name="c_image" required> -->
+<input type="file" class="form-control" name="s_image" required> -->
 
 </div><!-- form-group Ends -->
 
@@ -341,29 +339,29 @@ if(isset($_POST['register'])){
 
 // if($result['success'] == 1){
 
-$c_name = $_POST['c_name'];
+  $s_name = $_POST['s_name'];
 
-$c_email = $_POST['c_email'];
+  $s_email = $_POST['s_email'];
 
-$c_pass = $_POST['c_pass'];
+  $s_id = $_POST['s_id'];
+  
+  $s_pass = $_POST['s_pass'];
+  
+  $s_contact = $_POST['s_contact'];
+  
+  $s_address = $_POST['s_address'];
 
-$c_country = $_POST['c_country'];
+  $s_city = $_POST['s_city'];
 
-$c_city = $_POST['c_city'];
+// $s_image = $_FILES['s_image']['name'];
 
-$c_contact = $_POST['c_contact'];
+// $s_image_tmp = $_FILES['s_image']['tmp_name'];
 
-$c_address = $_POST['c_address'];
+$s_ip = getRealUserIp();
 
-// $c_image = $_FILES['c_image']['name'];
+// move_uploaded_file($s_image_tmp,"customer/customer_images/$s_image");
 
-// $c_image_tmp = $_FILES['c_image']['tmp_name'];
-
-$c_ip = getRealUserIp();
-
-// move_uploaded_file($c_image_tmp,"customer/customer_images/$c_image");
-
-$get_email = "select * from customers where customer_email='$c_email'";
+$get_email = "select * from seller where Seller_email='$s_email'";
 
 $run_email = mysqli_query($con,$get_email);
 
@@ -371,11 +369,27 @@ $check_email = mysqli_num_rows($run_email);
 
 if($check_email == 1){
 
-echo "<script>alert('This email is already registered, try another one')</script>";
+  echo "<script>alert('This email is already registered, try another one')</script>";
+  
+  exit();
+  
+  }
 
-exit();
+$get_id = "select * from seller where Seller_id='$s_id'";
 
-}
+$run_id = mysqli_query($con,$get_id);
+
+$check_id = mysqli_num_rows($run_id);
+
+if($check_id == 1){
+
+  echo "<script>alert('You are already registered, try logging in')</script>";
+
+  echo "<script>window.open('seller-area/login.php','_self')</script>";
+  
+  exit();
+  
+  }
 
 // $customer_confirm_code = mt_rand();
 
@@ -386,7 +400,7 @@ exit();
 // $message = "
 
 // <h2>
-// Email Confirmation By Computerfever.com $c_name
+// Email Confirmation By Computerfever.com $s_name
 // </h2>
 
 // <a href='localhost/ecom_store/customer/my_account.php?$customer_confirm_code'>
@@ -401,42 +415,20 @@ exit();
 
 // $headers .= "Content-type: text/html\r\n";
 
-// mail($c_email,$subject,$message,$headers);
+// mail($s_email,$subject,$message,$headers);
 
-$insert_customer = "insert into seller (Seller_name,Seller_email,Seller_pass,Seller_id,Seller_city,Seller_contact,Seller_address) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address')";
+$insert_seller = "insert into seller (Seller_name,Seller_email,Seller_pass,Seller_id,Seller_city,Seller_contact,Seller_address) values ('$s_name','$s_email','$s_pass','$s_id','$s_city','$s_contact','$s_address')";
 
-$run_customer = mysqli_query($con,$insert_customer);
+$run_seller = mysqli_query($con,$insert_seller);
 
-$sel_cart = "select * from cart where ip_add='$c_ip'";
+if($run_seller){
 
-$run_cart = mysqli_query($con,$sel_cart);
-
-$check_cart = mysqli_num_rows($run_cart);
-
-if($check_cart>0){
-
-$_SESSION['customer_email']=$c_email;
-
-echo "<script>alert('Your Acoount will be activated within 24 hours')</script>";
-
-//echo "<script>window.open('checkout.php','_self')</script>";
-
-}else{
 
 echo "<script>alert('Your account will be activated within 24 hours')</script>";
 
 echo "<script>window.open('index.php','_self')</script>";
 
 }
-
-
-}
-else{
-
-// echo "<script>alert('Please Select Captcha, Try Again')</script>";
-
-// }
-
 
 }
 

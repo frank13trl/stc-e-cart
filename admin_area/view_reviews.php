@@ -57,16 +57,16 @@ else {
 
 <tr>
 
-<th>Order No:</th>
-<th>Customer Name:</th>
-<th>Address:</th>
-<th>Product Title:</th>
-<th>Product Qty:</th>
-<th>Product Size:</th>
-<th>Order Date:</th>
-<th>Total Amount:</th>
-<th>Rating out of 5:</th>
-<th>Review:</th>
+<th>Order No</th>
+<th>Customer Name</th>
+<th>E-mail</th>
+<th>Product Title</th>
+<th>Product Qty</th>
+<th>Product Size</th>
+<th>Order Date</th>
+<!-- <th>Total Amount</th> -->
+<th>Rating out of 5</th>
+<th>Review</th>
 <th>Action</th>
 
 
@@ -99,6 +99,12 @@ $product_id = $row_orders['pro_id'];
 $qty = $row_orders['qty'];
 
 $size = $row_orders['size'];
+
+$order_date = $row_orders['order_date'];
+
+$order_pdate = $row_orders['pro_dt'];
+
+$due_amount = $row_orders['due_amount'];
 
 $order_status = $row_orders['order_status'];
 
@@ -139,16 +145,16 @@ $run_customer = mysqli_query($con,$get_customer);
 
 $row_customer = mysqli_fetch_array($run_customer);
 
-$customer_email = $row_customer['customer_name'];
+$customer_name = $row_customer['customer_name'];
 
-$invoice_no = $row_customer['customer_address'];
+$customer_email = $row_customer['customer_email'];
 
-echo $customer_email;
+echo $customer_name;
 
  ?>
  </td>
 
-<td><?php echo $invoice_no; ?></td>
+<td><?php echo $customer_email; ?></td>
 
 <td><?php echo $product_title; ?></td>
 
@@ -156,31 +162,13 @@ echo $customer_email;
 
 <td><?php echo $size; ?></td>
 
-<td>
-<?php
+<td><?php echo $order_date; ?></td>
 
-$get_customer_order = "select * from customer_orders where order_id='$order_id'";
-
-$run_customer_order = mysqli_query($con,$get_customer_order);
-
-$row_customer_order = mysqli_fetch_array($run_customer_order);
-
-$order_date = $row_customer_order['order_date'];
-
-$order_pdate = $row_customer_order['pro_dt'];
-
-$due_amount = $row_customer_order['due_amount'];
-
-echo $order_date;
-
-?>
-</td>
-
-<td>₹<?php echo $due_amount; ?></td>
+<!-- <td>₹<?php //echo $due_amount; ?></td> -->
 
 <td>
 <?php if(!isset($product_rate)) 
-echo "<i>Not rated</i>";
+echo "<i class='text-muted'>Not rated</i>";
 
 else
 echo "<b>".$product_rate."</b>";
@@ -190,10 +178,12 @@ echo "<b>".$product_rate."</b>";
 
 <td>
     <?php if(!isset($product_rev)) 
-echo "<i>Not reviewed</i>";
+echo "<i class='text-muted'>Not reviewed</i>";
 
 else
 echo "<b>".$product_rev."</b>";
+
+$product_rate=$product_rev=null;
 
 ?>
 </td>

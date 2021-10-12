@@ -61,7 +61,6 @@ $pro_url = $row_product['product_url'];
 
 if($pro_label == ""){
 
-
 }
 else{
 
@@ -87,8 +86,13 @@ $product_label = "
 
 // $p_cat_title = $row_p_cat['p_cat_title'];
 
+$get_cat = "select * from categories where cat_id='$cat_id'";
 
+$run_cat = mysqli_query($con,$get_cat);
 
+$row_cat = mysqli_fetch_array($run_cat);
+
+$cat_title = $row_cat['cat_title'];
 
 ?>
 
@@ -281,7 +285,7 @@ if($status == "product"){
 
 <div class="form-group"><!-- form-group Starts -->
 
-<label class="col-md-5 control-label" >Prefered date and time :</label>
+<label class="col-md-5 control-label" >Prefered date and time </label>
 
 <div class="col-md-7" >
   <!-- col-md-7 Starts -->
@@ -310,7 +314,7 @@ echo "<input type='datetime-local' class='form-control' name='dt' value='$dt' mi
 
 <?php
 
-if($cat_id==6){
+if($cat_title=="Cake" || $cat_title=="cake"){
 
 echo "<div class='form-group'>
 

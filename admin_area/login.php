@@ -36,6 +36,11 @@ Log in
 
 </button>
 
+<div style="text-align: center;">
+
+<br/>Go back to <a href="../index.php"> E-Cart</a>
+
+</div>
 
 </form><!-- form-login Ends -->
 

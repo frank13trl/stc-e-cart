@@ -259,13 +259,13 @@ col-lg-3 col-md-6 Ends -->
 <thead><!-- thead Starts -->
 
 <tr>
-<th>Order No:</th>
-<th>Customer Email:</th>
-<th>Invoice No:</th>
-<th>Product ID:</th>
-<th>Product Qty:</th>
-<th>Product Size:</th>
-<th>Status:</th>
+<th>Order No</th>
+<th>Customer Email</th>
+<th>Invoice No</th>
+<th>Product ID</th>
+<th>Product Qty</th>
+<th>Product Size</th>
+<th>Status</th>
 
 
 </tr>
@@ -313,8 +313,8 @@ $i++;
 $get_customer = "select * from customers where customer_id='$c_id'";
 $run_customer = mysqli_query($con,$get_customer);
 $row_customer = mysqli_fetch_array($run_customer);
-$customer_email = $row_customer['customer_email'];
-echo $customer_email;
+$customer_name = $row_customer['customer_name'];
+echo "$customer_name (Customer ID : $c_id)";
 ?>
 </td>
 

@@ -119,21 +119,15 @@ include("includes/main.php");
 </div><!-- form-group Ends -->
 
 
-<div class="form-group"><!-- form-group Starts -->
+<!-- <div class="form-group"> -->
+  <!-- form-group Starts -->
 
-<label> Customer Country </label>
+<!-- <label> Customer Country </label>
 
 <input type="text" class="form-control" name="c_country" required>
 
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label> Customer City </label>
-
-<input type="text" class="form-control" name="c_city" required>
-
-</div><!-- form-group Ends -->
+</div> -->
+<!-- form-group Ends -->
 
 <div class="form-group"><!-- form-group Starts -->
 
@@ -148,6 +142,14 @@ include("includes/main.php");
 <label> Customer Address </label>
 
 <input type="text" class="form-control" name="c_address" required>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label> Customer City </label>
+
+<input type="text" class="form-control" name="c_city" required>
 
 </div><!-- form-group Ends -->
 
@@ -347,7 +349,7 @@ $c_email = $_POST['c_email'];
 
 $c_pass = $_POST['c_pass'];
 
-$c_country = $_POST['c_country'];
+//$c_country = $_POST['c_country'];
 
 $c_city = $_POST['c_city'];
 
@@ -403,7 +405,7 @@ exit();
 
 // mail($c_email,$subject,$message,$headers);
 
-$insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_ip) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_ip')";
+$insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_city,customer_contact,customer_address,customer_ip) values ('$c_name','$c_email','$c_pass','$c_city','$c_contact','$c_address','$c_ip')";
 
 
 $run_customer = mysqli_query($con,$insert_customer);

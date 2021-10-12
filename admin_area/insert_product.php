@@ -22,7 +22,8 @@ else {
   <script>tinymce.init({ selector:'#product_desc,#product_features' });</script>
   <script>
     function optselect(opt) {
-      if (opt.value == "6") {
+      var cat= opt.options[opt.selectedIndex].text;
+      if (cat == "Cake") {
         document.getElementById("pcat").style.display = "block";
       } else {
         document.getElementById("pcat").style.display = "none";
@@ -98,7 +99,7 @@ else {
 
 <p style="font-size:15px; font-weight:bold;">
 
-Product Url Example : navy-blue-t-shirt
+Product Url Example : product-name (Eg : white-forest)
 
 </p>
 
@@ -109,21 +110,21 @@ Product Url Example : navy-blue-t-shirt
 
 <div class="form-group" ><!-- form-group Starts -->
 
-<label class="col-md-3 control-label" > Select A Seller </label>
+<label class="col-md-3 control-label" > Select a seller </label>
 
 <div class="col-md-6" >
 
 <select class="form-control" name="manufacturer"><!-- select manufacturer Starts -->
 
-<option> Select A Seller </option>
+<option> Select a seller </option>
 
 <?php
 
-$get_manufacturer = "select * from manufacturers";
+$get_manufacturer = "select * from seller";
 $run_manufacturer = mysqli_query($con,$get_manufacturer);
 while($row_manufacturer= mysqli_fetch_array($run_manufacturer)){
-$manufacturer_id = $row_manufacturer['manufacturer_id'];
-$manufacturer_title = $row_manufacturer['manufacturer_title'];
+$manufacturer_id = $row_manufacturer['Seller_id'];
+$manufacturer_title = $row_manufacturer['Seller_name'];
 
 echo "<option value='$manufacturer_id'>
 $manufacturer_title
@@ -188,7 +189,7 @@ $manufacturer_title
 
 <select name="cat" onchange="optselect(this);" class="form-control" >
 
-<option> Select a Category </option>
+<option selected disabled> Select a category </option>
 
 <?php
 
@@ -271,10 +272,8 @@ echo "<option value='$cat_id'>$cat_title</option>";
 
 <select name="pweight" class="form-control" >
 
-<option> Select a Category </option>
-<option value="0.5"> 1/2 KG </option>
+<option selected disabled> Nil </option>
 <option value="1"> 1 KG </option>
-<option value="1.5"> 1.5 KG </option>
 <option value="2"> 2 KG </option>
 
 </select>
@@ -329,11 +328,11 @@ echo "<option value='$cat_id'>$cat_title</option>";
 
 </li>
 
-<li>
+<!-- <li>
 
 <a data-toggle="tab" href="#video"> Sounds And Videos </a>
 
-</li>
+</li> -->
 
 </ul><!-- nav nav-tabs Ends -->
 
@@ -439,7 +438,7 @@ $product_keywords = $_POST['product_keywords'];
 
 $product_label = $_POST['product_label'];
 
-$product_url = $_POST['product_url'];
+$product_url = $_POST['product_url']."-$product_weight"."kg"."-$manufacturer_id";
 
 $product_features = $_POST['product_features'];
 

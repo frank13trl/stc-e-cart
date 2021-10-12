@@ -61,13 +61,11 @@ else {
 <th>Product Title</th>
 <th>Product Image</th>
 <th>Product Price</th>
-<th>Product sold</th>
-<th>Product Keywords</th>
-<th>Product Date</th>
-<th>Product Delete</th>
-<th>Product Edit</th>
-
-
+<th>Orders Completed</th>
+<!-- <th>Product Keywords</th> -->
+<th>Last Purchase Date</th>
+<th>Delete</th>
+<th>Edit</th>
 
 </tr>
 
@@ -114,14 +112,14 @@ $i++;
 <td>
 <?php
 
-$get_sold = "select * from customer_orders where pro_id='$pro_id'";
+$get_sold = "select * from customer_orders where pro_id='$pro_id' and order_status='Completed'";
 $run_sold = mysqli_query($con,$get_sold);
 $count = mysqli_num_rows($run_sold);
 echo $count;
 ?>
 </td>
 
-<td> <?php echo $pro_keywords; ?> </td>
+<!-- <td> <?php //echo $pro_keywords; ?> </td> -->
 
 <td><?php echo $pro_date; ?></td>
 

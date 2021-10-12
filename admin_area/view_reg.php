@@ -56,11 +56,11 @@ else {
 
 <tr>
 
-<th>Seller Id:</th>
-<th>Seller Title:</th>
-<th>Seller ID:</th>
-<th>Delete Seller:</th>
-<th>Action:</th>
+<th>Sl No.</th>
+<th>Seller Name</th>
+<th>Seller ID</th>
+<th>Delete Seller</th>
+<th>Action</th>
 
 </tr>
 

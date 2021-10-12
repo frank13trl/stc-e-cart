@@ -41,7 +41,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> View completed orders
+<i class="fa fa-money fa-fw"></i> View Completed Orders
 
 </h3><!-- panel-title Ends -->
 
@@ -57,17 +57,17 @@ else {
 
 <tr>
 
-<th>Order No:</th>
-<th>Customer Name:</th>
-<th>Address:</th>
-<th>Product Title:</th>
-<th>Product Qty:</th>
-<th>Product Size:</th>
-<th>Order Date:</th>
-<th>Prefered date and time:</th>
-<th>Total Amount:</th>
-<th>Order Status:</th>
-<!-- <th>Delete Order:</th> -->
+<th>Order No</th>
+<th>Customer Name</th>
+<th>Address</th>
+<th>Product Title</th>
+<th>Product Qty</th>
+<th>Product Size</th>
+<th>Order Date</th>
+<th>Delivery Date and Time</th>
+<th>Total Amount</th>
+<th>Order Status</th>
+<!-- <th>Delete Order</th> -->
 
 
 </tr>
@@ -100,9 +100,15 @@ $qty = $row_orders['qty'];
 
 $size = $row_orders['size'];
 
+$order_date = $row_orders['order_date'];
+
+$order_pdate = $row_orders['pro_dt'];
+
+$due_amount = $row_orders['due_amount'];
+
 $order_status = $row_orders['order_status'];
 
-$get_products = "select * from products where product_id='$product_id'";
+$get_products = "select * from products where product_id='$product_id' and status='product'";
 
 $run_products = mysqli_query($con,$get_products);
 
@@ -144,25 +150,7 @@ echo $customer_email;
 
 <td><?php echo $size; ?></td>
 
-<td>
-<?php
-
-$get_customer_order = "select * from customer_orders where order_id='$order_id'";
-
-$run_customer_order = mysqli_query($con,$get_customer_order);
-
-$row_customer_order = mysqli_fetch_array($run_customer_order);
-
-$order_date = $row_customer_order['order_date'];
-
-$order_pdate = $row_customer_order['pro_dt'];
-
-$due_amount = $row_customer_order['due_amount'];
-
-echo $order_date;
-
-?>
-</td>
+<td><?php echo $order_date; ?></td>
 
 <td><?php echo $order_pdate; ?></td>
 
@@ -171,9 +159,9 @@ echo $order_date;
 <td>
 <?php
 
-if($order_status=='pending'){
+if($order_status=='Pending'){
 
-echo $order_status='pending';
+echo $order_status='Pending';
 
 }
 else{

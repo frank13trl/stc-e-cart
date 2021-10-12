@@ -113,7 +113,7 @@ echo "
 
 </a>
 
-<div class='text' style='min-height: 250px;'>
+<div class='text' style='min-height: 230px;'>
 
 <center>
 
@@ -121,11 +121,13 @@ echo "
 
 <hr>
 
-<h3><a href='$pro_url' >$pro_title</a></h3>
+<h3><a href='$pro_url' ><b>$pro_title</b></a></h3>";
 
-<p class='price' > $pro_weight </p>
+if($pro_weight!="") 
+  
+echo "<p class='price'>$pro_weight KG</p>";
 
-<p class='price' > $product_price $product_psp_price </p>
+echo "<p class='price'> $product_price $product_psp_price </p>
 
 <p class='buttons' >
 

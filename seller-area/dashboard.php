@@ -244,7 +244,7 @@ col-lg-3 col-md-6 Ends -->
 
 <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> New Orders
+<i class="fa fa-money fa-fw" ></i> Recent Orders
 
 </h3><!-- panel-title Ends -->
 
@@ -259,15 +259,11 @@ col-lg-3 col-md-6 Ends -->
 <thead><!-- thead Starts -->
 
 <tr>
-<th>Order No:</th>
-<th>Customer Email:</th>
-<th>Invoice No:</th>
-<th>Product ID:</th>
-<th>Product Qty:</th>
-<th>Product Weight:</th>
-<th>Status:</th>
-
-
+<th>Order No</th>
+<th>Customer Name</th>
+<th>Product</th>
+<th>Quantity</th>
+<th>Status</th>
 </tr>
 
 </thead><!-- thead Ends -->
@@ -316,20 +312,27 @@ $i++;
 $get_customer = "select * from customers where customer_id='$c_id'";
 $run_customer = mysqli_query($con,$get_customer);
 $row_customer = mysqli_fetch_array($run_customer);
-$customer_email = $row_customer['customer_email'];
-echo $customer_email;
+$customer_name = $row_customer['customer_name'];
+echo $customer_name;
 ?>
 </td>
 
-<td><?php echo $invoice_no; ?></td>
-<td><?php echo $product_id; ?></td>
+<!-- <td><?php //echo $invoice_no; ?></td> -->
+<td><?php 
+
+$get_products = "select * from products where product_id='$product_id' AND Seller_id='$seller_session'";
+$run_products = mysqli_query($con,$get_products);
+$row_products = mysqli_fetch_array($run_products);
+$product_title = $row_products['product_title'];
+
+echo $product_title; ?></td>
 <td><?php echo $qty; ?></td>
-<td><?php echo $size; ?></td>
+<!-- <td><?php //echo $size; ?></td> -->
 <td>
 <?php
-if($order_status=='pending'){
+if($order_status=='Pending'){
 
-echo $order_status='pending';
+echo $order_status='Pending';
 
 }
 else {

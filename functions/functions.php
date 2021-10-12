@@ -83,7 +83,7 @@ function getPro(){
 
 global $db;
 
-$get_products = "select * from products where status='product 'order by RAND() LIMIT 0,6";
+$get_products = "select * from products where status='product' order by RAND()";
 
 $run_products = mysqli_query($db,$get_products);
 
@@ -168,15 +168,14 @@ echo "
 
 <hr>
 
-<h3><a href='$pro_url' ><b>$pro_title</b></a></h3>
+<h3><a href='$pro_url' ><b>$pro_title</b></a></h3>";
 
-<div style='min-height: 80px'>
+if($pro_weight!="") 
+  
+echo "<p class='price'>$pro_weight KG</p>";
 
-<p class='price' > $pro_weight </p>
+echo "<p class='price'> $product_price $product_psp_price </p>
 
-<p class='price' > $product_price $product_psp_price </p>
-
-</div>
 
 <p class='buttons' >
 

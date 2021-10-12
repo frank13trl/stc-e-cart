@@ -22,7 +22,8 @@ else {
   <script>tinymce.init({ selector:'#product_desc,#product_features' });</script>
   <script>
     function optselect(opt) {
-      if (opt.value == "6") {
+      var cat= opt.options[opt.selectedIndex].text;
+      if (cat == "Cake") {
         document.getElementById("pcat").style.display = "block";
       } else {
         document.getElementById("pcat").style.display = "none";
@@ -98,7 +99,7 @@ else {
 
 <p style="font-size:15px; font-weight:bold;">
 
-Product Url Example : product-name size-sellerId (Eg : White-Forest1kg-12345)
+Product Url Example : product-name (Eg : white-forest)
 
 </p>
 
@@ -108,21 +109,6 @@ Product Url Example : product-name size-sellerId (Eg : White-Forest1kg-12345)
 
 
 <div class="panel-body"><!-- panel-body Starts -->
-
-<form class="form-horizontal" method="post" enctype="multipart/form-data"><!-- form-horizontal Starts -->
-
-<div class="form-group" ><!-- form-group Starts -->
-
-<label class="col-md-3 control-label" > Seller id </label>
-
-<div class="col-md-6" >
-
-<input type="text" name="Seller_id" class="form-control" required >
-
-</div>
-
-  </div>
-
 
 <!-- <div class="form-group" > -->
   <!-- form-group Starts -->
@@ -170,9 +156,9 @@ Product Url Example : product-name size-sellerId (Eg : White-Forest1kg-12345)
 <div class="col-md-6" >
 
 
-<select name="cat" onchange="optselect(this);" class="form-control" >
+<select name="cat" id="cat" onchange="optselect(this);" class="form-control" >
 
-<option> Select a Category </option>
+<option selected disabled> Select a category </option>
 
 <?php
 
@@ -256,10 +242,8 @@ echo "<option value='$cat_id'>$cat_title</option>";
 <select name="pweight" class="form-control" required>
 
 <option selected disabled> Nil </option>
-<option value="0.5 KG"> 1/2 KG </option>
-<option value="1 KG"> 1 KG </option>
-<option value="1.5 KG"> 1.5 KG </option>
-<option value="2 KG"> 2 KG </option>
+<option value="1"> 1 KG </option>
+<option value="2"> 2 KG </option>
 
 </select>
 
@@ -313,11 +297,11 @@ echo "<option value='$cat_id'>$cat_title</option>";
 
 </li>
 
-<li>
+<!-- <li>
 
 <a data-toggle="tab" href="#video"> Sounds And Videos </a>
 
-</li>
+</li> -->
 
 </ul><!-- nav nav-tabs Ends -->
 
@@ -413,17 +397,26 @@ if(isset($_POST['submit'])){
 $product_title = $_POST['product_title'];
 //$product_cat = $_POST['product_cat'];
 $cat = $_POST['cat'];
-$manufacturer_id = $_POST['Seller_id'];
+
+$seller_id = $_SESSION['seller'];
+
 $product_price = $_POST['product_price'];
+
+echo $_POST['pweight'];
+
 $product_weight = $_POST['pweight'];
+
 $product_desc = $_POST['product_desc'];
+
 $product_keywords = $_POST['product_keywords'];
 
 //$psp_price = $_POST['psp_price'];
 
 $product_label = $_POST['product_label'];
 
-$product_url = $_POST['product_url'];
+$product_url = $_POST['product_url']."-$product_weight-$seller_id";
+
+echo $product_url;
 
 $product_features = $_POST['product_features'];
 
@@ -443,7 +436,7 @@ move_uploaded_file($temp_name1,"../product_img/$product_img1");
 move_uploaded_file($temp_name2,"../product_img/$product_img2");
 move_uploaded_file($temp_name3,"../product_img/$product_img3");
 
-$insert_product = "insert into products (cat_id,Seller_id,date,product_title,product_url,product_img1,product_img2,product_img3,product_price,product_weight,product_desc,product_features,product_video,product_keywords,product_label,status) values ('$cat','$manufacturer_id',NOW(),'$product_title','$product_url','$product_img1','$product_img2','$product_img3','$product_price','$product_weight','$product_desc','$product_features','$product_video','$product_keywords','$product_label','$status')";
+$insert_product = "insert into products (cat_id,Seller_id,date,product_title,product_url,product_img1,product_img2,product_img3,product_price,product_weight,product_desc,product_features,product_video,product_keywords,product_label,status) values ('$cat','$seller_id',NOW(),'$product_title','$product_url','$product_img1','$product_img2','$product_img3','$product_price','$product_weight','$product_desc','$product_features','$product_video','$product_keywords','$product_label','$status')";
 
 $run_product = mysqli_query($con,$insert_product);
 
@@ -454,6 +447,10 @@ echo "<script>alert('Product has been inserted successfully')</script>";
 echo "<script>window.open('index.php?view_products','_self')</script>";
 
 }
+
+else
+
+echo mysqli_error($con);
 
 }
 

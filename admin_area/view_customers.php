@@ -56,14 +56,14 @@ else {
 
 <tr>
 
-<th>Customer No:</th>
-<th>Customer Name:</th>
-<th>Customer Email:</th>
-<!-- <th>Customer Image:</th> -->
-<th>Customer Country:</th>
-<th>Customer City:</th>
-<th>Customer Phone Number:</th>
-<th>Customer Delete:</th>
+<th>Customer No</th>
+<th>Customer Name</th>
+<th>Customer Email</th>
+<!-- <th>Customer Image</th> -->
+<th>Customer Address</th>
+<th>Customer City</th>
+<th>Customer Phone Number</th>
+<th>Customer Delete</th>
 
 
 </tr>
@@ -91,7 +91,7 @@ $c_email = $row_c['customer_email'];
 
 // $c_image = $row_c['customer_image'];
 
-$c_country = $row_c['customer_country'];
+$c_address = $row_c['customer_address'];
 
 $c_city = $row_c['customer_city'];
 
@@ -114,7 +114,7 @@ $i++;
 
 <!-- <td><img src="../customer/customer_images/<?php echo $c_image; ?>" width="60" height="60" ></td> -->
 
-<td><?php echo $c_country; ?></td>
+<td><?php echo $c_address; ?></td>
 
 <td><?php echo $c_city; ?></td>
 

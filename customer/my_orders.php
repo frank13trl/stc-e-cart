@@ -25,13 +25,13 @@ If you have any questions, please feel free to <a href="../contact.php" > contac
 
 <tr>
 
-<th>Order No:</th>
-<th>Product:</th>
-<th>Due Amount:</th>
-<th>Invoice No:</th>
-<th>Qty:</th>
-<th>Order Date:</th>
-<th>Status:</th>
+<th>Order No</th>
+<th>Product</th>
+<th>Due Amount</th>
+<th>Invoice No</th>
+<th>Qty</th>
+<th>Order Date</th>
+<th>Status</th>
 
 
 </tr>

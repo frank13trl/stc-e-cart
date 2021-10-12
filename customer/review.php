@@ -38,7 +38,7 @@ include("includes/db.php");
 
 </head>
 
-<body style="background-image: url('images/reviewbg3.jpg'); background-size: cover;">
+<body style="background-image: url('images/reviewbg.jpg'); background-size: cover;">
 
    
             <span style="font-size: 100px; font-family:'Segoe UI'; text-align: center;">Customer <b>Review</b></span>

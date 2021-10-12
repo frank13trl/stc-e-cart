@@ -58,19 +58,7 @@ else {
 
 <div class="col-md-6">
 
-<input type="text" name="manufacturer_name" class="form-control" >
-
-</div>
-
-</div><!-- form-group Ends -->
-
-<div class="form-group"><!-- form-group Starts -->
-
-<label class="col-md-3 control-label"> Contact Number </label>
-
-<div class="col-md-6">
-
-<input type="tel" name="manufacturer_num" class="form-control" >
+<input type="text" name="s_name" class="form-control" >
 
 </div>
 
@@ -82,7 +70,67 @@ else {
 
 <div class="col-md-6">
 
-<input type="email" name="manufacturer_email" class="form-control" >
+<input type="email" name="s_email" class="form-control" >
+
+</div>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label class="col-md-3 control-label"> Staff / Student ID Number </label>
+
+<div class="col-md-6">
+
+<input type="text" name="s_id" class="form-control" >
+
+</div>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label class="col-md-3 control-label"> Seller Password </label>
+
+<div class="col-md-6">
+
+<input type="text" name="s_pass" class="form-control" >
+
+</div>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label class="col-md-3 control-label"> Contact Number </label>
+
+<div class="col-md-6">
+
+<input type="tel" name="s_num" class="form-control" >
+
+</div>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label class="col-md-3 control-label"> Seller Address </label>
+
+<div class="col-md-6">
+
+<input type="text" name="s_address" class="form-control" >
+
+</div>
+
+</div><!-- form-group Ends -->
+
+<div class="form-group"><!-- form-group Starts -->
+
+<label class="col-md-3 control-label"> Seller City </label>
+
+<div class="col-md-6">
+
+<input type="text" name="s_city" class="form-control" >
 
 </div>
 
@@ -128,7 +176,7 @@ else {
 
 <div class="col-md-6">
 
-<input type="submit" name="submit" class="form-control btn btn-primary" value=" Insert Seller " >
+<input type="submit" name="submit" class="form-control btn btn-primary" value=" Add Seller " >
 
 </div>
 
@@ -148,13 +196,47 @@ else {
 
 if(isset($_POST['submit'])){
 
-$manufacturer_name = $_POST['manufacturer_name'];
+    $s_name = $_POST['s_name'];
 
-$manufacturer_num = $_POST['manufacturer_num'];
+    $s_email = $_POST['s_email'];
 
-$manufacturer_email = $_POST['manufacturer_email'];
+    $s_id = $_POST['s_id'];
+    
+    $s_pass = $_POST['s_pass'];
+    
+    $s_contact = $_POST['s_num'];
+    
+    $s_address = $_POST['s_address'];
 
-$manufacturer_top = "no";
+    $s_city = $_POST['s_city'];
+
+$get_email = "select * from seller where Seller_email='$s_email'";
+
+$run_email = mysqli_query($con,$get_email);
+
+$check_email = mysqli_num_rows($run_email);
+
+if($check_email == 1){
+
+  echo "<script>alert('This email is already registered, try another one')</script>";
+  
+  exit();
+  
+  }
+
+$get_id = "select * from seller where Seller_id='$s_id'";
+
+$run_id = mysqli_query($con,$get_id);
+
+$check_id = mysqli_num_rows($run_id);
+
+if($check_id == 1){
+
+  echo "<script>alert('This seller is already registered')</script>";
+
+  exit();
+  
+  }
 
 //$manufacturer_image = $_FILES['manufacturer_image']['name'];
 
@@ -162,17 +244,18 @@ $manufacturer_top = "no";
 
 //move_uploaded_file($tmp_name,"other_images/$manufacturer_image");
 
-$insert_manufacturer = "insert into manufacturers (manufacturer_title,manufacturer_top,manufacturer_num,manufacturer_email) values ('$manufacturer_name','$manufacturer_top','$manufacturer_num','$manufacturer_email')";
+$insert_seller = "insert into seller (Seller_name,Seller_email,Seller_pass,Seller_id,Seller_city,Seller_contact,Seller_address,confirm) values ('$s_name','$s_email','$s_pass','$s_id','$s_city','$s_contact','$s_address',1)";
 
-$run_manufacturer = mysqli_query($con,$insert_manufacturer);
+$run_seller = mysqli_query($con,$insert_seller);
 
-if($run_manufacturer){
+if($run_seller){
 
-echo "<script>alert('New Seller Has Been Inserted')</script>";
+echo "<script>alert('Seller has been added')</script>";
 
 echo "<script>window.open('index.php?view_manufacturers','_self')</script>";
 
-}
+} else
+    echo(mysqli_error($con));
 
 }
 
