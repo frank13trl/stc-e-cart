@@ -112,6 +112,7 @@ $order_pdate = $row_orders['pro_dt'];
 $due_amount = $row_orders['due_amount'];
 
 $order_status = $row_orders['order_status'];
+$wish=$row_orders['wish_text'];
 
 $get_products = "select * from products where product_id='$product_id' AND Seller_id='$seller_session' and status='product'";
 
@@ -157,6 +158,7 @@ echo $customer_email;
 <td><?php echo $qty; ?></td>
 
 <td><?php echo $size; ?></td>
+<td><?php echo $wish; ?></td>
 
 <td><?php echo $wish_text; ?></td>
 
@@ -167,6 +169,7 @@ echo $customer_email;
 <td>₹<?php echo $due_amount; ?></td>
 
 <td>
+
 <?php
 
 if($order_status=='Pending')
