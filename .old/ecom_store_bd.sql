@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 13, 2021 at 05:25 AM
+-- Generation Time: Oct 01, 2021 at 10:21 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -39,7 +39,7 @@ CREATE TABLE `about_us` (
 --
 
 INSERT INTO `about_us` (`about_id`, `about_heading`, `about_short_desc`, `about_desc`) VALUES
-(1, 'About Us - Our Story', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', 'Rhone was the collective vision of a small group of weekday warriors. For years, we were frustrated by the lack of activewear designed for men and wanted something better. With that in mind, we set out to design premium apparel that is made for motion and engineered to endure.\r\n\r\nAdvanced materials and state of the art technology are combined with heritage craftsmanship to create a new standard in activewear. Every product tells a story of premium performance, reminding its wearer to push themselves physically without having to sacrifice comfort and style.\r\n\r\nBeyond our product offering, Rhone is founded on principles of progress and integrity. Just as we aim to become better as a company, we invite men everywhere to raise the bar and join us as we move Forever Forward.');
+(1, 'About Us - Our Story', '\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n', 'Rhone was the collective vision of a small group of weekday warriors. For years, we were frustrated by the lack of activewear designed for men and wanted something better. With that in mind, we set out to design premium apparel that is made for motion and engineered to endure.\r\n\r\nAdvanced materials and state of the art technology are combined with heritage craftsmanship to create a new standard in activewear. Every product tells a story of premium performance, reminding its wearer to push themselves physically without having to sacrifice comfort and style.\r\n\r\nBeyond our product offering, Rhone is founded on principles of progress and integrity. Just as we aim to become better as a company, we invite men everywhere to raise the bar and join us as we move Forever Forward.');
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
-(7, 'STC E-Cart', 'stc.ecart@123.com', '123', '', '1234567890', 'India', 'E-Cart Admin', 'St. Thomas College E-Cart Administrator');
+(7, 'STC E-Cart', 'stc.ecart@gmail.com', '123', '', '1234567890', 'India', 'E-Cart Admin', 'St. Thomas College E-Cart Administrator');
 
 -- --------------------------------------------------------
 
@@ -95,6 +95,13 @@ CREATE TABLE `cart` (
   `pref_dt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`p_id`, `wish_text`, `ip_add`, `qty`, `p_price`, `size`, `pref_dt`) VALUES
+(34, '', '::1', 50, '50', '', '2021-10-01 01:58:00');
+
 -- --------------------------------------------------------
 
 --
@@ -113,11 +120,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_top`, `cat_image`) VALUES
-(12, 'Cake', 'no', ''),
-(14, 'Pastries', 'no', ''),
-(15, 'Star', 'no', ''),
-(16, 'Tree', 'no', ''),
-(17, 'Decorations', 'no', '');
+(6, 'Cake', 'no', 'c1f94980fa354a048008897a2b901039.jpg'),
+(7, 'Pastries', 'no', 'best-chocolate-cupcakes-recipe-SQUARE.jpg'),
+(11, 'star', 'no', '');
 
 -- --------------------------------------------------------
 
@@ -155,6 +160,13 @@ CREATE TABLE `coupons` (
   `coupon_used` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `coupons`
+--
+
+INSERT INTO `coupons` (`coupon_id`, `product_id`, `coupon_title`, `coupon_price`, `coupon_code`, `coupon_limit`, `coupon_used`) VALUES
+(3, 9, 'Remind T-shirt', '40', '333444', 5, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -182,9 +194,7 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
 (2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'user.jpg', '::1', ''),
 (5, 'Frank', 'frank@123.com', '12345', 'India', 'Thrissur', '1234567890', 'Thrissur', '', '::1', ''),
-(6, 'Dil', 'dil@123.com', '12345', 'india', 'tsr', '1234567890', 'asasdasd', '', '::1', ''),
-(10, 'Customer 1', 'c1@123.com', '123', '', 'Thrissur', '1234567890', 'Thrissur', '', '::1', ''),
-(11, 'Customer 2', 'c2@123.com', '123', '', 'Thrissur', '1234567890', 'Thrissur', '', '::1', '');
+(6, 'Dil', 'dil@123.com', '12345', 'india', 'tsr', '1234567890', 'asasdasd', '', '::1', '');
 
 -- --------------------------------------------------------
 
@@ -212,17 +222,20 @@ CREATE TABLE `customer_orders` (
 --
 
 INSERT INTO `customer_orders` (`order_id`, `customer_id`, `pro_id`, `wish_text`, `s_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`, `pro_dt`) VALUES
-(83, 11, 50, 'HBD Dear', 'sid3', 800, 761246668, 1, '1', '2021-10-11 04:36:40', 'Completed', '2021-10-17 15:00:00'),
-(84, 10, 52, '', 'sid3', 800, 866912366, 2, '1', '2021-10-11 04:41:57', 'Completed', '2021-10-15 11:00:00'),
-(85, 10, 48, '', 'sid2', 1400, 954274360, 2, '', '2021-10-11 04:45:50', 'Completed', '2021-10-17 14:00:00'),
-(86, 10, 43, '', 'sid1', 500, 1327354904, 5, '', '2021-10-11 04:56:33', 'Cancelled', '2021-10-17 14:00:00'),
-(87, 11, 45, 'Happy Anniversary', 'sid2', 600, 266455921, 1, '1', '2021-10-12 07:03:12', 'Completed', '2021-10-12 12:32:00'),
-(89, 10, 40, 'HBD Dear', 'sid1', 500, 766226969, 1, '1', '2021-10-07 07:41:28', 'Completed', '2021-10-18 13:05:00'),
-(90, 10, 44, '', 'sid1', 1200, 766226969, 2, '', '2021-10-09 07:43:28', 'Completed', '2021-10-17 13:11:00'),
-(91, 10, 41, '', 'sid1', 250, 1222223871, 5, '', '2021-10-10 07:45:09', 'Pending', '2021-10-12 13:15:00'),
-(92, 10, 40, '', 'sid1', 500, 1732176515, 1, '1', '2021-10-10 07:46:05', 'Pending', '2021-10-18 13:15:00'),
-(93, 10, 45, 'Happy Anniversary', 'sid2', 600, 2007845257, 1, '1', '2021-10-12 14:13:49', 'Pending', '2021-10-18 07:42:00'),
-(94, 10, 52, 'Happy Anniversary', 'sid3', 400, 339940075, 1, '1', '2021-10-12 14:46:04', 'Pending', '2021-10-17 10:14:00');
+(69, 5, 23, '', '123456', 1000, 1753791817, 2, '1', '2021-09-25 05:38:35', 'Completed', '2021-09-30 17:07:00'),
+(70, 2, 30, '', '1234567', 500, 1958811852, 1, '1', '2021-09-30 19:52:01', 'Completed', '2021-09-29 06:24:00'),
+(71, 2, 37, '', '999', 500, 327828772, 2, '1 KG', '2021-09-30 19:52:15', 'Completed', '2021-09-25 15:50:00'),
+(72, 6, 37, '', '999', 250, 288682544, 1, '1 KG', '2021-09-25 10:24:23', 'Completed', '2021-09-28 15:52:00'),
+(73, 5, 38, '', '1234567', 2000, 1177190732, 4, '1 KG', '2021-09-25 10:48:34', 'Completed', '2021-09-25 16:15:00'),
+(74, 6, 36, '', '123456', 100, 460365058, 1, '', '2021-09-28 06:21:46', 'Completed', '2021-10-04 13:00:00'),
+(75, 6, 38, '', '1234567', 1000, 1725279331, 2, '1 KG', '2021-09-28 06:35:29', 'Completed', '2021-09-28 12:01:00'),
+(76, 6, 34, '', '1234567', 250, 20030795, 5, '', '2021-09-28 06:35:29', 'Completed', '2021-09-28 12:01:00'),
+(77, 6, 37, '', '999', 1250, 332210110, 5, '1 KG', '2021-09-28 06:52:32', 'Completed', '2021-09-28 12:02:00'),
+(78, 5, 23, '', '123456', 1000, 683695363, 2, '1', '2021-09-30 19:25:36', 'Cancelled', '2021-10-04 13:30:00'),
+(79, 5, 23, '', '123456', 500, 277576093, 1, '1', '2021-09-30 19:25:42', 'Cancelled', '2021-10-03 17:30:00'),
+(80, 5, 36, '', '123456', 500, 277576093, 5, '', '2021-09-30 20:03:30', 'Cancelled', '2021-10-03 17:30:00'),
+(81, 2, 23, 'Happy Ayoo', '123456', 500, 366388397, 1, '1', '2021-09-30 20:02:50', 'Cancelled', '2021-09-30 13:21:00'),
+(82, 6, 34, '', '1234567', 25000, 1115961483, 500, '', '2021-09-30 20:24:51', 'Pending', '2021-10-01 01:43:00');
 
 -- --------------------------------------------------------
 
@@ -243,10 +256,11 @@ CREATE TABLE `customer_review` (
 --
 
 INSERT INTO `customer_review` (`order_id`, `customer_id`, `product_id`, `star`, `review`) VALUES
-(83, '11', '50', '5', 'Delicious. Will order again...'),
-(84, '10', '52', '4', 'I liked the cake very much. Thank you...'),
-(87, '11', '45', '4', 'The cake was very soft and delicious. Thank you...'),
-(89, '10', '40', '5', 'Delicious...');
+(66, '6', '18', '4', 'Pwoli saanam...'),
+(69, '5', '23', '3', 'OKk'),
+(71, '2', '37', '4', 'very good'),
+(72, '6', '37', '3', 'very good'),
+(73, '5', '38', '3', 'liked it');
 
 -- --------------------------------------------------------
 
@@ -316,6 +330,13 @@ CREATE TABLE `pending_orders` (
   `pro_dt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pending_orders`
+--
+
+INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`, `pro_dt`) VALUES
+(66, 6, 1690640594, '18', 2, '', 'pending', '2021-09-27 17:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -349,20 +370,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `Seller_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_weight`, `product_psp_price`, `product_desc`, `product_features`, `product_video`, `product_keywords`, `product_label`, `status`) VALUES
-(40, 'sid1', 12, 0, '2021-10-10 15:02:53', 'Black Forest', 'black-forest-1-sid1', 'blackforest-cake.jpeg', 'black-forest-cake-half-kg_2.jpg', 'p-classic-black-forest-cake-half-kg--108742-m.jpg', 500, '1', NULL, 'Black Forest 1 KG', 'Tasty Cake\r\n\r\n', '\r\n\r\n', 'black', 'NEW', 'product'),
-(41, 'sid1', 14, 0, '2021-10-10 15:03:03', 'Coconut Cupcake', 'coconut-cupcake-sid1', 'Coconut+Cupcakes-9.jpg', 'Coconut-Cupcakes-25.jpg', 'Italian-Cream-Coconut-Cupcakes-3.jpg', 50, '', NULL, 'Coconut Cupcake\r\n\r\n', 'Delicious\r\n\r\n', '\r\n\r\n', 'coconut', 'SALE', 'product'),
-(42, 'sid1', 15, 0, '2021-10-10 15:03:17', 'Paper Star', 'paper-star-sid1', '51KbUwnIiVL._SY355_.jpg', '1-1.jpg', '61JDfj4TRhL._AC_UL320_.jpg', 100, '', NULL, 'Paper Star\r\n\r\n', 'Eco-friendly\r\n\r\n', '\r\n\r\n', 'star', '10 LEFT', 'product'),
-(43, 'sid1', 17, 0, '2021-10-10 14:58:51', 'Decoration Balls', 'decoration-balls-kg-sid1', '51k4+fG0ZqL._AC_SS450_.jpg', '71PZvRPgArL.jpg', '398646-1.jpg', 100, '', NULL, 'Decoration Balls', 'Red\r\n', '\r\n\r\n', 'decoration', 'SALE', 'product'),
-(44, 'sid1', 16, 0, '2021-10-10 15:17:43', 'Xmas Tree - Green', 'tree-green--sid1', '15111.jpg', 'ChristmasTree-5ba295ecc9e77c00503fc3a4.jpg', 'xmassss.jpg', 600, '', NULL, 'Christmas Tree\r\n\r\n', 'Green 6 ft tall\r\n\r\n', '\r\n\r\n', 'tree', '2 LEFT', 'product'),
-(45, 'sid2', 12, 0, '2021-10-12 07:01:53', 'White Forest', 'white-forest-1-sid2', 'white-forest-cake-B.jpg', 'Re-Shoot-Cake-11-A.jpg', 'White Forest.jpg', 600, '1', 0, 'White Forest\r\n\r\n1 Kg', 'Delicious\r\n\r\nSugar-free\r\n\r\nSoft', '\r\n\r\n\r\n\r\n', 'white', '5 LEFT', 'product'),
-(46, 'sid2', 14, 0, '2021-10-10 15:24:13', 'Chocolate Cup Cake', 'choco-cup-cake--sid2', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'maxresdefault.jpg', 'Chocolate-Cupcakes-Recipe-1.jpg', 70, '', NULL, 'Chocolate Cup Cake\r\n\r\n', 'Chocolate\r\n\r\n', '\r\n\r\n', 'chocolate-cup-cake', 'SALE', 'product'),
-(47, 'sid2', 15, 0, '2021-10-10 15:29:00', 'LED Star - Warm', 'led-star-warm--sid2', '61uGJNIZouL._SL1001_.jpg', 'Hemito-12-Star-8-Modes-SDL007800385-1-8c362.jpeg', 'led-star-lights-500x500.jpg', 150, '', NULL, 'LED Star\r\n', 'Warm colour\r\n\r\n', '\r\n\r\n', 'star', 'NEW', 'product'),
-(48, 'sid2', 16, 0, '2021-10-10 15:37:15', 'Xmas Tree- Brown', 'tree-brown--sid2', 'f8f59f75-5b37-4b38-a2d8-0e7083571307_1.5dbad6f7f1bf2f2da28035695dfdd689.jpeg', 'brown-christmas-tree-3.jpg', 'tuxedo-black-tree-4-1544560144.jpg', 700, '', NULL, 'Xmas Tree- Brown\r\n\r\n', 'Brown 6ft tall\r\n\r\n', '\r\n\r\n', 'tree-brown', '1 LEFT', 'product'),
-(49, 'sid2', 17, 0, '2021-10-10 15:45:26', 'Dream Catcher', 'dream-catcher--sid2', '71brAT3N3sL._AC_SL1500_.jpg', 'wa-dc-darkblue-l-printoctopus-original-imafdjer57uzsynm.jpeg', 's-l400.jpg', 40, '', NULL, 'Dream Catcher\r\n\r\n', 'Beautiful\r\n\r\n', '\r\n\r\n', 'dream', 'CUSTOM MADE', 'product'),
-(50, 'sid3', 12, 0, '2021-10-10 15:50:33', 'Red Velvet', 'red-velvet-1-sid3', 'red-valvet.jpg', 'doctored_red_velvet_featured.jpg', 'zfa2543ehwd41.jpg', 800, '1', NULL, 'Red Velvet\r\n\r\n', 'Delicious\r\n\r\n', '\r\n\r\n', 'red', 'NEW', 'product'),
-(51, 'sid3', 14, 0, '2021-10-10 15:53:10', 'Vanilla Cup Cake', 'vanilla-cup-cake--sid3', 'Best-Vanilla-Cupcakes-01.jpg', 'Vanilla-Cupcakes-Recipe-1.jpg', 'Classic-Vanilla-Cupcakes-CMS.jpg', 25, '', NULL, 'Vanilla Cup Cake\r\n\r\n', 'Tasty\r\n\r\n', '\r\n\r\n', 'vanilla-cup', 'Sugar Free', 'product'),
-(52, 'sid3', 12, 0, '2021-10-10 16:02:58', 'Vanilla Cake', 'vanilla-cake-1-sid3', 'exotic-vanilla-cake.jpg', 'Vanilla-Cake-Recipe-new-copy.jpg', 'vegan-vanilla-cake-4square.jpg', 400, '1', NULL, 'Vanilla Cake\r\n\r\n', 'Sugar free\r\n\r\n', '\r\n\r\n', 'vanilla', 'NEW', 'product'),
-(53, 'sid3', 17, 0, '2021-10-10 16:06:05', 'Decoration Star', 'decoration-star--sid3', 'e50396317006c5c144c8587922e6a90d.jpg', 'small_white_iridescent_glitter_star_ornaments.jpg', '515BElvd3eL._SY450_.jpg', 10, '', NULL, 'Decoration Star\r\n\r\n', 'Small\r\n\r\n', '\r\n\r\n', 'star-small', 'Pack of 10', 'product');
+(20, '123456', 7, 7, '2021-09-25 05:33:03', 'Cup Cakes', 'cup-cake', 'chocolate-cupcakes10.jpg', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'valentines-cakes-group-3.jpg', 500, 'Select a Category', 0, 'Good cup cake\r\n', 'Delicious\r\n', '\r\n\r\n\r\n\r\n', 'cup', '10 LEFT', 'not_product'),
+(23, '123456', 6, 0, '2021-09-07 08:47:27', 'Black Forest', 'black-forest', 'eggless-red-velvet-cake-cake-100-fresh-cake-free-delivery-573384_360x.jpg', 'red-velvet-cake-500x500.png', 'extravagant-blackforest-past0159blac-A_0.jpg', 500, '1', NULL, '\r\n\r\ngood', '\r\n\r\n', '\r\n\r\n', 'black', '1 LEFT', 'product'),
+(30, '1234567', 6, 0, '2021-09-11 09:42:38', 'white forest', 'whiteforest2', 'CD9811C0-7271-4EF8-BDD6-D4BCD0C9488B.jpeg', 'c1f94980fa354a048008897a2b901039.jpg', '270px-Pink_Lady_Apple_(4107712628).jpg', 500, '1', NULL, '\r\nryhgfj\r\n', '\r\n\r\n', '\r\n\r\n', 'white', '2 LEFT', 'product'),
+(34, '1234567', 7, 0, '2021-09-18 07:49:15', 'Cup Cake', 'cup-cake-1234567', 'best-chocolate-cupcakes-recipe-SQUARE.jpg', 'home-img-1.png', 'Black Blouse Versace Coat3.jpg', 50, '', NULL, 'adsfasdfas\r\n\r\n', '\r\n\r\nfasdfasdf', '\r\n\r\n', 'cup', '10 nos', 'product'),
+(36, '123456', 11, 0, '2021-09-25 10:15:43', 'STAR', 'led-star-123456', 'maxresdefault.jpg', 'P1040717.jpg', 's-l300.jpg', 100, '', NULL, '\r\n\r\nnys ', '\r\ngood\r\n', '\r\n\r\n', 'led-star', 'LED STAR', 'product'),
+(37, '999', 6, 0, '2021-09-25 10:20:08', 'vanilla cake', 'vanilla-cake1Kg-999', 'special-delicious-vanilla-cake-half-kg_1.jpg', 'moist_vanilla_cake_recipe_featured2.jpg', 'Homemade-Vanilla-Birthday-Cake30.jpg', 250, '1 KG', NULL, '\r\n\r\nvery good', '\r\n\r\nlovely', '\r\n\r\n', 'vanilla', 'Vanilla ', 'product'),
+(38, '1234567', 6, 0, '2021-09-25 10:29:13', 'chocolate cake', 'chocolate-cake1Kg-1234567', 'choco-vanilla-cakes-16.jpg', 'choco-vanilla-cakes-18.jpg', 'c7d95538bea3c51d16b530a56aaae83d.jpg', 500, '1 KG', NULL, '\r\ngood\r\n', '\r\n\r\ngood', '\r\n\r\n', 'chocate', 'chocolate', 'product');
 
 -- --------------------------------------------------------
 
@@ -401,10 +415,11 @@ CREATE TABLE `seller` (
 INSERT INTO `seller` (`Seller_name`, `Seller_email`, `Seller_pass`, `Seller_id`, `Seller_city`, `Seller_contact`, `Seller_address`, `confirm`) VALUES
 ('Dil', 'dil@gmail.com', '123456', '123456', 'tsr', '1234567890', 'Kerala', 1),
 ('Frank', 'frank@abc.com', '123', '1234567', 'tsr', '1234567890', 'Kerala', 1),
-('Seller 1', 's1@123.com', '123', 'sid1', 'Thrissur', '1234567890', 'Kerala', 1),
-('Seller 2', 's2@123.com', '123', 'sid2', 'Thrissur', '1234567890', 'Kerala', 1),
-('Seller 3', 's3@123.com', '123', 'sid3', 'Thrissur', '1234567890', 'Kerala', 1),
-('Seller 4', 's4@123.com', '123', 'sid4', 'Thrissur', '124567890', 'Thrissur', 0);
+('DV', 'dvser@123.com', '123', '999', 'kozhikod', '999999', 'kundankode', 1),
+('TestSeller1', 'franktrl2000@gmail.com', '123', 'S111', 'TSR', '12345', 'KL', 1),
+('TestSeller2', 'franktrl2000@gmail.com', '123', 'S112', 'TSR', '12345', 'KL', 1),
+('TestSeller3', 'franktrl2000@gmail.com', '12345', 'S113', 'TSR', '1234567890', 'KL', 0),
+('TestSeller4', 'franktrl2000@gmail.com', '12345', 'S114', 'TSR', '1234567890', 'KL', 1);
 
 -- --------------------------------------------------------
 
@@ -420,6 +435,15 @@ CREATE TABLE `store` (
   `store_button` varchar(255) NOT NULL,
   `store_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`store_id`, `store_title`, `store_image`, `store_desc`, `store_button`, `store_url`) VALUES
+(4, 'London Store', 'store (3).jpg', '<p style=\"text-align: center;\"><strong>180-182 RECENTS STREET, LONDON, W1B 5BT</strong></p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero erat, aliquet eget mauris ut, dictum sagittis libero. Nam at dui dapibus, semper dolor ac, malesuada mi. Duis quis lobortis arcu. Vivamus sed sodales orci, non varius dolor.</p>', 'View Map', 'http://www.thedailylux.com/ecommerce'),
+(5, 'New York Store', 'store (1).png', '<p style=\"text-align: center;\"><strong>109 COLUMBUS CIRCLE, NEW YORK, NY10023</strong></p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero erat, aliquet eget mauris ut, dictum sagittis libero. Nam at dui dapibus, semper dolor ac, malesuada mi. Duis quis lobortis arcu. Vivamus sed sodales orci, non varius dolor.</p>', 'View Map', 'http://www.thedailylux.com/ecommerce'),
+(6, 'Paris Store', 'store (2).jpg', '<p style=\"text-align: center;\"><strong>2133 RUE SAINT-HONORE, 75001 PARIS&nbsp;</strong></p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero erat, aliquet eget mauris ut, dictum sagittis libero. Nam at dui dapibus, semper dolor ac, malesuada mi. Duis quis lobortis arcu. Vivamus sed sodales orci, non varius dolor.</p>', 'View Map', 'http://www.thedailylux.com/ecommerce');
 
 -- --------------------------------------------------------
 
@@ -454,6 +478,13 @@ CREATE TABLE `wishlist` (
   `customer_id` int(10) NOT NULL,
   `product_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`wishlist_id`, `customer_id`, `product_id`) VALUES
+(2, 2, 8);
 
 --
 -- Indexes for dumped tables
@@ -605,7 +636,7 @@ ALTER TABLE `bundle_product_relation`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -623,13 +654,13 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `enquiry_types`
@@ -659,7 +690,7 @@ ALTER TABLE `pending_orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
